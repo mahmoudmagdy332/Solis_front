@@ -1,0 +1,8 @@
+{
+
+    "hello":"أهلاً بالعالم !",
+    "imageProfileHint":"PNG أو JPG لا يزيد عرضه وارتفاعه عن 800 بكسل.",
+    "userName":"User Name",
+    "errorMessage": "خطا في اسم المستخدم او كلمة السر"
+
+}  

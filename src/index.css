@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{
+  font-family: myFont;
+  src: url('/public/fonts/eurostile-lt-pro-unicode/EurostileLTProUnicode.otf');
+}
+body {
+  overflow-x: hidden !important;  
+  font-family: myFont;
+}
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+ .swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: 5px;
+
+}
+
+.swiper-pagination-bullet {
+  background-color: white; /* Change bullet color */
+  width: 10px;
+  height: 10px;
+  transition: 0.3s;
+  opacity: 1;
+}
+.markets .swiper-pagination-bullet{
+  background-color: rgba(126, 126, 126, 0.47);
+}
+.swiper-pagination-bullet-active {
+  background-color: #353535;
+  ; /* Active bullet color */
+  opacity: 1;
+  width: 16px;
+  height: 10px;
+  border-radius: 50px;
+}
+.markets .swiper-pagination-bullet-active{
+  background-color: rgba(0, 0, 0, 0.888);
+}
