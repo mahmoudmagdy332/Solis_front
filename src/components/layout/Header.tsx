@@ -54,7 +54,7 @@ const Header = () => {
           ` ${
             isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"
           } block py-1 px-1  text-sm   `
-        }>About</NavLink>
+        }>ABOUT US</NavLink>
 
       </li>
       <li>
@@ -62,10 +62,18 @@ const Header = () => {
           ` ${
             isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"
           } block py-1 px-1  text-sm   `
-        }>Blog</NavLink>
+        }>BLOGS</NavLink>
 
       </li>
-      
+      <li>
+        <NavLink to="/contact"  className={({ isActive }) =>
+          ` ${
+            isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"
+          } block py-1 px-1  text-sm   `
+        }>CONTACT US</NavLink>
+
+      </li>
+          
       <li>
         
         <a href="#" className="block py-1 px-1 text-sm text-gray-100  hover:text-white     ">Services</a>
