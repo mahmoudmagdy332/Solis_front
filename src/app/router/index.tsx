@@ -4,24 +4,24 @@ import MainLayout from "../../components/layout/MainLayout";
 import Home from "../../pages/Home";
 import About from "../../pages/About";
 import Blog from "../../pages/Blog";
-
-
-
+import Markets from "../../pages/Markets";
+import Products from "../../pages/Products";
+import Boutiques from "../../pages/Boutiques";
 
 const routes = createHashRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         index: true,
-        element: (
-            <Home />
-         
-        ),
+        element: <Home />,
       },
-      { path: "/about", element: <About/> },
-      { path: "/blog", element: <Blog/> },
+      { path: "/about", element: <About /> },
+      { path: "/blog", element: <Blog /> },
+      { path: "/market", element: <Markets /> },
+      { path: "/products", element: <Products /> },
+      { path: "/Boutique", element: <Boutiques /> },
     ],
   },
 ]);
