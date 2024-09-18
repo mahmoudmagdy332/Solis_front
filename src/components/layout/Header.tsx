@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 
 const Header = () => {
-    const [navbar, setNavbar] = useState(false);
+    const {pathname} = useLocation();
+    const [navbar, setNavbar] = useState(true);
     useEffect(()=>{
-        window.addEventListener("scroll", changeBackground);
-    },[])
+          window.addEventListener("scroll", changeBackground);
+          const isHome = pathname === '/';
+          if(isHome){
+            setNavbar(false);
+          }else{
+            setNavbar(true);
+          }
+    },[pathname])
     const changeBackground = () => {
-        if (window.scrollY >= 10 ) {
+      const isHome = pathname !== '/';
+        if (window.scrollY >= 10||isHome ) {
           setNavbar(true);
-        
         } else {
           setNavbar(false);
         
         }
       };
+     
   return (
     <nav className={`${navbar?'bg-black':'bg-transparent'} transition-all ease-in-out border-b-2 border-gray-300 fixed w-full z-20 top-0 start-0 `}>
   <div className="w-11/12 flex flex-wrap items-center justify-between mx-auto">
@@ -33,11 +41,31 @@ const Header = () => {
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   ">
       <li>
-        <a href="#" className="block py-1 px-1  text-sm text-white border-b-2 border-white   " aria-current="page">HOME</a>
+        <NavLink to="/" 
+         className={({ isActive }) =>
+          ` ${
+            isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"
+          } block py-1 px-1  text-sm   `
+        }
+        aria-current="page">HOME</NavLink>
       </li>
       <li>
-        <a href="#" className="block py-1 px-1 text-sm text-gray-100  hover:text-white     ">About</a>
+        <NavLink to="/about"  className={({ isActive }) =>
+          ` ${
+            isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"
+          } block py-1 px-1  text-sm   `
+        }>About</NavLink>
+
       </li>
+      <li>
+        <NavLink to="/blog"  className={({ isActive }) =>
+          ` ${
+            isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"
+          } block py-1 px-1  text-sm   `
+        }>Blog</NavLink>
+
+      </li>
+      
       <li>
         
         <a href="#" className="block py-1 px-1 text-sm text-gray-100  hover:text-white     ">Services</a>
