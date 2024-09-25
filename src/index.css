@@ -75,8 +75,14 @@ body {
   color: black;
   font-weight: 700;
 }
-
-
+.card-blog{
+  overflow: hidden;
+}
+.card-blog:hover img{
+  transform: scale(1.09);
+  transition: all ;
+  transition-duration: .4s;
+}
 
 
 

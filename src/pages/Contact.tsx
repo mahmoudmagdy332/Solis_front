@@ -1,4 +1,5 @@
 import Form from "../components/contact/Form"
+import Map from "../components/contact/Map"
 
 const Contact = () => {
   return (
@@ -25,7 +26,10 @@ const Contact = () => {
               <div className="lg:col-span-2">
               <Form/>
               </div>
+
+              
          </div>
+         <Map />
     </div>
   )
 }

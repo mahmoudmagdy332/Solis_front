@@ -8,6 +8,8 @@ import Contact from "../../pages/Contact";
 import Markets from "../../pages/Markets";
 import Products from "../../pages/Products";
 import Boutiques from "../../pages/Boutiques";
+import Careers from "../../pages/Careers";
+import Market from "../../pages/Market";
 const routes = createHashRouter([
   {
     path: "/",
@@ -17,12 +19,22 @@ const routes = createHashRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: "/market",
+        element: <Markets />,
+        children: [
+          { path: ":id/:title", element: <Market /> },
+
+        ],
+      },
+      
       { path: "/contact", element: <Contact/> },
       { path: "/about", element: <About /> },
       { path: "/blog", element: <Blog /> },
-      { path: "/market", element: <Markets /> },
+   
       { path: "/products", element: <Products /> },
-      { path: "/Boutique", element: <Boutiques /> },
+      { path: "/projects", element: <Boutiques /> },
+      { path: "/careers", element: <Careers /> },
     ],
   },
 ]);

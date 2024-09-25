@@ -20,7 +20,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
   
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => {
-      if (value === '') setIsFocused(false);
+      setIsFocused(false);
     };
   
   
@@ -30,12 +30,12 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
         <div className="text-input ">
         <label htmlFor="first" className={isFocused || value ? 'focused' : ''}>{lable}</label>
         <input type="text" id="first" 
+        //  value={value}
          value={value}
+         {...rest}
          onFocus={handleFocus}
          onBlur={handleBlur}
-         {...rest}
          className={`focus:ring-white  border-b  ${error?'border-red-600':'border-[#4A4A4A]'} border-0`}/>
-         
    
          {error && <span className="text-red-500 text-sm mt-1">{error}</span>}
     </div>
