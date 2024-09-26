@@ -12,6 +12,7 @@ import NotFound from "../../pages/NotFound";
 
 import Careers from "../../pages/Careers";
 import Market from "../../pages/Market";
+import BlogDetails from "../../pages/BlogDetails";
 const routes = createHashRouter([
   {
     path: "/",
@@ -24,21 +25,19 @@ const routes = createHashRouter([
       {
         path: "/market",
         element: <Markets />,
-        children: [
-          { path: ":id/:title", element: <Market /> },
-
-        ],
+        children: [{ path: ":id/:title", element: <Market /> }],
       },
-      
-      { path: "/contact", element: <Contact/> },
+
+      { path: "/contact", element: <Contact /> },
       { path: "/about", element: <About /> },
       { path: "/blog", element: <Blog /> },
-   
+
       { path: "/products", element: <Products /> },
       { path: "/Boutique", element: <Boutiques /> },
       { path: "*", element: <NotFound /> },
       { path: "/projects", element: <Boutiques /> },
       { path: "/careers", element: <Careers /> },
+      { path: "/blog/:id", element: <BlogDetails /> },
     ],
   },
 ]);
