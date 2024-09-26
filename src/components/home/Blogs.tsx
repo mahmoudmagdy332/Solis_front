@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { IoIosArrowForward } from "react-icons/io";
+import FadeEffect from "../common/FadeEffect";
 
 const Blogs = () => {
     const serveses=[  
@@ -14,16 +15,27 @@ const Blogs = () => {
         {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
 ]
   return (
+    
     <div className=" relative markets">
           <div className="absolute top-0 flex justify-start left-0 w-full h-full opacity-80 -z-50">
            <img src="/images/Solis Brown Logo.svg" />
         </div> 
            <div className="w-screen mx-auto  py-4 flex  flex-col gap-6 items-center">
-            <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">Blogs</h2> 
-            <p className="text-center  w-11/12 md:w-3/4 lg:w-1/2">Keep yourself updated with the latest marketing news and updates.</p> 
+          
+            <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
+            <FadeEffect transition={0.1} direction="up" duration={ 0.5}>
+              Blogs
+            </FadeEffect>
+            </h2> 
+            <p className="text-center  w-11/12 md:w-3/4 lg:w-1/2">
+            <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
+            Keep yourself updated with the latest marketing news and updates.
+            </FadeEffect>
+            </p> 
 
          <div className="relative w-11/12  my-2">
-        <Swiper
+         <FadeEffect transition={0.1} direction="right" duration={ 0.5}>
+         <Swiper
           modules={[Navigation, Pagination]}
           className="pb-10"
           spaceBetween={20}
@@ -51,7 +63,7 @@ const Blogs = () => {
         > 
           {serveses.map((servese, index) => (
             <SwiperSlide key={index}>
-                <div className=" flex flex-col gap-2 justify-center items-center bg-black text-white  h-84 border-1 shadow-md rounded-md ">
+                <div className=" flex flex-col gap-2 justify-center items-center card-blog hover:shadow-xl bg-black text-white  h-84 border-1  rounded-md ">
                 <img src={servese.image}  className="w-full  rounded-t-md"/>
                 <div className="px-4 py-6 flex flex-col gap-4">
                 <p className="text-sm">{servese.date}</p>
@@ -68,12 +80,15 @@ const Blogs = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+          </FadeEffect>
+      
 
         </div>
 
 
     </div>
     </div>
+
   )
 }
 

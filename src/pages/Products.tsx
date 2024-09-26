@@ -3,10 +3,12 @@ import ProductItems from "../components/Products/ProductItems";
 
 function Products() {
   return (
-    <div className="flex flex-col gap-4  ">
+    <div className="flex flex-col  ">
       <Hero />
-      <div className="lg:w-3/4 w-10/12 mx-auto my-4">
+      <div className="bg-gray-100">
+      <div className=" w-11/12 mx-auto py-20">
         <ProductItems />
+      </div>
       </div>
     </div>
   );

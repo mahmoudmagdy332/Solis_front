@@ -3,27 +3,26 @@ import ProductCard from "./ProductCard";
 
 function ProductItems() {
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-2">
-        <p>Show All Products On</p>
-        <label className="inline-flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            className="sr-only peer"
-            defaultChecked={true}
-          />
-          <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-black" />
-          <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-            Checked toggle
-          </span>
-        </label>
-      </div>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {Array.from({ length: 5 }).map((_, index) =>
-          index == 0 ? <DownLite /> : <ProductCard key={index} />
-        )}
-      </div>
+    <div className="flex flex-col gap-10 ">
+    <div className="flex items-center gap-2">
+      <p className="text-gray-400">Show All Products On</p>
+      <label className="inline-flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          className="sr-only peer outline-0 bg-blue-600 focus:ring-white border-0 "
+          defaultChecked={true}
+        />
+        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none   rounded-full   peer-checked:after:translate-x-full peer-checked:after:bg-black peer-checked:ring-black after:bg-gray-300 rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px]   after:rounded-full after:h-5 after:w-5 after:transition-all   ring-1 ring-gray-300 "></div>
+
+      </label>
     </div>
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+      {Array.from({ length: 6 }).map((_, index) =>
+        index == 0 ? <DownLite /> : <ProductCard key={index} />
+      )}
+    </div>
+  </div>
+    
   );
 }
 

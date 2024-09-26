@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import FadeEffect from "../common/FadeEffect";
 const Prands = () => {
     const images=['/images/temp/Philips_logo.svg 1.png',
         '/images/temp/wofi-wiz-logo 1.png',
@@ -14,8 +15,14 @@ const Prands = () => {
     ]
   return (
     <div className="w-screen mx-auto my-16 flex flex-col items-center">
-            <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">Our global brands</h2> 
-        <div className="relative w-11/12 my-16">
+      <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
+      <FadeEffect transition={0.3} direction="down" duration={ 0.5}>
+            Our global brands
+           </FadeEffect>
+      </h2>
+      <div className="relative w-11/12 my-16">
+      <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
+        <div >
         <Swiper
           modules={[Navigation, Pagination]}
          
@@ -51,11 +58,18 @@ const Prands = () => {
         </Swiper>
 
         </div>
+        </FadeEffect>
+      </div>
+     
         <div className="flex justify-center">
+        <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
+          
         <Link to="/" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
           See all brands
           <img src="/icons/Vector-black.svg" className="w-3 "/>
         </Link> 
+          </FadeEffect>
+       
         </div>
 
     </div>

@@ -4,7 +4,7 @@ import Hero from "../components/blog/Hero"
 const Blog = () => {
   return (
     <div>
-         <Hero/>
+         <Hero  title="Blogs"/>
          <AllBloges/>
     </div>
   )

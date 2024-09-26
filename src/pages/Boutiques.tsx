@@ -1,3 +1,5 @@
+import FadeEffect from "../components/common/FadeEffect";
+
 function Boutiques() {
   const boutiques = [
     {
@@ -21,19 +23,23 @@ function Boutiques() {
   ];
 
   return (
-    <div className=" w-10/12 lg:w-9/12 mx-auto mt-20 mb-10 flex flex-col gap-20">
+    <div className=" w-10/12 lg:w-10/12 mx-auto mt-10 mb-10 flex flex-col gap-10">
       {boutiques.map((boutique, index) => (
         <div
           key={index}
-          className={`flex  items-center flex-col lg:flex-row gap-8 border-t-2 ${
-            index == 0 && "border-none"
-          } pt-24`}
+          className={`flex  items-center flex-col  gap-8  ${index%2===0?" lg:flex-row":" lg:flex-row-reverse"} pt-24 lg:flex-row`}
         >
-          <img src={boutique.imgSrc} alt={`Boutique ${index + 1}`} />
-          <div className="flex flex-col gap-4">
-            <h2 className="font-semibold text-xl">{boutique.title}</h2>
-            <p className="text-xl">{boutique.description}</p>
-          </div>
+           <FadeEffect transition={0.4} direction={index%2===0?"right":"left"} duration={ 0.7}>
+              <img src={boutique.imgSrc} alt={`Boutique ${index + 1}`} />
+           </FadeEffect>
+          
+          <FadeEffect transition={0.1} direction={index%2===0?"left":"right"} duration={ 0.3}>
+            <div className="flex flex-col gap-4">
+              <h2 className="font-semibold text-3xl">{boutique.title}</h2>
+              <p className="text-xl">{boutique.description}</p>
+            </div>
+          </FadeEffect>
+          
         </div>
       ))}
     </div>

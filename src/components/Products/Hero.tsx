@@ -9,10 +9,10 @@ const Hero = () => {
         <div className="absolute w-full h-full top-0 left-0 bg-black opacity-50"></div>
       </div>
       <div className=" w-full  flex  items-center">
-        <div className="flex w-11/12 mx-auto flex-col items-start gap-6 pt-44 pb-20">
+        <div className="flex w-11/12 mx-auto flex-col items-start gap-6 pt-32 pb-16 lg:pt-48 lg:pb-20">
           <h3
-            className="text-white text-3xl font-bold"
-            style={{ width: "0px", transform: "scaleX(2)" }}
+            className="text-white text-3xl md:text-5xl lg:text-7xl font-bold"
+        
           >
             Products
           </h3>

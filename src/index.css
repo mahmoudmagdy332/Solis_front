@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face{
   font-family: myFont;
   src: url('/public/fonts/eurostile-lt-pro-unicode/EurostileLTProUnicode.otf');
@@ -39,3 +40,49 @@ body {
 .markets .swiper-pagination-bullet-active{
   background-color: rgba(0, 0, 0, 0.888);
 }
+.text-input {
+   position: relative;
+   width: 100%;
+   margin: 40px 0px;
+}
+.text-input label{
+   position: absolute;
+   top: 4px;
+   left: 0;
+   color: #4A4A4A;
+   font-weight: 600;
+   font-size: 16px;
+   pointer-events: none;
+   transition: all 0.3s ease;
+}
+.text-input input{
+  
+  transition: .1s;
+  padding: 5px 0;
+  width: 100%;
+  color: #4A4A4A;
+}
+.text-input input:focus{
+  border-bottom: 2px solid black;
+  outline: none;
+}
+
+
+
+.text-input label.focused {
+  top: -16px;
+  font-size: 12px;
+  color: black;
+  font-weight: 700;
+}
+.card-blog{
+  overflow: hidden;
+}
+.card-blog:hover img{
+  transform: scale(1.09);
+  transition: all ;
+  transition-duration: .4s;
+}
+
+
+
