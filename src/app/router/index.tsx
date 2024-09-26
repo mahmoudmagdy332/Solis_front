@@ -7,6 +7,7 @@ import Blog from "../../pages/Blog";
 import Markets from "../../pages/Markets";
 import Products from "../../pages/Products";
 import Boutiques from "../../pages/Boutiques";
+import NotFound from "../../pages/NotFound";
 
 const routes = createHashRouter([
   {
@@ -22,6 +23,7 @@ const routes = createHashRouter([
       { path: "/market", element: <Markets /> },
       { path: "/products", element: <Products /> },
       { path: "/Boutique", element: <Boutiques /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
