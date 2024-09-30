@@ -1,5 +1,5 @@
 import DownLite from "./DownLite";
-import ProductCard from "./ProductCard";
+import SubCategoryCard from "./SubCategoryCard";
 
 function ProductItems() {
   return (
@@ -18,7 +18,7 @@ function ProductItems() {
     </div>
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
       {Array.from({ length: 6 }).map((_, index) =>
-        index == 0 ? <DownLite /> : <ProductCard key={index} />
+        index == 0 ? <DownLite /> : <SubCategoryCard key={index} />
       )}
     </div>
   </div>
