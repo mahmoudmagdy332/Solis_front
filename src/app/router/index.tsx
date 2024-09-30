@@ -16,6 +16,7 @@ import Product from "../../pages/Product";
 import SubCategory from "../../pages/SubCategory";
 
 import BlogDetails from "../../pages/BlogDetails";
+import ProductDetails from "../../pages/Product";
 const routes = createHashRouter([
   {
     path: "/",
@@ -36,6 +37,7 @@ const routes = createHashRouter([
       { path: "/blog", element: <Blog /> },
 
       { path: "/products", element: <Products /> },
+      { path: "/products/:id", element: <ProductDetails /> },
 
       { path: "/category/:id", element: <Category /> },
       { path: "/sub-category/:id", element: <SubCategory /> },
