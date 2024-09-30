@@ -10,6 +10,9 @@ import Products from "../../pages/Products";
 import Boutiques from "../../pages/Boutiques";
 import Careers from "../../pages/Careers";
 import Market from "../../pages/Market";
+import Category from "../../pages/Category";
+import Product from "../../pages/Product";
+import SubCategory from "../../pages/SubCategory";
 const routes = createHashRouter([
   {
     path: "/",
@@ -33,6 +36,9 @@ const routes = createHashRouter([
       { path: "/blog", element: <Blog /> },
    
       { path: "/products", element: <Products /> },
+      { path: "/category/:id", element: <Category /> },
+      { path: "/sub-category/:id", element: <SubCategory /> },
+      { path: "/product/:id", element: <Product /> },
       { path: "/projects", element: <Boutiques /> },
       { path: "/careers", element: <Careers /> },
     ],

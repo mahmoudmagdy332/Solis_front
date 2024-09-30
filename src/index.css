@@ -80,9 +80,12 @@ body {
 }
 .card-blog:hover img{
   transform: scale(1.09);
-  transition: all ;
-  transition-duration: .4s;
+  transition: all .4s;
+
+  
 }
+
+
 
 
 
