@@ -47,16 +47,16 @@ const ProductDetails = () => {
     <div>
       <Hero title="Product" />
       <div className="bg-gray-50 grid grid-cols-4 gap-2 p-10">
-        <div className="text-left col-span-1 relative">
+        <div className="text-left hidden md:block md:col-span-1  relative">
           <div className="sticky top-20 left-20">
             <button className="text-red-500 flex items-center space-x-2 mb-6">
-              <span className="text-lg font-bold">← All Blade R</span>
+              <span className="text-lg font-bold mb-4">← All Blade R</span>
             </button>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               <li
-                className={`font-bold ${
+                className={` ${
                   activeSection === "Overview"
-                    ? "text-red-500"
+                    ? "text-red-500 font-bold"
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(overviewRef)}
@@ -66,7 +66,7 @@ const ProductDetails = () => {
               <li
                 className={`${
                   activeSection === "Lighting Effects"
-                    ? "text-red-500"
+                    ? "text-red-500 font-bold"
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(lightingRef)}
@@ -76,7 +76,7 @@ const ProductDetails = () => {
               <li
                 className={`${
                   activeSection === "Application Imagery"
-                    ? "text-red-500"
+                    ? "text-red-500 font-bold"
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(imageryRef)}
@@ -86,7 +86,7 @@ const ProductDetails = () => {
               <li
                 className={`${
                   activeSection === "Product Details"
-                    ? "text-red-500"
+                    ? "text-red-500 font-bold"
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(detailsRef)}
@@ -96,7 +96,7 @@ const ProductDetails = () => {
               <li
                 className={`${
                   activeSection === "Accessories Details"
-                    ? "text-red-500"
+                    ? "text-red-500 font-bold "
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(accessoriesRef)}
@@ -107,7 +107,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className="col-span-3">
+        <div className="md:col-span-3 col-span-4">
           <div className="flex flex-col gap-4">
             <div ref={overviewRef} className="py-10 border-b-4">
               <ShadersSlider />
@@ -117,7 +117,7 @@ const ProductDetails = () => {
               <img src="../../public/images/overview.jpg" alt="" />
             </div>
 
-            <div className="grid grid-cols-2">
+            <div className="grid md:grid-cols-2 grid-cols-1">
               <div className="h-[450px] col-span-1">
                 <img
                   src="../../public/images/blade.jpg"
@@ -157,7 +157,7 @@ const ProductDetails = () => {
             </div>
 
             <div ref={detailsRef} className="w-full flex flex-col gap-4">
-              <p className="text-2xl text-gray-500">Product Details</p>
+              <p className="text-2xl text-gray-500">Accessories details</p>
               <ul className="list-disc pl-5 space-y-2 text-gray-700">
                 <li>
                   Flush mount installation on false ceilings of thickness from
@@ -193,6 +193,131 @@ const ProductDetails = () => {
                 <li>IP20.</li>
                 <li>
                   IP23 on the visible body of the mount after installation.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            ref={accessoriesRef}
+            className="w-full flex flex-col gap-4 py-10"
+          >
+            <p className="text-2xl text-gray-500">Product Details</p>
+            <ul className="list-disc">
+              <li>
+                Functional elements can be inserted into the product to increase
+                its potentialities: framers for accent lighting and double
+                emission, emergency lights, audio speakers, multi-sensors and
+                sockets for connecting smoke sensors and video cameras.
+              </li>
+            </ul>{" "}
+            <div className="bg-white p-8 flex flex-col gap-4 mt-20">
+              <ul className="flex gap-4 flex-wrap">
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries1.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries2.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries3.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries4.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries4.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries5.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries6.jpg" alt="" />
+                </li>
+              </ul>
+              <ul className="flex gap-4 flex-wrap">
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries7.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries8.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries9.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries9.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries10.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries11.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries12.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries13.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries14.jpg" alt="" />
+                </li>
+                <li className="w-20 h-20">
+                  <img src="../../public/images/Accessoiries15.jpg" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-2xl text-gray-500 mb-4">
+                Colours available for Blade R ø170mm
+              </p>
+              <ul className="grid grid-cols-3 gap-4">
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color1.png" alt="" />
+                  <p> 01 White</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color2.png" alt="" />
+                  <p> 43 Black/Black</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color3.png" alt="" />
+                  <p> 01 White</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color1.png" alt="" />
+                  <p> 43 Black/Black</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color2.png" alt="" />
+                  <p> 04 White</p>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-md font-bold text-gray-700 mb-4">
+                Further colours on request
+              </p>
+              <ul className="grid grid-cols-3 gap-4">
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/fscolor1.png" alt="" />
+                  <p> 41 White / gold</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color2.png" alt="" />
+                  <p> 43 Black/Black</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color3.png" alt="" />
+                  <p> 01 White</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color1.png" alt="" />
+                  <p> 43 Black/Black</p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src="../../public/images/color2.png" alt="" />
+                  <p> 04 White</p>
                 </li>
               </ul>
             </div>
