@@ -84,8 +84,32 @@ body {
 
   
 }
-
-
-
-
+.product-card {
+  background-color: rgb(227, 227, 227);
+  transition: all .5s;
+}
+.product-card:hover {
+  background-color: black;
+}
+.product-card h2{
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+}
+.product-card:hover h2{
+  color: white;
+  transition: all ease-in-out;
+}
+.product-card .title{
+  color: #474747;
+  font-size: 16px;
+}
+.product-card:hover .title{
+  color: #ebebeb;
+  font-size: 16px;
+}
+.product-card .desc{
+  color: #878787;
+  font-size: 12px;
+}
 

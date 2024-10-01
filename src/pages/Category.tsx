@@ -1,4 +1,4 @@
-import ProductCard from "../components/Products/ProductCard"
+import SubCategoryCard from "../components/Products/SubCategoryCard"
 
 const Category = () => {
   return (
@@ -15,7 +15,7 @@ const Category = () => {
             
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {Array.from({ length: 6 }).map((_, index) =>
-                <ProductCard key={index} />
+                <SubCategoryCard key={index} />
             )}
             </div>
         </div>
