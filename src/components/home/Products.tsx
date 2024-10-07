@@ -6,15 +6,41 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
+import SubCategoryCard from "../Products/SubCategoryCard";
 export const Products = () => {
-    const images=['/images/temp/Rynk.png',
-        '/images/temp/Frame 1618872995.png ',
-        '/images/temp/Frame 1618872999.png',
-        '/images/temp/Frame 1618872991.png',
-        '/images/temp/Frame 1618872995.png ',
-        '/images/temp/Frame 1618872999.png',
-        '/images/temp/Frame 1618872991.png',
-    ]
+  const categories=[
+      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+        '300k/3020h/',
+        'General Lighting','UGR<19','Oval','Wall Washer'
+      ]},
+      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+        '300k/3020h/',
+        'General Lighting','UGR<19','Oval','Wall Washer'
+      ]},
+      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+        '300k/3020h/',
+        'General Lighting','UGR<19','Oval','Wall Washer'
+      ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+        '300k/3020h/',
+        'General Lighting','UGR<19','Oval','Wall Washer'
+      ]},
+      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+        '300k/3020h/',
+        'General Lighting','UGR<19','Oval','Wall Washer'
+      ]},
+      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+        '300k/3020h/',
+        'General Lighting','UGR<19','Oval','Wall Washer'
+      ]}
+    ];
+    // const images=['/images/temp/Rynk.png',
+    //     '/images/temp/Frame 1618872995.png ',
+    //     '/images/temp/Frame 1618872999.png',
+    //     '/images/temp/Frame 1618872991.png',
+    //     '/images/temp/Frame 1618872995.png ',
+    //     '/images/temp/Frame 1618872999.png',
+    //     '/images/temp/Frame 1618872991.png',
+    // ]
   return (
     <div className="mt  -4 relative">
         <div className="absolute top-0 left-0 w-full h-full -z-10">
@@ -59,11 +85,13 @@ export const Products = () => {
             },
           }}
         > 
-          {images.map((course, index) => (
+          {categories.map((category, index) => (
             <SwiperSlide key={index}>
-                <div className=" flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl p-8">
+                {/* <div className=" flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl p-8">
                 <img src={course}  className="cursor-pointer  hover:scale-110 transition-all ease-in-out"/>
-                </div>
+                </div> */}
+                {/* <ProductCard/> */}
+                <SubCategoryCard subCategory={category}/>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -8,7 +8,7 @@ function MoreBlog() {
         <div className="flex sm:flex-row flex-col items-center gap-6">
           <div className="w-[70px] h-[70px] rounded-lg bg-gray-300 overflow-hidden">
             <img
-              src="../../../../public/images/Profile.jpg"
+              src="images/Profile.jpg"
               className="w-full h-full object-cover"
               alt="Profile"
             />
@@ -23,7 +23,7 @@ function MoreBlog() {
         <div className="flex sm:flex-row flex-col items-center gap-6">
           <div className="w-[70px] h-[70px] rounded-lg bg-gray-300 overflow-hidden">
             <img
-              src="../../../../public/images/Profile.jpg"
+              src="images/Profile.jpg"
               className="w-full h-full object-cover"
               alt="Profile"
             />
@@ -38,7 +38,7 @@ function MoreBlog() {
         <div className="flex sm:flex-row flex-col items-center gap-6">
           <div className="w-[70px] h-[70px] rounded-lg bg-gray-300 overflow-hidden">
             <img
-              src="../../../../public/images/Profile.jpg"
+              src="images/Profile.jpg"
               className="w-full h-full object-cover"
               alt="Profile"
             />

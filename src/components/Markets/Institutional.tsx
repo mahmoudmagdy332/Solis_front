@@ -2,7 +2,7 @@ function Institutional() {
   return (
     <div className="flex flex-col gap-4 px-4">
       <div className="flex flex-col gap-4">
-        <img src="../../../public/images/Institutional.svg" alt="" />
+        <img src="images/Institutional.svg" alt="" />
         <h2 className="font-semibold">
           Healthcare and Educational facilities have their own needs.
         </h2>
@@ -25,17 +25,17 @@ function Institutional() {
         </div>
         <div className="flex justify-between items-center gap-8">
           <img
-            src="../../../public/images/electric 1.svg"
+            src="images/electric 1.svg"
             alt="Image 1"
             className="w-1/3 h-40 object-contain"
           />
           <img
-            src="../../../public/images/electric 2.svg"
+            src="images/electric 2.svg"
             alt="Image 2"
             className="w-1/3 mx-auto h-40 object-contain"
           />
           <img
-            src="../../../public/images/electric 3.svg"
+            src="images/electric 3.svg"
             alt="Image 3"
             className="w-1/3 h-40 object-contain"
           />
@@ -51,17 +51,17 @@ function Institutional() {
         </div>
         <div className="flex justify-between items-center gap-8">
           <img
-            src="../../../public/images/electric 4.svg"
+            src="images/electric 4.svg"
             alt="Image 1"
             className="w-1/3 h-40 object-contain"
           />
           <img
-            src="../../../public/images/electric 5.svg"
+            src="images/electric 5.svg"
             alt="Image 2"
             className="w-1/3 mx-auto h-40 object-contain"
           />
           <img
-            src="../../../public/images/electic 6.svg"
+            src="images/electic 6.svg"
             alt="Image 3"
             className="w-1/3 h-40 object-contain"
           />

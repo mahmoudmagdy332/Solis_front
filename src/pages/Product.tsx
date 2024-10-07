@@ -114,13 +114,13 @@ const ProductDetails = () => {
             </div>
 
             <div className="py-10">
-              <img src="../../public/images/overview.jpg" alt="" />
+              <img src="images/overview.jpg" alt="" />
             </div>
 
             <div className="grid md:grid-cols-2 grid-cols-1">
               <div className="h-[450px] col-span-1">
                 <img
-                  src="../../public/images/blade.jpg"
+                  src="images/blade.jpg"
                   className="h-full"
                   alt=""
                 />
@@ -213,57 +213,57 @@ const ProductDetails = () => {
             <div className="bg-white p-8 flex flex-col gap-4 mt-20">
               <ul className="flex gap-4 flex-wrap">
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries1.jpg" alt="" />
+                  <img src="images/Accessoiries1.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries2.jpg" alt="" />
+                  <img src="images/Accessoiries2.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries3.jpg" alt="" />
+                  <img src="images/Accessoiries3.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries4.jpg" alt="" />
+                  <img src="images/Accessoiries4.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries4.jpg" alt="" />
+                  <img src="images/Accessoiries4.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries5.jpg" alt="" />
+                  <img src="images/Accessoiries5.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries6.jpg" alt="" />
+                  <img src="images/Accessoiries6.jpg" alt="" />
                 </li>
               </ul>
               <ul className="flex gap-4 flex-wrap">
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries7.jpg" alt="" />
+                  <img src="images/Accessoiries7.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries8.jpg" alt="" />
+                  <img src="images/Accessoiries8.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries9.jpg" alt="" />
+                  <img src="images/Accessoiries9.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries9.jpg" alt="" />
+                  <img src="images/Accessoiries9.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries10.jpg" alt="" />
+                  <img src="images/Accessoiries10.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries11.jpg" alt="" />
+                  <img src="images/Accessoiries11.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries12.jpg" alt="" />
+                  <img src="images/Accessoiries12.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries13.jpg" alt="" />
+                  <img src="images/Accessoiries13.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries14.jpg" alt="" />
+                  <img src="images/Accessoiries14.jpg" alt="" />
                 </li>
                 <li className="w-20 h-20">
-                  <img src="../../public/images/Accessoiries15.jpg" alt="" />
+                  <img src="images/Accessoiries15.jpg" alt="" />
                 </li>
               </ul>
             </div>
@@ -273,23 +273,23 @@ const ProductDetails = () => {
               </p>
               <ul className="grid grid-cols-3 gap-4">
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color1.png" alt="" />
+                  <img src="images/color1.png" alt="" />
                   <p> 01 White</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color2.png" alt="" />
+                  <img src="images/color2.png" alt="" />
                   <p> 43 Black/Black</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color3.png" alt="" />
+                  <img src="images/color3.png" alt="" />
                   <p> 01 White</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color1.png" alt="" />
+                  <img src="images/color1.png" alt="" />
                   <p> 43 Black/Black</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color2.png" alt="" />
+                  <img src="images/color2.png" alt="" />
                   <p> 04 White</p>
                 </li>
               </ul>
@@ -300,23 +300,23 @@ const ProductDetails = () => {
               </p>
               <ul className="grid grid-cols-3 gap-4">
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/fscolor1.png" alt="" />
+                  <img src="images/fscolor1.png" alt="" />
                   <p> 41 White / gold</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color2.png" alt="" />
+                  <img src="images/color2.png" alt="" />
                   <p> 43 Black/Black</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color3.png" alt="" />
+                  <img src="images/color3.png" alt="" />
                   <p> 01 White</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color1.png" alt="" />
+                  <img src="images/color1.png" alt="" />
                   <p> 43 Black/Black</p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <img src="../../public/images/color2.png" alt="" />
+                  <img src="images/color2.png" alt="" />
                   <p> 04 White</p>
                 </li>
               </ul>

@@ -3,7 +3,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Link } from "react-router-dom";
+
 import FadeEffect from "../common/FadeEffect";
 const Prands = () => {
     const images=['/images/temp/Philips_logo.svg 1.png',
@@ -61,7 +61,7 @@ const Prands = () => {
         </FadeEffect>
       </div>
      
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
         <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
           
         <Link to="/" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
@@ -70,7 +70,7 @@ const Prands = () => {
         </Link> 
           </FadeEffect>
        
-        </div>
+        </div> */}
 
     </div>
   )

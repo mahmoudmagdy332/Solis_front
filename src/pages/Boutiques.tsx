@@ -12,17 +12,17 @@ function Boutiques() {
       title: "BOUTIQUES AND SHOWROOMS",
       description:
         "Lighting projects for boutiques and showrooms using high-quality and modern lighting solutions by Centersvet.",
-      videoSrc: "../../public/Videos/WebHD_720p.mp4",
+      videoSrc: "Videos/WebHD_720p.mp4",
     },
     {
-      imgSrc: "/images/Botique3.png",
+      imgSrc: "images/Botique3.png",
       title: "BOUTIQUES AND SHOWROOMS",
       description:
         "Lighting projects for boutiques and showrooms using high-quality and modern lighting solutions by Centersvet.",
-      videoSrc: "../../public/Videos/videoplayback.mp4",
+      videoSrc: "Videos/videoplayback.mp4",
     },
     {
-      imgSrc: "/images/Botique3.png",
+      imgSrc: "images/Botique3.png",
       title: "BOUTIQUES AND SHOWROOMS",
       description:
         "Lighting projects for boutiques and showrooms using high-quality and modern lighting solutions by Centersvet.",

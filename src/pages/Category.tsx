@@ -1,6 +1,31 @@
 import SubCategoryCard from "../components/Products/SubCategoryCard"
 
 const Category = () => {
+    const cards=[
+        {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+          '300k/3020h/',
+          'General Lighting','UGR<19','Oval','Wall Washer'
+        ]},
+        {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+          '300k/3020h/',
+          'General Lighting','UGR<19','Oval','Wall Washer'
+        ]},
+        {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+          '300k/3020h/',
+          'General Lighting','UGR<19','Oval','Wall Washer'
+        ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+          '300k/3020h/',
+          'General Lighting','UGR<19','Oval','Wall Washer'
+        ]},
+        {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+          '300k/3020h/',
+          'General Lighting','UGR<19','Oval','Wall Washer'
+        ]},
+        {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+          '300k/3020h/',
+          'General Lighting','UGR<19','Oval','Wall Washer'
+        ]}
+      ]
   return (
     <div className="">
         <div className="bg-black py-10">
@@ -14,8 +39,8 @@ const Category = () => {
         <div className="flex flex-col gap-10 ">
             
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-            {Array.from({ length: 6 }).map((_, index) =>
-                <SubCategoryCard key={index} />
+            {cards.map((card) =>
+                <SubCategoryCard  subCategory={card} />
             )}
             </div>
         </div>

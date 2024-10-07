@@ -6,12 +6,12 @@ const Header = () => {
     const [navbar, setNavbar] = useState(true);
     const pages=[ {title:'HOME',link:'/'},
                   {title:'ABOUT US',link:'/about'},
-                  {title:'BLOGS',link:'/blog'},
-                  {title:'PROJECTS',link:'/projects'},
-                  {title:'CONTACT US',link:'/contact'},
-                  {title:'CAREERS',link:'/careers'},
-                  {title:'MARKETS',link:'/market/1/Overview'},
                   {title:'PRODUCTS',link:'/products'},
+                  {title:'PROJECTS',link:'/projects'},
+                  {title:'MARKETS',link:'/market/1/Overview'},
+                  {title:'CAREERS',link:'/careers'},
+                  {title:'BLOGS',link:'/blog'},
+                  {title:'CONTACT US',link:'/contact'},           
     ]
     useEffect(()=>{
           window.addEventListener("scroll", changeBackground);

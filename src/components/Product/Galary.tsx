@@ -1,24 +1,24 @@
 function Galary() {
   const image = [
     {
-      ImageSrc: "../../../public/images/galary1.jpg",
+      ImageSrc: "images/galary1.jpg",
       alt: "galary1",
     },
     {
-      ImageSrc: "../../../public/images/galary2.jpg",
+      ImageSrc: "images/galary2.jpg",
       alt: "galary2",
     },
 
     {
-      ImageSrc: "../../../public/images/galary3.jpg",
+      ImageSrc: "images/galary3.jpg",
       alt: "galary3",
     },
     {
-      ImageSrc: "../../../public/images/galary4.jpg",
+      ImageSrc: "images/galary4.jpg",
       alt: "galary4",
     },
     {
-      ImageSrc: "../../../public/images/galary5.jpg",
+      ImageSrc: "images/galary5.jpg",
       alt: "galar5",
     },
   ];

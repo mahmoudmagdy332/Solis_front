@@ -3,7 +3,7 @@ function CommentCard() {
     <div className="flex  lg:flex-row flex-col  gap-6    p-4  ">
       <div className="w-[70px] h-[70px] rounded-full bg-gray-300 overflow-hidden">
         <img
-          src="../../../../public/images/Profile.jpg"
+          src="public/images/Profile.jpg"
           className="w-full h-full object-cover"
           alt="Profile"
         />

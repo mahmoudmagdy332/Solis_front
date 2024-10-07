@@ -1,7 +1,7 @@
 function Blog() {
   return (
     <div className="flex flex-col gap-4 my-10 px-4">
-      <img src="../../../../public/images/Botique1.png" alt="" />
+      <img src="images/Botique1.png" alt="" />
       <h3>Importance of specialized foucus in portfolio oil & gas</h3>
       <h5>sep 26,2024</h5>
       <p>

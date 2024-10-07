@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { IoIosArrowForward } from "react-icons/io";
 import FadeEffect from "../common/FadeEffect";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
     const serveses=[  
@@ -70,10 +71,10 @@ const Blogs = () => {
                 <h3 className="text-xl font-bold">{servese.title}:</h3>
                 <p className="text-gray-300 text-sm leading-6 font-thin">{servese.description}</p>
                 <div className="flex justify-start">
-                <button className="flex items-center text-md gap-2 border border-white rounded-sm px-4 py-2 hover:bg-white hover:text-black transition-all ease-in-out">
+                <Link to="/blog/1"  className="flex items-center text-md gap-2 border border-white rounded-sm px-4 py-2 hover:bg-white hover:text-black transition-all ease-in-out">
                      <p >Read more</p>
                     <IoIosArrowForward />
-                </button>
+                </Link>
                 </div>
                 </div>
                 </div>

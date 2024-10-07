@@ -30,8 +30,7 @@ body {
   background-color: rgba(126, 126, 126, 0.47);
 }
 .swiper-pagination-bullet-active {
-  background-color: #353535;
-  ; /* Active bullet color */
+  background-color: #353535; /* Active bullet color */
   opacity: 1;
   width: 16px;
   height: 10px;
