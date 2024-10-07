@@ -63,13 +63,13 @@ const Markets = () => {
           > 
             {serveses.map((servese, index) => (
               <SwiperSlide key={index}>
-                  <div className=" flex flex-col  justify-center items-center overflow-hidden bg-white  h-84 border-1 shadow-md hover:shadow-xl hover:border transition-all  ease-in-out cursor-pointer rounded-xl ">
+                  <Link to="/market/1/Overview" className=" flex flex-col  justify-center items-center overflow-hidden bg-white  h-84 border-1 shadow-md hover:shadow-xl hover:border transition-all  ease-in-out cursor-pointer rounded-xl ">
                   <img src={servese.image}  className="w-full  scale-110 hover:scale-100 transition-all ease-in-out rounded-t-xl"/>
                   <div className="p-4 flex flex-col gap-2">
                   <h3 className="text-xl font-semibold">{servese.title}</h3>
                   <p>{servese.description}</p>
                   </div>
-                  </div>
+                  </Link>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -80,12 +80,11 @@ const Markets = () => {
           </div>
           <div className="flex justify-center">
           <FadeEffect transition={0.2} direction="right" duration={ 0.7}>
-            <Link to="/" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+            <Link to="/market/1/Overview" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
               See More Products
               <img src="/icons/Vector-black.svg" className="w-3 "/>
-            </Link> 
-          </FadeEffect>
-        
+              </Link> 
+            </FadeEffect>
           </div>
 
       </div>

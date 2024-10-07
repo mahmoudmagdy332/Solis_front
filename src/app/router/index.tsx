@@ -17,6 +17,9 @@ import SubCategory from "../../pages/SubCategory";
 
 import BlogDetails from "../../pages/BlogDetails";
 import ProductDetails from "../../pages/Product";
+import { Suspense } from "react";
+import SingleJop from "../../pages/SingleJop";
+import { JopApplication } from "../../pages/JopApplication";
 const routes = createHashRouter([
   {
     path: "/",
@@ -38,7 +41,23 @@ const routes = createHashRouter([
 
       { path: "/products", element: <Products /> },
       { path: "/products/:id", element: <ProductDetails /> },
-
+      {
+        path: "/jop/:id",
+        element: (
+          <Suspense fallback={<div>Loading</div>}>
+            <SingleJop />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/jop-application/:id",
+        element: (
+          <Suspense fallback={<div>Loading</div>}>
+            <JopApplication />
+          </Suspense>
+        ),
+      },
+      
       { path: "/category/:id", element: <Category /> },
       { path: "/sub-category/:id", element: <SubCategory /> },
       { path: "/product/:id", element: <Product /> },

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Hero from "../components/blog/Hero"
 import Pagination from "../components/common/Pagination"
 
@@ -42,7 +43,7 @@ const Careers = () => {
                   <p className="text-[#4A4A4A] ">
                     {card.desc}
                   </p>
-                  <button className="bg-black rounded-lg text-sm text-white border hover:border-black  hover:bg-white  hover:text-black transition-all ease-in-out py-[14px] px-8">Read More</button>
+                  <Link to="/jop/1" className="bg-black rounded-lg text-sm text-white border hover:border-black  hover:bg-white  hover:text-black transition-all ease-in-out py-[14px] px-8">Read More</Link>
              </div>
            ))}
         </div>
