@@ -29,10 +29,10 @@ function SubCategoryCard({subCategory}:SubCategoryCardType) {
           </motion.div>
  
         <motion.div
-        className="image-container absolute left-0 top-0 z-0 transition-all delay-700"
+        className="image-container absolute left-0 top-0 z-0 w-full transition-all delay-700"
       
       >
-        <img src={subCategory.image} alt="" className="h-72 transition-all ease-in-out" />
+        <img src={subCategory.image} alt="" className="h-72 w-full object-cover transition-all ease-in-out" />
         </motion.div>
        </div>
        

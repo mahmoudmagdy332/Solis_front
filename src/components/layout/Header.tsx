@@ -33,7 +33,7 @@ const Header = () => {
       };
      
   return (
-    <nav className={`${navbar?'bg-black':'bg-transparent'} transition-all ease-in-out border-b-2 border-gray-300 fixed w-full z-20 top-0 start-0 `}>
+    <nav className={`${navbar?'bg-black':'bg-black lg:bg-transparent'} transition-all ease-in-out border-b-2 border-gray-300 fixed w-full z-20 top-0 start-0 `}>
   <div className="w-11/12 flex  flex-wrap lg:flex-nowrap items-center justify-between mx-auto">
   <Link to="/" className="flex justify-center items-center  lg:border-e lg:py-4 border-gray-200 pe-5 rtl:space-x-reverse">
       <img src="/logo.svg" className="h-8" alt="Flowbite Logo"/>
