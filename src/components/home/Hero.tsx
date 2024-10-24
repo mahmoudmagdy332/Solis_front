@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
 // import { useEffect, useState } from "react";
-const Hero = () => {
+const Hero = ({content}:{content:string}) => {
   const sliders=['images/temp/Slider.png'];
   // const [showImage, setShowImage] = useState(0);
   // const toggleImages = () => {
@@ -39,9 +39,13 @@ const Hero = () => {
         <div className=" w-full  flex  items-center">
 
        <div className="flex w-11/12 mx-auto flex-col items-start gap-6 pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-60  lg:pb-40">
-          <h3 className="text-white  text-xl md:text-3xl lg:text-5xl font-bold"
-          >Illuminate Your World with Innovation</h3>
-          <p className="text-white text-xl ">All-in-one solution</p>
+          {/* <h3 className="  text-xl md:text-3xl lg:text-5xl font-bold"
+          >{}</h3> */}
+            <p
+                  dangerouslySetInnerHTML={{ __html: content }}
+                  className="text-white  "
+                />
+          {/* <p className="text-white text-xl ">All-in-one solution</p> */}
           <FadeEffect transition={0.4} direction="right" duration={ 0.7}>
           <Link to="/products" className="flex gap-3 px-6 py-2  justify-center items-center bg-white hover:bg-black hover:text-white transition-all ease-in-out  rounded-full mt-3" >
               Explore

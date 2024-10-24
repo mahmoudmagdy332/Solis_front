@@ -6,7 +6,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
+import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 const Markets = () => {
+  const { markets } = useHomeSliceSelector((state) => state.homeReducer);
+
     const serveses=[  {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971.png'},
                     {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (3).png'},
                     {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (2).png'},
@@ -61,13 +64,13 @@ const Markets = () => {
               },
             }}
           > 
-            {serveses.map((servese, index) => (
+            {markets?.map((market, index) => (
               <SwiperSlide key={index}>
-                  <Link to="/market/1/Overview" className=" flex flex-col  justify-center items-center overflow-hidden bg-white  h-84 border-1 shadow-md hover:shadow-xl hover:border transition-all  ease-in-out cursor-pointer rounded-xl ">
-                  <img src={servese.image}  className="w-full  scale-110 hover:scale-100 transition-all ease-in-out rounded-t-xl"/>
-                  <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-semibold">{servese.title}</h3>
-                  <p>{servese.description}</p>
+                  <Link to={`/market/${market.id}/${market.name}`} className=" flex flex-col  justify-center items-center overflow-hidden bg-white  h-84 border-1 shadow-md hover:shadow-xl hover:border transition-all  ease-in-out cursor-pointer rounded-xl ">
+                  <img src={market.image}  className="w-full h-32 object-cover scale-110 border-b-2 border-yellow-500  hover:scale-100 transition-all ease-in-out rounded-t-xl"/>
+                  <div className="p-4 flex flex-col gap-2 h-64 overflow-hidden items-start justify-around">
+                  <h3 className="text-xl font-semibold ">{market.name}</h3>
+                  <p className="">{market.description}</p>
                   </div>
                   </Link>
               </SwiperSlide>
@@ -81,7 +84,7 @@ const Markets = () => {
           <div className="flex justify-center">
           <FadeEffect transition={0.2} direction="right" duration={ 0.7}>
             <Link to="/market/1/Overview" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
-              See More Products
+              See More Markets
               <img src="/icons/Vector-black.svg" className="w-3 "/>
               </Link> 
             </FadeEffect>

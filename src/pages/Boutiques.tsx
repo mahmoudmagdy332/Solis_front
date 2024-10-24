@@ -5,7 +5,7 @@ import Modal from "../components/common/VideoModal";
 function Boutiques() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideoSrc, setSelectedVideoSrc] = useState("");
-
+  
   const boutiques = [
     {
       imgSrc: "/images/Botique1.png",

@@ -1,63 +1,48 @@
 import { Link } from "react-router-dom"
+import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 
 const Footer = () => {
-  const pages=[ {title:'Home',link:'/'},
-    {title:'About us',link:'/about'},
-    {title:'Products',link:'/products'},
-    {title:'Projects',link:'/projects'},
-    {title:'Markets',link:'/market/1/Overview'},
-    {title:'Career',link:'/careers'},
-    {title:'Blogs',link:'/blog'},
-    {title:'Contact us',link:'/contact'},           
-]
+  const { setting,footer_pages,
+    main_categories,footer_markets,
+    footer_careers,footer_projects } = useSettingSliceSelector((state) => state.settingReducer);
+   console.log('footer_projects',footer_projects);
+   
   return (
     <div className="bg-black py-8">
         <div className="w-11/12 mx-auto flex flex-col">
            <div className="py-4 border-b border-gray-200">
-                <img src="/footer_logo.svg" className="h-12 "/>
+                <img src={setting?.footer_logo} alt="logo" className="h-12 "/>
            </div>
            <div className="py-4 border-b border-gray-200 gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
              <div className="flex flex-col gap-2    ">
                  <p  className="font-bold text-white">Products</p>
-                 <Link to="/product/1" className="text-white">indoor</Link>
-                 <Link to="/product/1" className="text-white">residential</Link>
-                 <Link to="/product/1" className="text-white">indoor</Link>
-                 <Link to="/product/1" className="text-white">residential</Link>
+                 {main_categories.map((main_category)=>(
+                 <Link key={main_category.id} to={`/main-category/${main_category.id}`} className="text-white">{main_category.name}</Link>
+                 ))}
              </div>
              <div className="flex flex-col gap-2    ">
-                 <p  className="font-bold text-white">Applications</p>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Gas Stations & C-Stores</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Cities & Towns</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Commercial</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Transportation</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Schools & Universities</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Auto Dealerships</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Commercial</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Transportation</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Schools & Universities</Link>
-                 <Link to="/jop/1" className="text-gray-300 text-md">Auto Dealerships</Link>
+                 <p  className="font-bold text-white">Markets</p>
+                 {footer_markets.map((footer_market)=>(
+                 <Link to={`/market/${footer_market.id}`} key={footer_market.id} className="text-gray-300 text-md">{footer_market.name}</Link>
+                 ))}
 
              </div>
              <div className="flex flex-col gap-2    ">
-                 <p  className="font-bold text-white">Commercial Support</p>
-                 <Link to="/category/1" className="text-gray-300 text-md">indoor</Link>
-                 <Link to="/category/1" className="text-gray-300 text-md">Request Quote</Link>
-                 <Link to="/category/1" className="text-gray-300 text-md">Warranty</Link>
-                 <Link to="/category/1" className="text-gray-300 text-md">Warranty</Link>
-                 <Link to="/category/1" className="text-gray-300 text-md">Submit Claim</Link>
+                 <p  className="font-bold text-white">Careers</p>
+                 {footer_careers.map((footer_career)=>(
+                 <Link to={`/career/${footer_career.id}`}className="text-gray-300 text-md">{footer_career.title}</Link>
+                 ))}
              </div>
              <div className="flex flex-col gap-2    ">
-                 <p  className="font-bold text-white">Partners & Suppliers</p>
-                 <Link to="/sub-category/1" className="text-gray-300 text-md">Contractor Information</Link>
-                 <Link to="/sub-category/1" className="text-gray-300 text-md">Supplier Resources</Link>
-                 <Link to="/sub-category/1" className="text-gray-300 text-md">Supplier Information Form</Link>
-
-                 <Link to="/sub-category/1" className="text-gray-300 text-md">residential</Link>
+                 <p  className="font-bold text-white">Projects</p>
+                 {footer_projects.map((footer_project)=>(
+                 <Link to={`/projects/${footer_project.id}`} key={footer_project.id} className="text-gray-300 text-md">{footer_project.title}</Link>
+                 ))}
              </div>
              <div className="flex flex-col gap-2    ">
                  <p  className="font-bold text-white">Contact</p>
-                 {pages.map((page)=>(
-                 <Link to={page.link} className="text-gray-300 text-md">{page.title}</Link>
+                 {footer_pages.map((page)=>(
+                 <Link to={page.slug} className="text-gray-300 text-md">{page.title}</Link>
                  ))}
              </div>
            </div>

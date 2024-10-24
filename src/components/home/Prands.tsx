@@ -5,14 +5,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import FadeEffect from "../common/FadeEffect";
+import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 const Prands = () => {
-    const images=['/images/temp/Philips_logo.svg 1.png',
-        '/images/temp/wofi-wiz-logo 1.png',
-        '/images/temp/flos-logo-mar-159x159 1.png',
-        '/images/temp/Philips_logo.svg 1.png',
-        '/images/temp/wofi-wiz-logo 1.png',
-        '/images/temp/flos-logo-mar-159x159 1.png',
-    ]
+  const { brands } = useHomeSliceSelector((state) => state.homeReducer);
+
+
   return (
     <div className="w-screen mx-auto my-16 flex flex-col items-center">
       <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
@@ -48,10 +45,10 @@ const Prands = () => {
             },
           }}
         >
-          {images.map((course, index) => (
+          {brands?.map((brand, index) => (
             <SwiperSlide key={index}>
                 <div className="flex justify-center items-center">
-                <img src={course}  />
+                <img src={brand.image} className="h-20"  alt="brand"/>
                 </div>
             </SwiperSlide>
           ))}

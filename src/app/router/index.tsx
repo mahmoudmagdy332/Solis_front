@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createHashRouter, Navigate } from "react-router-dom";
 
 import MainLayout from "../../components/layout/MainLayout";
 import Home from "../../pages/Home";
@@ -20,6 +20,7 @@ import ProductDetails from "../../pages/Product";
 import { Suspense } from "react";
 import SingleJop from "../../pages/SingleJop";
 import { JopApplication } from "../../pages/JopApplication";
+import Page from "../../pages/Page";
 const routes = createHashRouter([
   {
     path: "/",
@@ -27,19 +28,24 @@ const routes = createHashRouter([
     children: [
       {
         index: true,
+        element:<Navigate to="/home" />,
+      }, 
+      {
+        path: "/home",
         element: <Home />,
       },
+ 
       {
         path: "/market",
         element: <Markets />,
         children: [{ path: ":id/:title", element: <Market /> }],
       },
 
-      { path: "/contact", element: <Contact /> },
-      { path: "/about", element: <About /> },
-      { path: "/blog", element: <Blog /> },
+      { path: "/conrtact_us", element: <Contact /> },
+      { path: "/about_us", element: <About /> },
+      { path: "/blogs", element: <Blog /> },
 
-      { path: "/products", element: <Products /> },
+      // { path: "/products", element: <Products /> },
       { path: "/products/:id", element: <ProductDetails /> },
       {
         path: "/jop/:id",
@@ -57,7 +63,7 @@ const routes = createHashRouter([
           </Suspense>
         ),
       },
-      
+      { path: "/main-category/:id", element: <Products/> },
       { path: "/category/:id", element: <Category /> },
       { path: "/sub-category/:id", element: <SubCategory /> },
       { path: "/product/:id", element: <Product /> },
@@ -67,6 +73,7 @@ const routes = createHashRouter([
       { path: "/projects", element: <Boutiques /> },
       { path: "/careers", element: <Careers /> },
       { path: "/blog/:id", element: <BlogDetails /> },
+      { path: "/:id", element: <Page /> },
     ],
   },
 ]);

@@ -6,33 +6,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
-import SubCategoryCard from "../Products/SubCategoryCard";
+import { useHomeSliceSelector } from "../../app/slices/homeSlice";
+import ProductCard from "../Products/ProductCard";
 export const Products = () => {
-  const categories=[
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]}
-    ];
+  const { products } = useHomeSliceSelector((state) => state.homeReducer);
+
     // const images=['/images/temp/Rynk.png',
     //     '/images/temp/Frame 1618872995.png ',
     //     '/images/temp/Frame 1618872999.png',
@@ -85,13 +63,13 @@ export const Products = () => {
             },
           }}
         > 
-          {categories.map((category, index) => (
+          {products?.map((product, index) => (
             <SwiperSlide key={index}>
                 {/* <div className=" flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl p-8">
                 <img src={course}  className="cursor-pointer  hover:scale-110 transition-all ease-in-out"/>
                 </div> */}
                 {/* <ProductCard/> */}
-                <SubCategoryCard subCategory={category}/>
+                <ProductCard product={product}/>
             </SwiperSlide>
           ))}
         </Swiper>

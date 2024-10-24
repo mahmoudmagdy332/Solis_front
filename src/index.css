@@ -126,3 +126,19 @@ body {
 .fade-img-hidden {
   opacity: 0;
 }
+
+
+.products-drop{
+  position: absolute;
+  top: 20px;
+  left: 10;
+}
+.products-menu{
+  display: none;
+  box-shadow: 5px 5px 20px rgba(174, 174, 174, 0.427);
+  background-color: #000000;
+  color: whitesmoke;
+}
+.products:hover .products-menu{
+  display: flex;
+ }
