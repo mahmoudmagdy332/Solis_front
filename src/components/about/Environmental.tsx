@@ -3,7 +3,7 @@ const Environmental = () => {
   return (
     <div className=" relative">
         <div className="absolute top-0 left-0 w-full h-full -z-10">
-         <img src="/images/slide.webp" className="w-full h-full object-cover"/>
+         <img  loading="lazy"  src="/images/slide.webp" className="w-full h-full object-cover"/>
         </div>
         <div className="absolute -z-10 w-full h-full top-0 left-0 bg-black opacity-70"></div>
 

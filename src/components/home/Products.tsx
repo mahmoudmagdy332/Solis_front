@@ -26,9 +26,9 @@ export const Products = () => {
         </div>
            <div className="w-screen mx-auto mt-16 py-16 flex flex-col items-center">
             
-            <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
+            <h2 className="text-center text-2xl w-11/12 font-bold md:w-3/4 lg:w-1/2">
             <FadeEffect transition={0.3} direction="down" duration={ 0.5}>
-            Our global brands
+             Most Selling Products
             </FadeEffect>
            
             

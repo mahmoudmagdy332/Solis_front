@@ -1,33 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import languageSlice from "./slices/languageSlice";
-// import UserSlice from "./slices/UserSlice";
 import settingSlice from "./slices/settingSlice";
-// import coursesSlice from "./slices/coursesSlice";
-// import AboutusSlice from "./slices/AboutusSlice";
-// import FQsSlice from "./slices/FQsSlice";
-// import CareersSlice from "./slices/CareersSlice";
-// import categoriesSlice from "./slices/categoriesSlice";
+import CategorySlice from "./slices/CategorySlice";
+import ProductSlice from "./slices/ProductSlice";
 import homeSlice from "./slices/homeSlice";
-// import ArticleCatSlice from "./slices/ArticleCatSlice";
-// import PackageSLice from "./slices/PackageSLice";
-// import myLearningSlice from "./slices/myLearningSlice";
+import MarketSlice from "./slices/MarketSlice";
 import BlogSlice from "./slices/BlogSlice";
-
+import CareerSlice from "./slices/CareerSlice";
 export const store = configureStore({
   reducer: {
-    // languageReducer: languageSlice,
-    // UserReducer: UserSlice,
     settingReducer: settingSlice,
-    // CoursesReducer: coursesSlice,
-    // AboutAsReducer: AboutusSlice,
-    // QuestionReducer: FQsSlice,
-    // PackageReducer: PackageSLice,
-    // ArticleCategoryReducer: ArticleCatSlice,
-    // CareersReducer: CareersSlice,
-    // categoriesReducer: categoriesSlice,
+    categoriesReducer: CategorySlice,
+    ProductReducer:ProductSlice,
     BlogReducer: BlogSlice,
+    CareerReducer: CareerSlice,
     homeReducer: homeSlice,
-    // myLearningReducer:myLearningSlice,
+    MarketReducer:MarketSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

@@ -4,7 +4,7 @@ import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 const Header = () => {
     const {pathname} = useLocation();
     const [navbar, setNavbar] = useState(true);
-    const { setting,header_pages,main_categories } = useSettingSliceSelector((state) => state.settingReducer);
+    const { setting,header_pages,main_categories,footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
 
     useEffect(()=>{
           window.addEventListener("scroll", changeBackground);
@@ -50,18 +50,40 @@ const Header = () => {
                <div
                  className= "block py-1 products-nav text-[#BBBEBF] px-1 text-nowrap text-sm  cursor-pointer hover:text-white hover:border-b-2 border-white transition-all ease-in-out"               
                  >{page.title}</div>
-                  <div className="min-w-40  products-menu  shadow-sm flex flex-col  absolute top-['30px'] left-0  ">
-                  {main_categories.map((main_category)=>(
-                    <Link className="p-3 hover:bg-gray-800" key={main_category.id} to={`/main-category/${main_category.id}`}>
-               
-                    {main_category.name}
-                    
-                 </Link>
-                  ))}
+                 <div className="products-show">
+                 <div className="min-w-40  products-menu  shadow-sm flex flex-col  absolute top-['30px'] left-0  ">
+                 <h3 className="text-[#181919] text-lg font-semibold mb-6">Take a tour of the products we serve</h3>
+                
+                  <div className="grid grid-cols-4 gap-y-2">
+                          {main_categories.map((main_category)=>(
+                            <Link to={`/main-category/${main_category.id}/${main_category.name}`} key={main_category.id} className="text-sm text-[#353535]">{main_category.name}</Link>
+                          ))}
+            
+                         </div>
                   </div>
-  
-              
+                 </div>
+                 
               </div>
+              ):page.slug==='markets'?(
+                <div className="relative market">
+                <div
+                  className= "block py-1  market-nav text-[#BBBEBF] px-1 text-nowrap text-sm  cursor-pointer hover:text-white hover:border-b-2 border-white transition-all ease-in-out"               
+                  >{page.title}
+                  </div>
+                   <div className="market-show">
+                      <div className="  market-menu  shadow-sm flex flex-col  absolute -top-['20px'] left-0  ">
+                         <h3 className="text-[#808384] text-lg font-semibold">Take a tour of the markets we serve</h3>
+                         <p className="text-[#808384] text-sm my-4">Solis serves the needs of customers in a variety of market applications. From controlled environments of a data center to the demanding continuity of the power grid. </p>
+                         <p className="mb-4">Markets</p>
+                         <div className="grid grid-cols-4 gap-y-2">
+                          {footer_markets.map((market)=>(
+                            <Link to={`/market/${market.id}/${market.name}`} key={market.id} className="text-sm text-[#353535]">{market.name}</Link>
+                          ))}
+            
+                         </div>
+                      </div>
+                   </div>
+               </div>
               ):(
                 <NavLink to={`/${page.slug}`}
                 className={({ isActive }) =>

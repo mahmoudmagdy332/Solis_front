@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import Hero from "../components/blog/Hero";
 import Galary from "../components/Product/Galary";
 import LightEffect from "../components/Product/LightEffect";
 import ShadersSlider from "../components/Product/OverView";
+import useProduct from "../app/utils/hooks/useProduct";
+import { Link, useParams } from "react-router-dom";
+import Loader from "../components/common/Loader";
+import { useProductSliceSelector } from "../app/slices/ProductSlice";
+import Docoments from "../components/Product/Docoments";
 
 const ProductDetails = () => {
   const overviewRef = useRef<HTMLDivElement>(null);
@@ -11,7 +15,12 @@ const ProductDetails = () => {
   const detailsRef = useRef<HTMLDivElement>(null);
   const accessoriesRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState("Overview");
+  const { id } = useParams<{ id: string}>();
+  const { sub_category,product_files,effects,
+    product_application_images ,name,description} 
+  = useProductSliceSelector((state) => state.ProductReducer);
 
+  const { isLoading, isError, error,refetch } = useProduct(id);
   const handleScrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
@@ -42,16 +51,53 @@ const ProductDetails = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(()=>{
+    refetch()
+  },[id])
 
+  if (isLoading) {
+    return (
+      <div className="flex h-screen justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+  if (isError)
+    return (
+      <div className="h-96 flex justify-center items-center">
+        Error: {error?.message}
+      </div>
+    );
   return (
     <div>
-      <Hero title="Product" />
+      <div className="relative ">
+      <div className="  absolute w-screen  h-full top-0 left-0 -z-10">
+      <img src="/images/page-electronicdesign.webp" className=" w-full h-full object-cover	 "/>
+      <div className="absolute w-full h-full top-0 left-0 bg-black opacity-80"></div>
+
+      </div>
+      <div className=" w-full h-64 flex  items-center">
+        <div className="w-11/12 mx-auto mt-10 flex flex-col gap-3 text-white">
+           <div className="flex gap-2 items-center">
+            <Link to={`/main-category/${sub_category?.category?.main_category?.id}/${sub_category?.category?.main_category?.name}`} className="hover:text-gray-300 transition-all ease-in-out">{sub_category?.category?.main_category?.name}</Link>
+             <div className="text-sm">/</div>
+            <Link to={`/category/${sub_category?.category?.id}/${sub_category?.category?.name}`} className="hover:text-gray-300 transition-all ease-in-out">{sub_category?.category?.name}</Link>
+            <div className="text-sm">/</div>
+            <Link to={`/category/${sub_category?.id}/${sub_category?.name}`} className="hover:text-gray-300 transition-all ease-in-out">{sub_category?.name}</Link>
+
+            </div>
+            
+           <h3 className="text-3xl lg:text-5xl font-semibold">{name}</h3>            
+        </div>
+</div>
+</div>
+      
       <div className="bg-gray-50 grid grid-cols-4 gap-2 p-10">
         <div className="text-left hidden md:block md:col-span-1  relative">
           <div className="sticky top-20 left-20">
-            <button className="text-red-500 flex items-center space-x-2 mb-6">
-              <span className="text-lg font-bold mb-4">← All Blade R</span>
-            </button>
+            <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`} className="text-red-500 flex items-center space-x-2 mb-6">
+              <span className="text-lg font-bold mb-4">← All {sub_category?.name}</span>
+            </Link>
             <ul className="space-y-5">
               <li
                 className={` ${
@@ -63,26 +109,31 @@ const ProductDetails = () => {
               >
                 Overview
               </li>
-              <li
+              {effects.length>0&&(
+                <li
                 className={`${
                   activeSection === "Lighting Effects"
                     ? "text-red-500 font-bold"
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(lightingRef)}
-              >
+                >
                 Lighting Effects
-              </li>
-              <li
+                </li>
+              )}
+             
+              {product_application_images.length>0&&(
+                <li
                 className={`${
                   activeSection === "Application Imagery"
                     ? "text-red-500 font-bold"
                     : "text-gray-600"
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(imageryRef)}
-              >
+                >
                 Application Imagery
-              </li>
+                </li>
+              )}         
               <li
                 className={`${
                   activeSection === "Product Details"
@@ -93,7 +144,8 @@ const ProductDetails = () => {
               >
                 Product Details
               </li>
-              <li
+              {product_files.length>0&&(
+                <li
                 className={`${
                   activeSection === "Accessories Details"
                     ? "text-red-500 font-bold "
@@ -101,8 +153,10 @@ const ProductDetails = () => {
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(accessoriesRef)}
               >
-                Accessories Details
+                Downloads
               </li>
+              )}
+              
             </ul>
           </div>
         </div>
@@ -113,40 +167,41 @@ const ProductDetails = () => {
               <ShadersSlider />
             </div>
 
-            <div className="py-10">
-              <img src="images/overview.jpg" alt="" />
-            </div>
+          
 
             <div className="grid md:grid-cols-2 grid-cols-1">
               <div className="h-[450px] col-span-1">
                 <img
-                  src="images/blade.jpg"
+                  src={sub_category?.image}
                   className="h-full"
                   alt=""
                 />
               </div>
               <div className="col-span-1 space-y-8 p-8 bg-white">
-                <p className="text-6xl font-bold text-red-600">Blade R</p>
+                <p className="text-6xl font-bold text-red-600">{sub_category?.name}</p>
                 <p className="text-gray-700 text-xl">All In One</p>
-                <p className="text-md text-gray-500">From chaos to order.</p>
-                <p>
-                  Blade R develops the concept of integration in architecture to
-                  improve people’s well-being through the smart activation of
-                  safety, entertainment, comfort and sustainability services.
-                </p>
-                <button>Discover</button>
+                {sub_category?.description&&(
+                    <p
+                    dangerouslySetInnerHTML={{ __html: sub_category.description }}
+                    className="text-gray-600  "
+                    />
+                  )}
+                <button></button>
+                <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`}>Discover</Link>
               </div>
             </div>
-
-            <div
+            {effects.length>0&&(
+              <div
               ref={lightingRef}
               className="w-full flex flex-col gap-4 py-10 border-b-4"
             >
               <p className="text-2xl text-gray-500">Lighting Effects</p>
               <LightEffect />
             </div>
-
-            <div
+            )}
+          
+            {product_application_images.length>0&&(
+              <div
               ref={imageryRef}
               className="w-full flex flex-col gap-4 py-20 border-b-4"
             >
@@ -155,173 +210,36 @@ const ProductDetails = () => {
               </p>
               <Galary />
             </div>
+            )}
+          
 
-            <div ref={detailsRef} className="w-full flex flex-col gap-4">
-              <p className="text-2xl text-gray-500">Accessories details</p>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                <li>
-                  Flush mount installation on false ceilings of thickness from
-                  12.5 to 25 mm for Minimal versions (without perimeter flap) or
-                  1 to 25 mm for Frame versions (with flap) using torsion
-                  springs.
-                </li>
-                <li>
-                  Main body with radiant surface made of die-cast aluminium.
-                </li>
-                <li>
-                  High-definition optics made of metallised thermoplastic
-                  material, integrated in the innovative black anti-glare screen
-                  that defines emission with luminance control UGR&lt;10.
-                </li>
-                <li>
-                  The special configuration of the optical system delivers a
-                  precise circular distribution without punctiform effect.
-                </li>
-                <li>
-                  Functional elements can be inserted into the product to
-                  increase its potentialities: framers for accent lighting and
-                  double emission, emergency lights, audio speakers,
-                  multi-sensors, and sockets for connecting smoke sensors and
-                  video cameras.
-                </li>
-                <li>
-                  For the smoke detector and its base, always adhere strictly to
-                  the manufacturer’s instructions and local standards.
-                </li>
-                <li>High visual comfort.</li>
-                <li>Installation without tools.</li>
-                <li>IP20.</li>
-                <li>
-                  IP23 on the visible body of the mount after installation.
-                </li>
-              </ul>
-            </div>
+           
           </div>
           <div
-            ref={accessoriesRef}
+            ref={detailsRef}
             className="w-full flex flex-col gap-4 py-10"
           >
             <p className="text-2xl text-gray-500">Product Details</p>
-            <ul className="list-disc">
-              <li>
-                Functional elements can be inserted into the product to increase
-                its potentialities: framers for accent lighting and double
-                emission, emergency lights, audio speakers, multi-sensors and
-                sockets for connecting smoke sensors and video cameras.
-              </li>
-            </ul>{" "}
-            <div className="bg-white p-8 flex flex-col gap-4 mt-20">
-              <ul className="flex gap-4 flex-wrap">
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries1.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries2.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries3.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries4.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries4.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries5.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries6.jpg" alt="" />
-                </li>
-              </ul>
-              <ul className="flex gap-4 flex-wrap">
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries7.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries8.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries9.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries9.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries10.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries11.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries12.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries13.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries14.jpg" alt="" />
-                </li>
-                <li className="w-20 h-20">
-                  <img src="images/Accessoiries15.jpg" alt="" />
-                </li>
-              </ul>
-            </div>
+            {description&&(
+                    <p
+                    dangerouslySetInnerHTML={{ __html: description }}
+                    className="text-gray-600  "
+                    />
+                  )}
             <div>
-              <p className="text-2xl text-gray-500 mb-4">
-                Colours available for Blade R ø170mm
-              </p>
-              <ul className="grid grid-cols-3 gap-4">
-                <li className="flex items-center gap-4">
-                  <img src="images/color1.png" alt="" />
-                  <p> 01 White</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color2.png" alt="" />
-                  <p> 43 Black/Black</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color3.png" alt="" />
-                  <p> 01 White</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color1.png" alt="" />
-                  <p> 43 Black/Black</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color2.png" alt="" />
-                  <p> 04 White</p>
-                </li>
-              </ul>
+          
+            
             </div>
-            <div>
-              <p className="text-md font-bold text-gray-700 mb-4">
-                Further colours on request
-              </p>
-              <ul className="grid grid-cols-3 gap-4">
-                <li className="flex items-center gap-4">
-                  <img src="images/fscolor1.png" alt="" />
-                  <p> 41 White / gold</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color2.png" alt="" />
-                  <p> 43 Black/Black</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color3.png" alt="" />
-                  <p> 01 White</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color1.png" alt="" />
-                  <p> 43 Black/Black</p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <img src="images/color2.png" alt="" />
-                  <p> 04 White</p>
-                </li>
-              </ul>
-            </div>
+          
           </div>
+          {product_files.length>0&&(
+            <div ref={accessoriesRef} className="w-full flex flex-col gap-4">
+             
+              <Docoments/>
+              
+            </div>
+          )}
+          
         </div>
       </div>
     </div>

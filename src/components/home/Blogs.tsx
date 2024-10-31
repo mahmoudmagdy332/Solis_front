@@ -6,20 +6,18 @@ import "swiper/css/pagination";
 import { IoIosArrowForward } from "react-icons/io";
 import FadeEffect from "../common/FadeEffect";
 import { Link } from "react-router-dom";
+import { useHomeSliceSelector } from "../../app/slices/homeSlice";
+import { format } from "date-fns";
 
 const Blogs = () => {
-    const serveses=[  
-        {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-        {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-        {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-        {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-        {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-]
+  const { news } = useHomeSliceSelector((state) => state.homeReducer);
+
+ 
   return (
     
     <div className=" relative markets">
           <div className="absolute top-0 flex justify-start left-0 w-full h-full opacity-80 -z-50">
-           <img src="/images/Solis Brown Logo.svg" />
+           <img src="/images/Solis Brown Logo.svg"  />
         </div> 
            <div className="w-screen mx-auto  py-4 flex  flex-col gap-6 items-center">
           
@@ -62,16 +60,19 @@ const Blogs = () => {
             },
           }}
         > 
-          {serveses.map((servese, index) => (
+          {news?.map((servese, index) => (
             <SwiperSlide key={index}>
-                <div className=" flex flex-col gap-2 justify-center items-center card-blog hover:shadow-xl bg-black text-white  h-84 border-1  rounded-md ">
-                <img src={servese.image}  className="w-full  rounded-t-md"/>
+                <div className=" flex flex-col gap-2 justify-center  card-blog hover:shadow-xl bg-black text-white  h-84 border-1  rounded-md ">
+                <div className="h-64 overflow-hidden">
+                <img src={servese.image}  className="w-full   rounded-t-md"/>
+
+                </div>
                 <div className="px-4 py-6 flex flex-col gap-4">
-                <p className="text-sm">{servese.date}</p>
+                <p className="text-sm">{format(servese.updated_at, "MMMM dd, yyyy")}</p>
                 <h3 className="text-xl font-bold">{servese.title}:</h3>
                 <p className="text-gray-300 text-sm leading-6 font-thin">{servese.description}</p>
                 <div className="flex justify-start">
-                <Link to="/blog/1"  className="flex items-center text-md gap-2 border border-white rounded-sm px-4 py-2 hover:bg-white hover:text-black transition-all ease-in-out">
+                <Link to={`/blog/${servese.id}`}  className="flex items-center text-md gap-2 border border-white rounded-sm px-4 py-2 hover:bg-white hover:text-black transition-all ease-in-out">
                      <p >Read more</p>
                     <IoIosArrowForward />
                 </Link>

@@ -2,65 +2,68 @@ import {useState } from "react";
 import DownLite from "./DownLite";
 import SubCategoryCard from "./SubCategoryCard";
 import CategoryCard from "./CategoryCard";
+import { useCategorySliceSelector } from "../../app/slices/CategorySlice";
 
 function ProductItems() {
   const [show,setShow]=useState(true);
-  const categories=[
-    {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]}
-    ]},
-    {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]},
-      {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-        '300k/3020h/',
-        'General Lighting','UGR<19','Oval','Wall Washer'
-      ]}
-    ]}
-  ]
+  // const categories=[
+  //   {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]}
+  //   ]},
+  //   {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]},
+  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
+  //       '300k/3020h/',
+  //       'General Lighting','UGR<19','Oval','Wall Washer'
+  //     ]}
+  //   ]}
+  // ]
   const changeShow=()=>{
      setShow((old)=>!old);
      
   }
+  const { categories } = useCategorySliceSelector((state) => state.categoriesReducer);
+  
   return (
     <div className="flex flex-col gap-10 ">
     <div className="flex items-center gap-2">
@@ -79,10 +82,10 @@ function ProductItems() {
     </div>
     <div >
       {show?(
-        categories.map((category)=>(
+        categories?.map((category)=>(
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 mb-16">
            <DownLite category={category}/>
-          {category.sub.map((subCategory) =>
+          {category?.sub_categories?.map((subCategory) =>
            <SubCategoryCard subCategory={subCategory}/>
           )}
           </div>
@@ -90,7 +93,7 @@ function ProductItems() {
         ))
       ):(
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-          { categories.map((category)=>(
+          { categories?.map((category)=>(
          <CategoryCard category={category}/>
         ))}
         </div>

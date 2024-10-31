@@ -13,7 +13,7 @@ const MainLinks: React.FC = () => {
       </div>
       <div className="flex items-center gap-2">
         <Link to="/Blogs" className="hover:text-secondary text-lg">
-          Our Blog 1
+          Our Blog
         </Link>
       </div>
     </nav>

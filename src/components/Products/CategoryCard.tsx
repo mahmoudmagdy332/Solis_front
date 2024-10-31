@@ -1,15 +1,11 @@
 import { Link } from "react-router-dom";
+import { category } from "../../app/utils/types/types";
 
-type CategoryCardType={
-    category:{
-        name:string;
-        image:string 
-    }
-}
-const CategoryCard = ({category}:CategoryCardType) => {
+
+const CategoryCard = ({category}:{category:category}) => {
     return (
-        <Link to="/category/1" className="flex flex-col bg-gray-200 hover:bg-black text:black hover:text-white transition-all ease-in-out">
-          <img src={category.image} alt="" />
+        <Link to={`/category/${category.id}/${category.name}`} className="flex flex-col bg-gray-200 hover:bg-black text:black hover:text-white transition-all ease-in-out">
+          <img src={category.image} className="h-72 w-full object-cover" alt="" />
           <p className="text-center font-semibold px-8 py-4 ">
             {category.name}
           </p>

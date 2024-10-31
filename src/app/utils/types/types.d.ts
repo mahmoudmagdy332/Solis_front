@@ -1,12 +1,29 @@
 export interface IFormContuctInput {
-  f_name: string;
-  l_name: string;
+  name: string;
   email: string;
   phone: string;
-  order_number: string;
+  company_name:string;
+  product_type:string
   subject: string;
+  file:File;
   message: string;
 }
+
+export type ApplyJop = {
+  file: File;
+  email: string;
+  name: string;
+  phone?: string;
+  current_location?: string;
+  current_company?: string;
+  linked_in?: string;
+  git_hub?: string;
+  portfolio?: string;
+  other_website?: string;
+  why_interested?: string;
+  addition_information?: string;
+  career_id: number | undefined;
+};
 export interface IFormAddCommentInput {
   name: string;
   email: string;
@@ -23,6 +40,7 @@ export type setting= {
   youtube:string,
   email: string,
   mobile: string,
+  address:string,
   linkedin: string,
   description: string,
   footer_logo: string,
@@ -49,17 +67,13 @@ footer_projects:title[],
 main_categories:name[]
 };
 export interface New {
+  id:number;
   image:string,
   title:string,
   description:string,
   updated_at:string
 };
-export interface Market {
-  id:number;
-  image:string,
-  name:string,
-  description:string,
-};
+
 export interface Product {
   image:string,
   name:string,
@@ -86,6 +100,7 @@ export type productCardType={
   }[]
 }
 export type Blog = {
+  id:number;
   description: string;
   title: string;
   image: string;
@@ -96,4 +111,86 @@ export type BLogType = {
   Blogs: Blog[] | null;
   currentPage: number;
   last_page: number;
+};
+
+export type Career = {
+  title: string;
+  description: string;
+  short_description: string;
+  address: string;
+  image: string;
+  type: string;
+  place: string;
+  id:number;
+};
+export type CareerType = {
+  Careers: Career[] | null;
+  currentPage: number;
+  last_page: number;
+};
+
+export type sub_category = {
+  id: number;
+  image:string;
+  name:string;
+  description: string;
+  features: string;
+  products:productCardType[]|undefined;
+  category:category|undefined;
+};
+
+export type category = {
+  sub_categories: sub_category[] ;
+  name: string;
+  description:string;
+  image:string;
+  id:number;
+  main_category:name|undefined
+};
+
+export type categoryType = {
+  categories: category[];
+
+};
+
+export type files={
+  id:number;
+  file: string;
+  name: string;
+}
+export type productType = {
+  id: number|null;
+  image: string|null;
+  name: string|null;
+  description: string|null;
+  product_application_images:{image:string}[];
+  product_images:{image:string}[];
+  effects:{
+    name: string,
+    image: string,
+    image_effect: string,
+  }[],
+  product_files:files[]
+  sub_category:sub_category|undefined,
+};
+
+export type project = {
+  image: string,
+  video: string,
+  title: string,
+  description: string,
+
+};
+
+export type Market = {
+id:number,
+image: string,
+name: string,
+description: string,
+products:productCardType[],
+};
+
+export type MarketType = {
+  allMarket: Market[],
+  selected_market: Market|null,
 };

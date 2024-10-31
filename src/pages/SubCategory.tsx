@@ -1,17 +1,47 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import ProductCard from "../components/Products/ProductCard"
+import Loader from "../components/common/Loader";
+import { useEffect, useState } from "react";
+import { sub_category } from "../app/utils/types/types";
+import { ProductsQuery } from "../app/services/queries";
 
 const SubCategory = () => {
+  const { id } = useParams<{ id: string,name:string }>();
+  const [category,setCategory]=useState<sub_category>();
+  const { isLoading,data, isError, error,refetch } = ProductsQuery(id);
+   useEffect(()=>{
+    refetch();
+   },[id])
+   
+   useEffect(()=>{
+    if(data)
+      setCategory(data.data.data); 
+            
+   },[data])
+   if (isLoading) {
+    return (
+      <div className="flex h-screen justify-center items-center">
+        <Loader />
+      </div>
+    );
+  }
+  if (isError)
+    return (
+      <div className="h-96 flex justify-center items-center">
+        Error: {error?.message}
+      </div>
+    );
+  
   return (
     <div className="">
-    <div className="bg-black py-10">
+   <div className="bg-black py-10">
         <div className="w-11/12 mx-auto mt-10 flex flex-col gap-3 text-white">
            <div className="flex gap-2 items-center">
-            <Link to="/" className="hover:text-gray-300 transition-all ease-in-out">Products</Link>
+            <Link to={`/main-category/${category?.category?.main_category?.id}/${category?.category?.main_category?.name}`} className="hover:text-gray-300 transition-all ease-in-out">{category?.category?.main_category?.name}</Link>
              <div className="text-sm">/</div>
-            <Link to="/" className="hover:text-gray-300 transition-all ease-in-out">Downlights</Link>
+            <Link to={`/category/${category?.category?.id}/${category?.category?.name}`} className="hover:text-gray-300 transition-all ease-in-out">{category?.category?.name}</Link>
             </div>
-           <h3 className="text-3xl lg:text-5xl font-semibold">Blade R</h3>            
+           <h3 className="text-3xl lg:text-5xl font-semibold">{category?.name}</h3>            
         </div>
     </div>
 <div className="bg-gray-100">
@@ -20,25 +50,31 @@ const SubCategory = () => {
         
         
         <div className="grid lg:grid-cols-2 items-center gap-6 bg-white">
-             <img src="/images/temp/blade-r-logo-line.jpg"/>
+             <img src={category?.image}  loading="lazy"  alt={`subCategoryImage ${category?.name}`}/>
              <div className="bg-white py-8 flex flex-col gap-6 px-3">
-                  <h3 className="text-4xl lg:text-6xl text-black font-semibold">Blade R</h3>
+                  <h3 className="text-4xl lg:text-6xl text-black font-semibold">{category?.name}</h3>
                   <p className=" text-xl lg:text-3xl text-gray-400">All In One</p>
-                  <p className=" text-gray-600">From chaos to order.
-                    Blade R develops the concept of integration in architecture to improve people’s well-being through the smart activation of safety, entertainment, comfort and sustainability services.</p>
+                 
+                  {category?.description&&(
+                    <p
+                    dangerouslySetInnerHTML={{ __html: category.description }}
+                    className="text-gray-600  "
+                    />
+                  )}
+                 
              </div>
         </div>
         <div className="flex flex-col gap-5">
-            <h4 className="text-2xl font-medium">Lighting Fixtures</h4>
+            <h4 className="text-2xl font-medium">Products</h4>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-                {Array.from({ length: 6 }).map((_, index) =>
-                    <ProductCard key={index} />
+                {category?.products?.map((product, index) =>
+                  <ProductCard product={product} key={index} />
                 )}
         </div>
         </div>
     </div>
 </div>
-</div>
+</div> 
 </div>
   )
 }

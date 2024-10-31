@@ -13,7 +13,7 @@ const Connected = () => {
              <p className="md:text-lg leading-9">Select the email communications you would like to receive - newsletters, product announcements from your favorite brands, education resources, project stories, and more!</p>
              <Link to='/' className=" md:text-lg flex gap-2 items-center mt-6">
              Subscribe
-             <img src="/icons/Vector-white.svg"/>
+             <img  loading="lazy"  src="/icons/Vector-white.svg"/>
              </Link>
          </div>
          <div className="bg-[#999C9D] text-white flex flex-col gap-4 justify-center items-center">
@@ -21,7 +21,7 @@ const Connected = () => {
               <div className="flex gap-3"> 
                  {sosials.map((sosial)=>(
                     <a href={sosial.link} className="w-10 h-10 hover:bg-black transition-all ease-in-out rounded-full bg-[#6A6A6A] flex p-3 justify-center items-center">
-                        <img src={sosial.image} className="max-h-5"/>
+                        <img  loading="lazy"  src={sosial.image} className="max-h-5"/>
                     </a>
                  ))}    
               </div>

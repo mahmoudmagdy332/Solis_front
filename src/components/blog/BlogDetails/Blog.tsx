@@ -1,10 +1,18 @@
-function Blog() {
+import { format } from "date-fns";
+import { Blog as blogType } from "../../../app/utils/types/types";
+
+function Blog({blog}:{blog:blogType}) {
+ 
   return (
     <div className="flex flex-col gap-4 my-10 px-4">
-      <img src="images/Botique1.png" alt="" />
-      <h3>Importance of specialized foucus in portfolio oil & gas</h3>
-      <h5>sep 26,2024</h5>
-      <p>
+      <img src={blog?.image} loading="lazy"  alt={blog?.title} />
+      <h3>{blog?.title}</h3>
+      <h5>{format(blog.updated_at, "MMMM dd, yyyy")}</h5>
+      <p
+          dangerouslySetInnerHTML={{ __html: blog.description }}
+          className="  "
+        />
+      {/* <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
         tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit
         amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut
@@ -26,7 +34,7 @@ function Blog() {
         containing Lorem Ipsum passages, and more recently with desktop
         publishing software like Aldus PageMaker including versions of Lorem
         Ipsum.
-      </p>
+      </p> */}
     </div>
   );
 }

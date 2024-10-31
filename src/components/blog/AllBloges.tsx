@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom"
 import Card from "./Card"
-import Pagination from "../common/Pagination"
 import FadeEffect from "../common/FadeEffect"
 import Loader from "../common/Loader"
 import useBlogs from "../../app/utils/hooks/useBlogs"
 import { useBlogsSliceSelector } from "../../app/slices/BlogSlice"
+import Pagination from "./Pagination"
+import { useEffect, useRef } from "react"
 
 const AllBloges = () => {
-//     const serveses=[  
-//         {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-//         {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-//         {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-//         {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-//         {date:'Jan 20, 2022',title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Image.png'},
-// ]
+
 const { Blogs ,currentPage} = useBlogsSliceSelector((state) => state.BlogReducer);
 
 const { isLoading, isError, error } = useBlogs(currentPage);
+
+
+const scrollRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  if (scrollRef.current && currentPage !== 1) {
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+}, [currentPage]);
+
+
 if (isLoading) {
   return (
     <div className="flex h-screen justify-center items-center">
@@ -48,7 +54,7 @@ if (isError)
                 And Any Related Industry Care Field.
             </FadeEffect>
             </div>
-            
+            <div ref={scrollRef} className="h-20"></div>
            
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-12">

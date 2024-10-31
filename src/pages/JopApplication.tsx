@@ -2,56 +2,51 @@
 // import JopRadioInput from "../components/jop/JopRadioInput";
 // import JopCheckInput from "../components/jop/JopCheckInput";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import JopInput from "../components/jop/JopInput";
 import JopTextArea from "../components/jop/JopTextArea";
+import { ApplyJop, Career } from "../app/utils/types/types";
+import { useJopApplicationMutation } from "../app/services/mutation";
+import { toast } from "react-toastify";
 
-export interface FormValues {
-  resume: File;
-  email: string;
-  pronouns: string;
-  full_name: string;
-  phone?: string;
-  current_location?: string;
-  current_company?: string;
-  linkedin_url?: string;
-  github_url?: string;
-  portfolio_url?: string;
-  other_website?: string;
-  interest_note?: string;
-  teaching_sample?: string;
-  teaching_experience?: string;
-  additional_information?: string;
-  career_id: string | undefined;
-}
+
 
 export const JopApplication = () => {
   // const { id } = useParams<{ id: string }>();
  
-
+  const [career,setCareer]=useState<Career>();
+  useEffect(()=>{
+    const careerStorage=localStorage.getItem('career');
+    if(careerStorage){
+     setCareer(JSON.parse(careerStorage));
+    }
+  },[])
+  const { mutate, isPending, error } = useJopApplicationMutation();
+  
+  
   const {
     handleSubmit,
     register,
     formState: { errors },
     control,
-  } = useForm<FormValues>();
+  } = useForm<ApplyJop>();
   const [resumeName, setResumeName] = useState<File | null>(null);
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<ApplyJop> = (data) => {
     console.log(data)
     if (resumeName) {
-      // mutate(
-      //   { ...data, career_id: id, resume: resumeName },
-      //   {
-      //     onSuccess: () => {
-      //       toast.success(` Apply job is success`);
-      //     },
-      //     onError:()=>{
-      //       toast.error(error?.response?.data.message); 
-      //       console.log('error',error)
-      //     }
-      //   }
-      // );
+      mutate(
+        { ...data, career_id: career?.id, file: resumeName },
+        {
+          onSuccess: () => {
+            toast.success(` Apply job is success`);
+          },
+          onError:()=>{
+            toast.error(error?.response?.data.message); 
+            console.log('error',error)
+          }
+        }
+      );
     }
   };
 
@@ -60,7 +55,7 @@ export const JopApplication = () => {
       setResumeName(e.target.files[0]);
     }
   };
-
+  
   return (
     <div>
       
@@ -77,15 +72,11 @@ export const JopApplication = () => {
          
             className="text-white font-medium text-2xl"
           >
-            Senior Producer (Machine Learning & Artificial Intelligence)
+            {career?.title}
           </p>
-          <p
-          className="text-white  text-lg"
-          >
-            Americas
-          </p>
+         
 
-          <div className="text-white">Content / Full-time / Remote</div>
+          <div className="text-white">{career?.type} / {career?.place} / Open</div>
         </div>
       </div>
     </div>
@@ -121,12 +112,13 @@ export const JopApplication = () => {
                   </p>
                   
                 </label>
-                <p className="text-red-500">{errors.resume?.message}</p>
+                <p className="text-red-500">{errors.file?.message}</p>
                 <input
                   type="file"
                   id="avatar-upload"
-                  {...register("resume", {
+                  {...register("file", {
                     required: "Resume is required",
+                  
                   })}
                   className="hidden"
                   onChange={(e) => handleResumeChange(e)}
@@ -146,10 +138,10 @@ export const JopApplication = () => {
                   rules={{
                     required: "Full Name is required",
                   }}
-                  name="full_name"
+                  name="name"
                   control={control}
                   render={({ field }) => (
-                    <JopInput {...field} error={errors?.full_name?.message} />
+                    <JopInput {...field} error={errors?.name?.message} />
                   )}
                 />
 
@@ -165,17 +157,20 @@ export const JopApplication = () => {
                   name="email"
                   control={control}
                   render={({ field }) => (
-                    <JopInput {...field} error={errors?.full_name?.message} />
+                    <JopInput {...field} error={errors?.name?.message} />
                   )}
                 />
 
                 <p
                  
                 >
-                  Phone{" "}
+                  Phone<span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="phone"
+                  rules={{
+                    required: "Phone is required",
+                  }}
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
                 />
@@ -183,20 +178,26 @@ export const JopApplication = () => {
                 <p
                 
                 >
-                  Current location{" "}
+                  Current location<span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="current_location"
+                  rules={{
+                    required: "current location is required",
+                  }}
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
                 />
                 <p
                 
                 >
-                  Current company{" "}
+                  Current company<span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="current_company"
+                  rules={{
+                    required: "current company is required",
+                  }}
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
                 />
@@ -213,7 +214,7 @@ export const JopApplication = () => {
                   LinkedIn URL{" "}
                 </p>
                 <Controller
-                  name="linkedin_url"
+                  name="linked_in"
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
                 />
@@ -223,7 +224,7 @@ export const JopApplication = () => {
                   GitHub URL{" "}
                 </p>
                 <Controller
-                  name="github_url"
+                  name="git_hub"
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
                 />
@@ -234,7 +235,7 @@ export const JopApplication = () => {
                   Portfolio URL{" "}
                 </p>
                 <Controller
-                  name="portfolio_url"
+                  name="portfolio"
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
                 />
@@ -260,54 +261,21 @@ export const JopApplication = () => {
                   position/company. <span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
-                  name="interest_note"
+                  name="why_interested"
                   control={control}
                   render={({ field }) => <JopTextArea {...field} />}
                 />
               </div>
 
-              <p
-               
-              >
-                Teaching sample
-              </p>
-              <div className="grid grid-cols-1  items-center justify-start gap-y-8">
-                <p >
-                  If you’re the right fit for this role, you probably have a
-                  blog, have designed some lessons, or have some amazing past
-                  projects; please share links to one or more artifacts you'd
-                  like to highlight, we’d love to check them out!
-                </p>
-                <Controller
-                  name="teaching_sample"
-                  control={control}
-                  render={({ field }) => <JopInput {...field} />}
-                />
-              </div>
-
-              <p
               
-              >
-                Teaching experience (ML)
-              </p>
-              <div className="grid grid-cols-1  items-center justify-start gap-y-8">
-                <p >
-                  Please summarize your teaching experience. We're particularly
-                  interested in hearing about your experiences teaching machine
-                  learning, AI, and data science topics!{" "}
-                </p>
-                <Controller
-                  name="teaching_experience"
-                  control={control}
-                  render={({ field }) => <JopTextArea {...field} />}
-                />
-              </div>
+
+            
               <div className="grid grid-cols-1  items-center justify-start gap-y-8">
                 <p >
                   Addition information
                 </p>
                 <Controller
-                  name="additional_information"
+                  name="addition_information"
                   control={control}
                   render={({ field }) => <JopTextArea {...field} />}
                 />
@@ -315,31 +283,22 @@ export const JopApplication = () => {
             </div>
           
             <div className="flex justify-center my-20">
-              {/* {isPending?(
-                  <Button
-                  sx={{
-                    bgcolor: "primary.main",
-                    "&:hover": { bgcolor: "black.dark" },
-                    color: "background.default",
-                    fontWeight: "600",
-                    px: "30px",
-                    py: "15px",
-                    borderRadius: "5px",
-                    display:'flex',
-                    gap:'10px'
-                  }}
-                >
-                   loading
-                  <CircularProgress size="1rem" variant="indeterminate" sx={{color:'background.default'}}/>
-                </Button>
-              ):( */}
+              {isPending?(
+                 <button type="button" className="py-3 px-8 text-white bg-black  cursor-not-allowed font-medium rounded-lg text-lg  text-center flex items-center gap-2" disabled>
+                   Loading
+                 <svg aria-hidden="true" role="status" className="inline w-5 h-5 me-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+                 <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+                 </svg>
+               </button>
+              ):(
               <button
            className="bg-white hover:bg-black transition-all ease-in-out border border-black text-black hover:text-white px-4 py-2 rounded"
              type="submit"
           >
              Submit application
           </button>
-                
+              )}    
            
             </div>
           </div>

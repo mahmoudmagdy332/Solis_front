@@ -63,9 +63,9 @@ const routes = createHashRouter([
           </Suspense>
         ),
       },
-      { path: "/main-category/:id", element: <Products/> },
-      { path: "/category/:id", element: <Category /> },
-      { path: "/sub-category/:id", element: <SubCategory /> },
+      { path: "/main-category/:id/:name", element: <Products/> },
+      { path: "/category/:id/:name", element: <Category /> },
+      { path: "/sub-category/:id/:name", element: <SubCategory /> },
       { path: "/product/:id", element: <Product /> },
 
       { path: "*", element: <NotFound /> },

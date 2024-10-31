@@ -10,11 +10,11 @@ const Products = () => {
                 <p className="text-[#4A4A4A] lg:text-xl">We are the North American market leader in smart lighting and building management systems that enable intelligent spaces and drive performance. We offer the most comprehensive product portfolio across all indoor and outdoor applications, including location-aware technology.</p>
                 <Link to="/" className="text-[#353535] lg:text-xl flex gap-2 items-center">
                 Browse our products
-                <img src="/icons/Vector-black.svg"/>
+                <img  loading="lazy"  src="/icons/Vector-black.svg"/>
                 </Link>
              </div>
              <div className="relative">
-                <img src="images/temp/about_products.png" className="h-80 absolute -top-32 end-0"/>
+                <img src="images/temp/about_products.png"  loading="lazy"  className="h-80 absolute -top-32 end-0"/>
              </div>
         </div>
         </div>

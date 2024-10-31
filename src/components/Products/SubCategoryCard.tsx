@@ -1,18 +1,13 @@
 import {  useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-type SubCategoryCardType={
-  subCategory:{
-      name:string;
-      image:string ;
-      list:string[];
-  }
-}
-function SubCategoryCard({subCategory}:SubCategoryCardType) {
+import { sub_category } from "../../app/utils/types/types";
+
+function SubCategoryCard({subCategory}:{subCategory:sub_category}) {
   const [isHovered, setIsHovered] = useState(false);
   console.log('isHovered',isHovered)
   return (
-    <Link to="/sub-category/1" 
+    <Link to={`/sub-category/${subCategory.id}/${subCategory.name}`} 
     onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}
  
@@ -23,9 +18,17 @@ function SubCategoryCard({subCategory}:SubCategoryCardType) {
         animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 300}}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="h-72 w-full bg-gray-200 absolute left-0 top-0 z-10  flex p-5 flex-col items-center text-center text-black justify-center ">
-            {subCategory.list.map((item,idx)=>(
+            {/* {subCategory.list.map((item,idx)=>(
                <div className={`text-center flex justify-center w-full text-sm py-1 ${idx!==0&&'border-t border-gray-500'}`}>{item}</div>
-            ))}
+            ))} */}
+            
+            {subCategory.features&&(
+              <p
+              dangerouslySetInnerHTML={{ __html: subCategory.features }}
+              className="sub_features"
+              />
+            )}
+           
           </motion.div>
  
         <motion.div

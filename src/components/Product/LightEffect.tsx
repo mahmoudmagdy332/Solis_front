@@ -1,56 +1,37 @@
 import { useState } from "react";
 import classes from "./LightEffect.module.css";
+import { useProductSliceSelector } from "../../app/slices/ProductSlice";
 
 function LightEffect() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const images = [
-    {
-      LgImage: "images/Light1.jpg",
-      SmImage: "images/lightsm3.png",
-      alt: "Flood Light",
-      caption: "F - Flood",
-    },
-    {
-      LgImage: "images/Light2.jpg",
-      SmImage: "images/lightsm2.png",
-      alt: "Spot Light",
-      caption: "S - Spot",
-    },
-    {
-      LgImage: "images/Light3.jpg",
-      SmImage: "images/lightsm1.jpg",
-      alt: "Ambient Light",
-      caption: "A - Ambient",
-    },
-  ];
-
+  const { effects } = useProductSliceSelector((state) => state.ProductReducer);
+  
   const handleClick = (index: number) => {
     setCurrentImageIndex(index);
   };
-
+  
   return (
     <div className={classes.container}>
       <div className={classes.mainDisplay}>
         <img
-          src={images[currentImageIndex].LgImage}
+          src={effects[currentImageIndex]?.image}
           className={classes.mainImage}
-          alt={images[currentImageIndex].alt}
+          alt={effects[currentImageIndex]?.name}
         />
         <div className={classes.caption}>
-          {images[currentImageIndex].caption}
+          {effects[currentImageIndex]?.name}
         </div>
       </div>
 
       <div className={classes.thumbnailContainer}>
-        {images.map((image, index) => (
+        {effects?.map((effect, index) => (
           <img
             key={index}
-            src={image.SmImage}
+            src={effect.image_effect}
             className={`${classes.smallImage} ${
               index === currentImageIndex ? classes.activeThumbnail : ""
             }`}
-            alt={`Thumbnail of ${image.alt}`}
+            alt={`Thumbnail of ${effect.name}`}
             onClick={() => handleClick(index)}
           />
         ))}

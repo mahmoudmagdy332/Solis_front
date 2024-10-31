@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useQuery } from "@tanstack/react-query";
-import { getBlogsAPI, getHomeAPI, getPageAPI, getSettingAPI } from "../utils/api";
+import { getBlogAPI, getBlogsAPI, getCareersAPI, getCategoriesQueryAPI, getHomeAPI, getMarketsAPI, getPageAPI, getProductAPI, getProductsQueryAPI, getProjectsAPI, getSettingAPI, getSubCategoriesQueryAPI } from "../utils/api";
 // import {
 //   allBooksAPI,
 //   coursesAPI,
@@ -44,7 +44,7 @@ export function settingQuery() {
     queryKey: ["setting"],
     queryFn: async () => await getSettingAPI(),
     refetchOnMount: false,
-    retry: 1,
+    retry: 0,
   });
 }
 
@@ -92,14 +92,66 @@ export function settingQuery() {
 //   });
 // }
 
-// export function categoriesQuery() {
-//   return useQuery({
-//     queryKey: ["categories"],
-//     queryFn: async () => await getCategoriesQueryAPI(),
-//     refetchOnMount: false,
-//     retry: 1,
-//   });
-// }
+export function CategoriesQuery(id:string|undefined) {
+  return useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => await getCategoriesQueryAPI(id),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+export function MarketQuery() {
+  return useQuery({
+    queryKey: ["markets"],
+    queryFn: async () => await getMarketsAPI(),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+
+
+export function BlogQuery(id:string|undefined) {
+  return useQuery({
+    queryKey: ["blog"],
+    queryFn: async () => await getBlogAPI(id),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+
+export function ProductQuery(id:string|undefined) {
+  return useQuery({
+    queryKey: ["product"],
+    queryFn: async () => await getProductAPI(id),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+
+export function ProjecysQuery() {
+  return useQuery({
+    queryKey: ["projects"],
+    queryFn: async () => await getProjectsAPI(),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+export function SubCategoriesQuery(id:string|undefined) {
+  return useQuery({
+    queryKey: ["sub-categories"],
+    queryFn: async () => await getSubCategoriesQueryAPI(id),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+export function ProductsQuery(id:string|undefined) {
+  return useQuery({
+    queryKey: ["products"],
+    queryFn: async () => await getProductsQueryAPI(id),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
 
 
 
@@ -108,12 +160,15 @@ export function homeQuery() {
     queryKey: ["home"],
     queryFn: async () => await getHomeAPI(),
     refetchOnMount: false,
+    retry: 0,
   });
 }
 export function pageQuery(id:string|undefined) {
   return useQuery({
     queryKey: ["page"],
     queryFn: async () => await getPageAPI(id),
+    refetchOnMount: false,
+    retry: 0,
   });
 }
 export function BlogsQuery(currentPage: number) {
@@ -123,6 +178,16 @@ export function BlogsQuery(currentPage: number) {
     refetchOnMount: false,
   });
 }
+
+export function CareersQuery(currentPage: number) {
+  return useQuery({
+    queryKey: ["careers", currentPage],
+    queryFn: async () => await getCareersAPI(currentPage),
+    refetchOnMount: false,
+  });
+}
+
+
 
 
 
