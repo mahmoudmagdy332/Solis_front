@@ -7,9 +7,12 @@ import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
-import ProductCard from "../Products/ProductCard";
+
+import { useSettingSliceSelector } from "../../app/slices/settingSlice";
+// import ProductCard from "../Products/ProductCard";
 export const Products = () => {
   const { products } = useHomeSliceSelector((state) => state.homeReducer);
+  const { main_categories } = useSettingSliceSelector((state) => state.settingReducer);
 
     // const images=['/images/temp/Rynk.png',
     //     '/images/temp/Frame 1618872995.png ',
@@ -65,11 +68,12 @@ export const Products = () => {
         > 
           {products?.map((product, index) => (
             <SwiperSlide key={index}>
-                {/* <div className=" flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl p-8">
-                <img src={course}  className="cursor-pointer  hover:scale-110 transition-all ease-in-out"/>
-                </div> */}
+                <div className="relative flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl ">
+                 <h2 className="absolute left-2 top-2 z-20">{product.name}</h2>
+                <img src={product.image}  className="cursor-pointer w-full h-full  object-cover hover:scale-110 transition-all ease-in-out"/>
+                </div>
                 {/* <ProductCard/> */}
-                <ProductCard product={product}/>
+                {/* <ProductCard product={product}/> */}
             </SwiperSlide>
           ))}
         </Swiper>
@@ -79,7 +83,7 @@ export const Products = () => {
         </div>
         <div className="flex justify-center">
         <FadeEffect transition={0.1} direction="right" duration={0.9}>
-        <Link to="/products" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+        <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
           See More Products
           <img src="/icons/Vector-black.svg" className="w-3 "/>
         </Link> 

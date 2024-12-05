@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 
 import FadeEffect from "../common/FadeEffect";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
+import { Link } from "react-router-dom";
 const Prands = () => {
   const { brands } = useHomeSliceSelector((state) => state.homeReducer);
 
@@ -58,16 +59,16 @@ const Prands = () => {
         </FadeEffect>
       </div>
      
-        {/* <div className="flex justify-center">
+        <div className="flex justify-center">
         <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
           
-        <Link to="/" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+        <Link to="/brands" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
           See all brands
           <img src="/icons/Vector-black.svg" className="w-3 "/>
         </Link> 
           </FadeEffect>
        
-        </div> */}
+        </div>
 
     </div>
   )

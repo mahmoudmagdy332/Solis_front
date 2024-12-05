@@ -7,8 +7,10 @@ import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
+import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 const Markets = () => {
   const { markets } = useHomeSliceSelector((state) => state.homeReducer);
+  const { footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
 
     // const serveses=[  {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971.png'},
     //                 {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (3).png'},
@@ -70,7 +72,7 @@ const Markets = () => {
                   <img src={market.image}  className="w-full h-32 object-cover scale-110 border-b-2 border-yellow-500  hover:scale-100 transition-all ease-in-out rounded-t-xl"/>
                   <div className="p-4 flex flex-col gap-2 h-64 overflow-hidden items-start justify-around">
                   <h3 className="text-xl font-semibold ">{market.name}</h3>
-                  <p className="">{market.description}</p>
+                  <p className="">{market.card_description}</p>
                   </div>
                   </Link>
               </SwiperSlide>
@@ -83,7 +85,7 @@ const Markets = () => {
           </div>
           <div className="flex justify-center">
           <FadeEffect transition={0.2} direction="right" duration={ 0.7}>
-            <Link to="/market/1/Overview" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+            <Link to={`/market/${footer_markets[0].id}/${footer_markets[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
               See More Markets
               <img src="/icons/Vector-black.svg" className="w-3 "/>
               </Link> 

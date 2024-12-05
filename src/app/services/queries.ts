@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useQuery } from "@tanstack/react-query";
-import { getBlogAPI, getBlogsAPI, getCareersAPI, getCategoriesQueryAPI, getHomeAPI, getMarketsAPI, getPageAPI, getProductAPI, getProductsQueryAPI, getProjectsAPI, getSettingAPI, getSubCategoriesQueryAPI } from "../utils/api";
+import { getAboutAPI, getBlogAPI, getBlogsAPI, getBrandsAPI, getCareersAPI, getCategoriesQueryAPI, getHomeAPI, getMarketsAPI, getPageAPI, getProductAPI, getProductsQueryAPI, getProjectsAPI, getSettingAPI, getSubCategoriesQueryAPI } from "../utils/api";
 // import {
 //   allBooksAPI,
 //   coursesAPI,
@@ -109,11 +109,28 @@ export function MarketQuery() {
   });
 }
 
+export function BrandsQuery() {
+  return useQuery({
+    queryKey: ["Brands"],
+    queryFn: async () => await getBrandsAPI(),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+
 
 export function BlogQuery(id:string|undefined) {
   return useQuery({
     queryKey: ["blog"],
     queryFn: async () => await getBlogAPI(id),
+    refetchOnMount: false,
+    retry: 0,
+  });
+}
+export function AboutQuery() {
+  return useQuery({
+    queryKey: ["about"],
+    queryFn: async () => await getAboutAPI(),
     refetchOnMount: false,
     retry: 0,
   });

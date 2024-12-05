@@ -24,6 +24,7 @@ export const getBlogAPI = (id:string|undefined) => api.get(`blog/${id}`);
 
 export const getProjectsAPI = () => api.get(`projects`);
 export const getMarketsAPI = () => api.get(`markets`);
+export const getBrandsAPI = () => api.get(`/brands`);
 
 export const getHomeAPI = () => api.get("home");
 export const getPageAPI = (id:string|undefined) => api.get(`page/${id}`);
@@ -36,16 +37,7 @@ export const getCareersAPI = (currentPage: number) =>
 export const contactUsAPI = (contuctForm: IFormContuctInput) =>
   api.post("/contact_us", contuctForm);
 
-
-
-
-
-
-
-
-
-
-export const getAboutAPI = () => api.get("about-us");
+export const getAboutAPI = () => api.get("about");
 
 
 

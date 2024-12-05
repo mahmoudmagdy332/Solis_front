@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import useSetting from "../../app/utils/hooks/useSetting";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import Loader from "../common/Loader";
+import MouseFollower from "../common/MouseFollower";
 
 const MainLayout = () => {
   const { error } = useSetting();
@@ -29,6 +30,7 @@ const MainLayout = () => {
   return (
     <div>
          <Header/>
+         <MouseFollower/>
          <div className="min-h-screen ">
          <Outlet />
          </div> 

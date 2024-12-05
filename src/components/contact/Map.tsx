@@ -2,7 +2,7 @@
 const Map = () => {
   return (
     <div className="w-11/12 lg:w-10/12 mx-auto mt-16">
-           <p className="text-[#353535] text-[32px]">         
+           <p className="text-[#353535] text-[18px] md:text-[24px] lg:text-[32px]">         
             Experience, listening, dedication.
 Trust our lighting expertise developed over more than 15 years at your service.
   </p>

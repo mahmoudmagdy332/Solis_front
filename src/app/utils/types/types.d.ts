@@ -64,13 +64,21 @@ footer_products:name[],
 footer_markets:name[],
 footer_careers: title[],
 footer_projects:title[],
-main_categories:name[]
+main_categories:name[],
+footer_blogs:{
+  id: number,
+  image: string,
+  created_at: string,
+  title: string,
+  card_description:string
+}[]
 };
 export interface New {
   id:number;
   image:string,
   title:string,
   description:string,
+  card_description:string,
   updated_at:string
 };
 
@@ -104,7 +112,7 @@ export type Blog = {
   description: string;
   title: string;
   image: string;
-  short_description: string;
+  card_description:string,
   updated_at: string;
 };
 export type BLogType = {
@@ -186,6 +194,7 @@ export type Market = {
 id:number,
 image: string,
 name: string,
+card_description:string,
 description: string,
 products:productCardType[],
 };
@@ -194,3 +203,11 @@ export type MarketType = {
   allMarket: Market[],
   selected_market: Market|null,
 };
+
+export type aboutSection={
+    id:number,
+    image: string,
+    title: string,
+    description: string,
+}
+export type aboutType=aboutSection[]

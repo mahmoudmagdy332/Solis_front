@@ -30,15 +30,15 @@ const Home = () => {
   return (
   <>
   {homeData&&(
- <Seo title={homeData?.data.data.meta_title}
- description={homeData?.data.data.meta_description}
- keywords={homeData?.data.data.meta_keywords}
+ <Seo title={homeData?.data.data?.meta_title}
+ description={homeData?.data.data?.meta_description}
+ keywords={homeData?.data.data?.meta_keywords}
 />
   )}
     
      <Hero
       
-      content={homeData?.data.data.content}
+      content={homeData?.data.data?.content}
      />
      <Prands/>
      <Products/>

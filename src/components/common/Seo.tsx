@@ -16,7 +16,7 @@ const Seo: FC<SeoProps> = ({ title, description, keywords }) => {
   return (
     <div>
       <Helmet>
-        <title>{`${title} || Solis`}</title>
+        <title>{`${title?(title+' ||'):''}  Solis`}</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content={keywords && keywords} />

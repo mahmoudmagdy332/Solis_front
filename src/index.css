@@ -2,15 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: revert;
+    font-weight: revert;
 
+  }
+
+
+  ul, ol {
+    list-style-type: disc; /* إعادة أنماط القوائم */
+  }
+
+}
 @font-face{
   font-family: myFont;
   src: url('/public/fonts/eurostile-lt-pro-unicode/EurostileLTProUnicode.otf');
 }
+
 body {
   overflow-x: hidden !important;  
-  font-family: myFont;
+  /* font-family: myFont; */
+  font-family: "Open Sans", sans-serif;
+  cursor: none;
 }
+
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
  .swiper-horizontal > .swiper-pagination-bullets,
@@ -177,3 +193,48 @@ body {
   border-bottom:none ;
   
 }
+
+
+/* المؤشر الداخلي */
+.cursor-inner {
+
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+}
+
+/* المؤشر الخارجي */
+.cursor-outer {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+}
+
+/* حالة التفاعل (Hover) */
+.cursor-outer.hover {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.cursor-inner.hover {
+  background-color: white;
+  width: 16px;
+  height: 16px;
+}
+
+/* عناصر قابلة للنقر */
+.hoverable,.cursor-pointer {
+  cursor: none; /* إخفاء المؤشر الافتراضي */
+}
+

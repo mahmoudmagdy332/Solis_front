@@ -42,7 +42,7 @@ function Markets() {
       <h1 className="py-10 border-b-2 my-8 text-[34px] font-semibold">
         {title}
       </h1>
-      <div className="lg:hidden flex flex-start mb-4">
+      <div className="lg:hidden  mb-4">
         <MenuSideBar />
       </div>
       <div className="lg:flex gap-4">

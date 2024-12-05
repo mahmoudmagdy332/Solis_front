@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { LuMenu } from "react-icons/lu";
+import { useMarketSliceSelector } from "../../app/slices/MarketSlice";
+import { NavLink } from "react-router-dom";
 
 function MenuSideBar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const { allMarket } = useMarketSliceSelector((state) => state.MarketReducer);
 
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -31,9 +35,9 @@ function MenuSideBar() {
 
   return (
     <div>
-      <div className="text-center">
+      <div className=" flex flex-col justify-end items-end">
         <button
-          className="text-white bg-black hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 focus:outline-none"
+          className="text-white bg-black hover:bg-gray-600   font-medium rounded-lg text-sm px-3 py-2.5 mb-2 focus:outline-none"
           type="button"
           onClick={toggleDrawer}
           onKeyDown={(e) => e.key === "Enter" && toggleDrawer()}
@@ -41,7 +45,7 @@ function MenuSideBar() {
           aria-expanded={isOpen}
           aria-label="Toggle menu sidebar"
         >
-          Category
+          <LuMenu/>
         </button>
       </div>
 
@@ -52,24 +56,19 @@ function MenuSideBar() {
         } transition-transform duration-300 ease-in-out`}
         id="drawer-menu"
       >
-        <ul>
-          {[
-            "Overview",
-            "Commercial",
-            "Data Center",
-            "Healthcare",
-            "Industrial",
-            "Institutional",
-            "OEM",
-            "Oil & Gas",
-            "Power & Utility",
-            "Renewables",
-            "Residential",
-            "Water & Gas",
-            "Wireless Communications",
-          ].map((item) => (
-            <li key={item} className="text-[16px] p-4 border-b-2 font-bold">
-              {item}
+        <ul className="mt-20 flex flex-col">
+          {allMarket.map((click) => (
+            <li key={click.id} onClick={toggleDrawer} className="text-[16px] py-2  border-b-2 flex flex-col   font-bold">
+              <NavLink  
+           to={`${click.id}/${click.name}`} key={click.id}
+           className={({ isActive }) =>
+            ` ${
+              isActive ? "  bg-gray-200" : " "
+            }  text-[16px] p-3  font-bold  text-nowrap  hover:bg-gray-200   transition-all ease-in-out`
+          }
+            >
+             {click.name}
+         </NavLink>
             </li>
           ))}
         </ul>

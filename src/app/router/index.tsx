@@ -21,6 +21,7 @@ import { Suspense } from "react";
 import SingleJop from "../../pages/SingleJop";
 import { JopApplication } from "../../pages/JopApplication";
 import Page from "../../pages/Page";
+import Brands from "../../pages/Brands";
 const routes = createHashRouter([
   {
     path: "/",
@@ -41,9 +42,10 @@ const routes = createHashRouter([
         children: [{ path: ":id/:title", element: <Market /> }],
       },
 
-      { path: "/conrtact_us", element: <Contact /> },
+      { path: "/contact_us", element: <Contact /> },
       { path: "/about_us", element: <About /> },
       { path: "/blogs", element: <Blog /> },
+      { path: "/brands", element: <Brands /> },
 
       // { path: "/products", element: <Products /> },
       { path: "/products/:id", element: <ProductDetails /> },
@@ -68,12 +70,13 @@ const routes = createHashRouter([
       { path: "/sub-category/:id/:name", element: <SubCategory /> },
       { path: "/product/:id", element: <Product /> },
 
-      { path: "*", element: <NotFound /> },
+      { path: "/not-found", element: <NotFound /> },
 
       { path: "/projects", element: <Boutiques /> },
       { path: "/careers", element: <Careers /> },
       { path: "/blog/:id", element: <BlogDetails /> },
       { path: "/:id", element: <Page /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);

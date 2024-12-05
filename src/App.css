@@ -1,3 +1,10 @@
 .products-menu{
     display: none;
   }
+  .market_description ol{
+    list-style-type: decimal;
+  }
+
+  .market_description li{
+    list-style-type: circle;
+  }
