@@ -24,7 +24,7 @@ body {
   overflow-x: hidden !important;  
   /* font-family: myFont; */
   font-family: "Open Sans", sans-serif;
-  cursor: none;
+  /* cursor: none; */
 }
 
 .swiper-pagination-fraction,
@@ -234,7 +234,7 @@ body {
 }
 
 /* عناصر قابلة للنقر */
-.hoverable,.cursor-pointer {
-  cursor: none; /* إخفاء المؤشر الافتراضي */
-}
+/* .hoverable,.cursor-pointer {
+  cursor: none;
+} */
 
