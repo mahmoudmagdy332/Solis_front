@@ -55,7 +55,9 @@ const Header = () => {
                 
                   <div className="grid grid-cols-4 gap-y-2">
                           {main_categories.map((main_category)=>(
-                            <Link to={`/main-category/${main_category.id}/${main_category.name}`} key={main_category.id} className="text-sm text-[#353535]">{main_category.name}</Link>
+                            <Link to={`/main-category/${main_category.id}/${main_category.name}`} key={main_category.id}
+                            target={page.link_type==='external'?"_blank":"_self"} rel={page.link_follow}
+                            className="text-sm text-[#353535]">{main_category.name}</Link>
                           ))}
             
                          </div>
@@ -76,7 +78,9 @@ const Header = () => {
                          <p className="mb-4">Markets</p>
                          <div className="grid grid-cols-4 gap-y-2">
                           {footer_markets.map((market)=>(
-                            <Link to={`/market/${market.id}/${market.name}`} key={market.id} className="text-sm text-[#353535]">{market.name}</Link>
+                            <Link to={`/market/${market.id}/${market.name}`} key={market.id} 
+                            target={page.link_type==='external'?"_blank":"_self"} rel={page.link_follow}
+                            className="text-sm text-[#353535]">{market.name}</Link>
                           ))}
             
                          </div>
@@ -85,6 +89,7 @@ const Header = () => {
                </div>
               ):(
                 <NavLink to={`/${page.slug}`}
+                target={page.link_type==='external'?"_blank":"_self"} rel={page.link_follow}
                 className={({ isActive }) =>
                  ` ${
                    isActive ? "border-b-2 border-white text-white" : " text-[#BBBEBF]"

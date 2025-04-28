@@ -11,7 +11,7 @@ import { store } from "./app/store";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./app/utils/hooks/queryClient";
 function App() {
-
+  
   return (
     <>
         <ReduxProvider store={store}>

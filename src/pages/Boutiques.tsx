@@ -4,7 +4,7 @@ import Modal from "../components/common/VideoModal";
 import Loader from "../components/common/Loader";
 import { ProjecysQuery } from "../app/services/queries";
 import { project } from "../app/utils/types/types";
-
+import root from 'react-shadow';
 function Boutiques() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideoSrc, setSelectedVideoSrc] = useState("");
@@ -96,7 +96,15 @@ function Boutiques() {
           >
             <div className="flex flex-col gap-4">
               <h2 className="font-semibold text-3xl">{project.title}</h2>
-              <p className="text-xl">{project.description}</p>
+            
+              {project?.description&&(
+           <root.div className="quote">
+          <p
+          dangerouslySetInnerHTML={{ __html: project.description }}
+          
+          />
+          </root.div>
+        )}
             </div>
           </FadeEffect>
         </div>

@@ -9,6 +9,12 @@ export interface IFormContuctInput {
   message: string;
 }
 
+export interface IFormnewsletterInput {
+
+  email: string;
+}
+
+
 export type ApplyJop = {
   file: File;
   email: string;
@@ -51,6 +57,13 @@ export type title= {
   title: string,
   slug:string,
 }
+export type page= {
+  id: number,
+  title: string,
+  slug:string,
+  link_type:string,
+  link_follow:string
+}
 export type name= {
   id: number,
   name: string,
@@ -58,8 +71,8 @@ export type name= {
 export type settingType = {
 loading:boolean,
 setting: setting|null,
-header_pages: title[],
-footer_pages: title[],
+header_pages: page[],
+footer_pages: page[],
 footer_products:name[],
 footer_markets:name[],
 footer_careers: title[],
@@ -73,14 +86,7 @@ footer_blogs:{
   card_description:string
 }[]
 };
-export interface New {
-  id:number;
-  image:string,
-  title:string,
-  description:string,
-  card_description:string,
-  updated_at:string
-};
+
 
 export interface Product {
   image:string,
@@ -91,7 +97,7 @@ export interface Brand {
   image:string,
 };
 export type homeType = {
-  news: New[] | null;
+  news: Blog[] | null;
   markets: Market[] | null;
   products: productCardType[] | null;
   brands: Brand[] | null;
@@ -107,6 +113,10 @@ export type productCardType={
     image_effect: string,
   }[]
 }
+export type blog_category = {
+  id:number;
+  name: string;
+};
 export type Blog = {
   id:number;
   description: string;
@@ -114,6 +124,7 @@ export type Blog = {
   image: string;
   card_description:string,
   updated_at: string;
+  blog_category:blog_category;
 };
 export type BLogType = {
   Blogs: Blog[] | null;

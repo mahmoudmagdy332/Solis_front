@@ -85,10 +85,13 @@ const Markets = () => {
           </div>
           <div className="flex justify-center">
           <FadeEffect transition={0.2} direction="right" duration={ 0.7}>
-            <Link to={`/market/${footer_markets[0].id}/${footer_markets[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+            {footer_markets[0]&&(
+              <Link to={`/market/${footer_markets[0].id}/${footer_markets[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
               See More Markets
               <img src="/icons/Vector-black.svg" className="w-3 "/>
               </Link> 
+            )}
+            
             </FadeEffect>
           </div>
 

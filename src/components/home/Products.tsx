@@ -83,10 +83,13 @@ export const Products = () => {
         </div>
         <div className="flex justify-center">
         <FadeEffect transition={0.1} direction="right" duration={0.9}>
-        <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+          {main_categories[0]&&(
+            <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
           See More Products
           <img src="/icons/Vector-black.svg" className="w-3 "/>
         </Link> 
+          )}
+        
         </FadeEffect>
        
         </div>

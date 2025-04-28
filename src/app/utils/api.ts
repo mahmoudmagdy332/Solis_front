@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { baseUrl } from "../config";
-import { ApplyJop, IFormContuctInput } from "./types/types";
+import { ApplyJop, IFormContuctInput, IFormnewsletterInput } from "./types/types";
 
 const api = axios.create({
   baseURL: baseUrl(),
@@ -36,6 +36,9 @@ export const getCareersAPI = (currentPage: number) =>
 
 export const contactUsAPI = (contuctForm: IFormContuctInput) =>
   api.post("/contact_us", contuctForm);
+
+export const newsletterAPI = (newsletterForm: IFormnewsletterInput) =>
+  api.post("/newsletter", newsletterForm);
 
 export const getAboutAPI = () => api.get("about");
 

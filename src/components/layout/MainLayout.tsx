@@ -31,6 +31,7 @@ const MainLayout = () => {
     <div>
          <Header/>
          <MouseFollower/>
+         
          <div className="min-h-screen ">
          <Outlet />
          </div> 

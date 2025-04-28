@@ -1,4 +1,5 @@
 import { useMarketSliceSelector } from "../../app/slices/MarketSlice";
+import root from 'react-shadow';
 
 
 function Institutional() {
@@ -11,14 +12,19 @@ function Institutional() {
         {/* <h2 className="font-semibold">
           Healthcare and Educational facilities have their own needs.
         </h2> */}
-        {selected_market?.description&&(
+       
+         {selected_market?.description&&(
+           <root.div className="quote">
           <p
           dangerouslySetInnerHTML={{ __html: selected_market.description }}
           
           />
-          
+          </root.div>
         )}
-        {selected_market&&selected_market.description}
+      
+ 
+       
+       
       </div>
        {selected_market&&selected_market?.products.length>0&&(
            <div className="flex flex-col gap-6">
@@ -29,12 +35,12 @@ function Institutional() {
              </span>
              <div className="border-t border-gray-300 w-full"></div>
            </div>
-           <div className="flex justify-between items-center gap-8">
+           <div className="grid grid-cols-2 lg:grid-cols-3 justify-between items-center gap-8">
              {selected_market?.products.map((product)=>(
                <img
                src={product.image}
                alt="Image 1"
-               className="w-1/3 h-40 object-contain"
+               className=" h-40 object-contain"
              />
              ))}
              

@@ -17,7 +17,9 @@ const Footer = () => {
              <div className="flex flex-col gap-2    ">
                  <p  className="font-bold text-white">Products</p>
                  {main_categories.map((main_category)=>(
-                 <Link key={main_category.id} to={`/main-category/${main_category.id}/${main_category.name}`} className="text-white">{main_category.name}</Link>
+                 <Link key={main_category.id} to={`/main-category/${main_category.id}/${main_category.name}`}
+                 
+                 className="text-white">{main_category.name}</Link>
                  ))}
              </div>
              <div className="flex flex-col gap-2    ">
@@ -42,7 +44,9 @@ const Footer = () => {
              <div className="flex flex-col gap-2    ">
                  <p  className="font-bold text-white">Contact</p>
                  {footer_pages.map((page)=>(
-                 <Link to={page.slug} className="text-gray-300 text-md">{page.title}</Link>
+                 <Link to={page.slug} 
+                 target={page.link_type==='external'?"_blank":"_self"} rel={page.link_follow}
+                 className="text-gray-300 text-md">{page.title}</Link>
                  ))}
              </div>
            </div>

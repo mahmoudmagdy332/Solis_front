@@ -37,11 +37,14 @@ if (isError)
     </div>
   );
   return (
-    <div className="my-12 w-11/12 lg:w-3/4 mx-auto"> 
+    <div className="my-12 w-11/12 lg:w-3/4 mx-auto "> 
         <div className="flex flex-col md:flex-row md:justify-between items-center gap-6">
         <FadeEffect transition={0.4} direction="right" duration={0.5}>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 relative">
+              <div className="absolute top-2 -start-20">
+                <img src="/public/icons/Horizontal Divider.svg"/>
+              </div>
                 <p className="font-semibold text-sm text-center md:text-start">Recent Articles</p>
                 <Link to="/" className="font-bold text-2xl text-center md:text-start">Read All News</Link>
             </div>

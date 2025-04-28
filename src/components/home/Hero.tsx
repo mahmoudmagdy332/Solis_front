@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
+import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 // import { useEffect, useState } from "react";
 const Hero = ({content}:{content:string}) => {
-  const sliders=['images/temp/Slider.png'];
+  const sliders=['images/home.jpg'];
+  const { main_categories } = useSettingSliceSelector((state) => state.settingReducer);
+
   // const [showImage, setShowImage] = useState(0);
   // const toggleImages = () => {
 
@@ -47,10 +50,13 @@ const Hero = ({content}:{content:string}) => {
                 />
           {/* <p className="text-white text-xl ">All-in-one solution</p> */}
           <FadeEffect transition={0.4} direction="right" duration={ 0.7}>
-          <Link to="/products" className="flex gap-3 px-6 py-2  justify-center items-center bg-white hover:bg-black hover:text-white transition-all ease-in-out  rounded-full mt-3" >
-              Explore
-             <img src="/icons/Vector-black.svg" className="w-3 "/>
+            {main_categories[0]&&(
+            <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`} className="flex gap-3 px-6 py-2  justify-center items-center bg-white hover:bg-black hover:text-white transition-all ease-in-out  rounded-full mt-3" >
+            Explore
+            <img src="/icons/Vector-black.svg" className="w-3 "/>
             </Link>
+            )}
+         
           </FadeEffect>
               
        </div>

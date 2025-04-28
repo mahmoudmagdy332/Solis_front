@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { ApplyJop, IFormContuctInput } from "../utils/types/types";
-import { ApplyJopAPI, contactUsAPI } from "../utils/api";
+import { ApplyJop, IFormContuctInput, IFormnewsletterInput } from "../utils/types/types";
+import { ApplyJopAPI, contactUsAPI, newsletterAPI } from "../utils/api";
 import { AxiosError } from "axios";
 
 
@@ -16,6 +16,14 @@ export const useContuctMutation = () => {
     });
   };
 
+  export const useNewsletterMutation = () => {
+    return useMutation({
+      mutationFn: (data: IFormnewsletterInput) => {
+        return newsletterAPI(data);
+      },
+    });
+  };
+  
   export const useJopApplicationMutation = () => {
     return useMutation({
       mutationFn: (data: ApplyJop) => {
