@@ -19,9 +19,10 @@ import BlogDetails from "../../pages/BlogDetails";
 import ProductDetails from "../../pages/Product";
 import { Suspense } from "react";
 import SingleJop from "../../pages/SingleJop";
-import { JopApplication } from "../../pages/JopApplication";
+
 import Page from "../../pages/Page";
 import Brands from "../../pages/Brands";
+import { JopApplication } from "../../pages/JopApplication";
 const routes = createHashRouter([
   {
     path: "/",

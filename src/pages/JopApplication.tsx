@@ -216,7 +216,13 @@ export const JopApplication = () => {
                 <Controller
                   name="linked_in"
                   control={control}
-                  render={({ field }) => <JopInput {...field} />}
+                  rules={{
+                    pattern: {
+                      value: /^(https?:\/\/)?([\w\d\-]+\.)+\w{2,}(\/\S*)?$/,
+                      message: "Invalid  URL",
+                    },
+                  }}
+                  render={({ field }) => <JopInput {...field} error={errors?.linked_in?.message}/>}
                 />
                 <p
                
@@ -225,8 +231,14 @@ export const JopApplication = () => {
                 </p>
                 <Controller
                   name="git_hub"
+                  rules={{
+                    pattern: {
+                      value: /^(https?:\/\/)?([\w\d\-]+\.)+\w{2,}(\/\S*)?$/,
+                      message: "Invalid  URL",
+                    },
+                  }}
                   control={control}
-                  render={({ field }) => <JopInput {...field} />}
+                  render={({ field }) => <JopInput {...field} error={errors?.git_hub?.message}/>}
                 />
 
                 <p
@@ -236,8 +248,14 @@ export const JopApplication = () => {
                 </p>
                 <Controller
                   name="portfolio"
+                  rules={{
+                    pattern: {
+                      value: /^(https?:\/\/)?([\w\d\-]+\.)+\w{2,}(\/\S*)?$/,
+                      message: "Invalid  URL",
+                    },
+                  }}
                   control={control}
-                  render={({ field }) => <JopInput {...field} />}
+                  render={({ field }) => <JopInput {...field} error={errors?.portfolio?.message}/>}
                 />
                 <p
                  
@@ -246,8 +264,14 @@ export const JopApplication = () => {
                 </p>
                 <Controller
                   name="other_website"
+                  rules={{
+                    pattern: {
+                      value: /^(https?:\/\/)?([\w\d\-]+\.)+\w{2,}(\/\S*)?$/,
+                      message: "Invalid  URL",
+                    },
+                  }}
                   control={control}
-                  render={({ field }) => <JopInput {...field} />}
+                  render={({ field }) => <JopInput {...field} error={errors?.other_website?.message} />}
                 />
               </div>
               <p
@@ -276,6 +300,7 @@ export const JopApplication = () => {
                 </p>
                 <Controller
                   name="addition_information"
+                  
                   control={control}
                   render={({ field }) => <JopTextArea {...field} />}
                 />
