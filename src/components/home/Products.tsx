@@ -68,10 +68,10 @@ export const Products = () => {
         > 
           {products?.map((product, index) => (
             <SwiperSlide key={index}>
-                <div className="relative flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl ">
+                <Link to={`/products/${product.id}`} className="relative flex justify-center items-center overflow-hidden h-72 bg-white rounded-2xl ">
                  <h2 className="absolute left-2 top-2 z-20">{product.name}</h2>
                 <img src={product.image}  className="cursor-pointer w-full h-full  object-cover hover:scale-110 transition-all ease-in-out"/>
-                </div>
+                </Link>
                 {/* <ProductCard/> */}
                 {/* <ProductCard product={product}/> */}
             </SwiperSlide>

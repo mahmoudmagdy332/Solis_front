@@ -218,13 +218,13 @@ export const JopApplication = () => {
                   control={control}
                   rules={{
                     pattern: {
-                      value: /^(https?:\/\/)?([\w\d\-]+\.)+\w{2,}(\/\S*)?$/,
+                      value: /^(https?:\/\/)?([\w\d-]+\.)+\w{2,}(\/\S*)?$/,
                       message: "Invalid  URL",
                     },
                   }}
                   render={({ field }) => <JopInput {...field} error={errors?.linked_in?.message}/>}
                 />
-                <p
+                {/* <p
                
                 >
                   GitHub URL{" "}
@@ -239,9 +239,9 @@ export const JopApplication = () => {
                   }}
                   control={control}
                   render={({ field }) => <JopInput {...field} error={errors?.git_hub?.message}/>}
-                />
+                /> */}
 
-                <p
+                {/* <p
                 
                 >
                   Portfolio URL{" "}
@@ -256,8 +256,10 @@ export const JopApplication = () => {
                   }}
                   control={control}
                   render={({ field }) => <JopInput {...field} error={errors?.portfolio?.message}/>}
-                />
-                <p
+                /> */}
+                
+                
+                {/* <p
                  
                 >
                   Other website{" "}
@@ -272,12 +274,12 @@ export const JopApplication = () => {
                   }}
                   control={control}
                   render={({ field }) => <JopInput {...field} error={errors?.other_website?.message} />}
-                />
+                /> */}
               </div>
               <p
                 
               >
-                Why are you interested in Brilliant?
+                Why are you interested in Solis?
               </p>
               <div className="grid grid-cols-1  items-center justify-start gap-y-8">
                 <p >

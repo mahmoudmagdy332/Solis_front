@@ -6,8 +6,8 @@ const Connected = ({section}:{section:aboutSection}) => {
 
     const sosials=[{image:'/icons/facebook.svg',link:setting?.facebook},
         {image:'/icons/instgram.svg',link:setting?.instagram},
-        {image:'/icons/twiter.svg',link:setting?.twitter},
-        {image:'/icons/linkdin.svg',link:setting?.linkedin}
+        {image:'/icons/linkdin.svg',link:setting?.twitter},
+        {image:'/icons/twiter.svg',link:setting?.linkedin}
     ]
 
   return (
