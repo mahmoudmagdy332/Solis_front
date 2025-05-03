@@ -2,11 +2,20 @@ import { useEffect, useState } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import MenuSideBar from "./MenuSideBar";
+import { changeLanguage, useLanguageSelector } from "../../app/slices/languageSlice";
+import { useDispatch } from "react-redux";
 const Header = () => {
     const {pathname} = useLocation();
     const [navbar, setNavbar] = useState(true);
     const { setting,header_pages,main_categories,footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
+    const dispatch = useDispatch();
+    const { lang } = useLanguageSelector((state) => state.LanguageReducer);
 
+    const toggleLanguage = () => {
+    const newLang = lang === 'en' ? 'ar' : 'en';
+    dispatch(changeLanguage(newLang));
+      window.location.reload();
+    };
     useEffect(()=>{
           window.addEventListener("scroll", changeBackground);
           const isHome = pathname === '/';
@@ -107,6 +116,13 @@ const Header = () => {
       
     </ul>
   </div>
+   <div   
+              className={`  hidden md:flex  items-center gap-2  pe-2 space-x-2 hover:text-blue-600 text-gray-600 cursor-pointer`}
+              onClick={toggleLanguage}
+            >
+
+              <span>{lang === 'en' ? 'العربية' : 'English'}</span>
+            </div>    
   </div>
 
 </nav>

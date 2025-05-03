@@ -13,6 +13,11 @@ export interface IFormnewsletterInput {
 
   email: string;
 }
+export type langInitialState={
+  lang: string;
+  translations: { [key: string]: string };
+  languageLoading: boolean;
+}
 
 
 export type ApplyJop = {

@@ -6,8 +6,11 @@ import homeSlice from "./slices/homeSlice";
 import MarketSlice from "./slices/MarketSlice";
 import BlogSlice from "./slices/BlogSlice";
 import CareerSlice from "./slices/CareerSlice";
+import LanguageSlice from "./slices/languageSlice";
+
 export const store = configureStore({
   reducer: {
+    LanguageReducer:LanguageSlice,
     settingReducer: settingSlice,
     categoriesReducer: CategorySlice,
     ProductReducer:ProductSlice,

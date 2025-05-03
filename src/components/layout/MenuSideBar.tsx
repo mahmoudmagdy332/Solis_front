@@ -64,11 +64,11 @@ function MenuSideBar() {
               {page.slug==='products'?(
              <div>
          
-               <MenuArray text='Products'>
+               <MenuArray text={page.title}>
                       <ul className="flex flex-col gap-2">
-                      {main_categories.map((market)=>(
+                      {main_categories.map((main_category)=>(
                               <li>
-                              <Link to={`/market/${market.id}/${market.name}`} key={market.id} className="text-sm text-white">{market.name}</Link>
+                              <Link to={`/main-category/${main_category.id}/${main_category.name}`} key={main_category.id} className="text-sm text-white">{main_category.name}</Link>
                               </li>
                             ))}
                       </ul>
@@ -77,7 +77,7 @@ function MenuSideBar() {
               ):page.slug==='markets'?(
                 <div>
                  
-                 <MenuArray text='Markets'>
+                 <MenuArray text={page.title}>
                       <ul className="flex flex-col gap-2">
                       {footer_markets.map((market)=>(
                               <li >
