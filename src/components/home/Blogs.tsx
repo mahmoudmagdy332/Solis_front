@@ -89,7 +89,10 @@ const Blogs = () => {
       
 
         </div>
-
+        <Link to={`/blogs`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
+              See More Blogs
+              <img src="/icons/Vector-black.svg" className="w-3 "/>
+              </Link> 
 
     </div>
     </div>
