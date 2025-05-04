@@ -7,15 +7,24 @@ import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import Loader from "../common/Loader";
 import MouseFollower from "../common/MouseFollower";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 const MainLayout = () => {
   const { error } = useSetting();
+  const { lang } = useLanguageSelector((state) => state.LanguageReducer);
+
   const { loading,setting } = useSettingSliceSelector((state) => state.settingReducer);
   const [showTooltip, setShowTooltip] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  useEffect(() => {
+    console.log(lang);
+    
+    if (lang === "ar") document.documentElement.dir = "rtl";
+    else document.documentElement.dir = "ltr";
+  }, [lang]);
   if (loading)
     return (
       <div className="flex h-screen justify-center items-center">

@@ -46,6 +46,13 @@ const Header = () => {
     <div className="lg:hidden  mb-4">
         <MenuSideBar />
       </div>
+      <div   
+              className={`  hidden md:flex  items-center gap-2  pe-2 space-x-2 hover:text-white text-gray-300 cursor-pointer`}
+              onClick={toggleLanguage}
+            >
+
+              <span>{lang === 'en' ? 'العربية' : 'English'}</span>
+            </div>  
   </div>
   <div className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1 " id="navbar-sticky">
     <ul className="flex flex-col lg:justify-center gap-y-4 my-2 flex-wrap p-4 lg:p-0 mt-4 font-medium  border-gray-100 rounded-lg  lg:space-x-8 rtl:space-x-reverse lg:flex-row  border-0   ">
@@ -116,13 +123,7 @@ const Header = () => {
       
     </ul>
   </div>
-   <div   
-              className={`  hidden md:flex  items-center gap-2  pe-2 space-x-2 hover:text-blue-600 text-gray-600 cursor-pointer`}
-              onClick={toggleLanguage}
-            >
-
-              <span>{lang === 'en' ? 'العربية' : 'English'}</span>
-            </div>    
+  
   </div>
 
 </nav>
