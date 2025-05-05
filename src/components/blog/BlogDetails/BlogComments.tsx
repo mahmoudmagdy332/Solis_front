@@ -1,10 +1,13 @@
+import { useLanguageSelector } from "../../../app/slices/languageSlice";
 import CommentCard from "./CommentCard";
 
 function BlogComments() {
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+  
   return (
     <div className="flex flex-col  gap-4 my-4">
       <h2 className=" w-11/12 mx-auto text-xl md:text-2xl lg:text-3xl font-semibold text-[#353535]">
-        Comments
+        {translations.Comments}
       </h2>
 
       {Array.from({ length: 3 }).map((_, index) => (

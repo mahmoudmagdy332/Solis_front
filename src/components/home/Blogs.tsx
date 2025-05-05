@@ -8,10 +8,12 @@ import FadeEffect from "../common/FadeEffect";
 import { Link } from "react-router-dom";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 import { format } from "date-fns";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 const Blogs = () => {
   const { news } = useHomeSliceSelector((state) => state.homeReducer);
 
+   const { translations } = useLanguageSelector((state) => state.LanguageReducer);
  
   return (
     
@@ -23,12 +25,12 @@ const Blogs = () => {
           
             <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
             <FadeEffect transition={0.1} direction="up" duration={ 0.5}>
-              Blogs
+              {translations.Blogs}
             </FadeEffect>
             </h2> 
             <p className="text-center  w-11/12 md:w-3/4 lg:w-1/2">
             <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
-            Keep yourself updated with the latest marketing news and updates.
+            {translations.Keep_yourself}
             </FadeEffect>
             </p> 
 
@@ -76,7 +78,7 @@ const Blogs = () => {
                 <p className="text-gray-300 text-sm leading-6 font-thin">{servese.card_description}</p>
                 <div className="flex justify-start">
                 <Link to={`/blog/${servese.id}`}  className="flex items-center text-md gap-2 border border-white rounded-sm px-4 py-2 hover:bg-white hover:text-black transition-all ease-in-out">
-                     <p >Read more</p>
+                     <p >{translations.Read_more}</p>
                     <IoIosArrowForward />
                 </Link>
                 </div>
@@ -90,7 +92,7 @@ const Blogs = () => {
 
         </div>
         <Link to={`/blogs`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
-              See More Blogs
+              {translations.See_More_Blogs}
               <img src="/icons/Vector-black.svg" className="w-3 "/>
               </Link> 
 

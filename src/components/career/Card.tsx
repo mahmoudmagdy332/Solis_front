@@ -1,9 +1,12 @@
 import {  useNavigate } from "react-router-dom"
 import {  Career } from "../../app/utils/types/types"
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 
 const Card = ({ career}:{career:Career}) => {
    const navigate=useNavigate();
+   const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+   
   const HandleCareer=()=>{
     localStorage.setItem('career',JSON.stringify(career));
     navigate(`/jop/${career.id}`);
@@ -20,7 +23,7 @@ const Card = ({ career}:{career:Career}) => {
     <p className="text-[#4A4A4A] ">
       {career.short_description}
     </p>
-    <button onClick={HandleCareer}  className="bg-black rounded-lg text-sm text-white border hover:border-black  hover:bg-white  hover:text-black transition-all ease-in-out py-[14px] px-8">Read More</button>
+    <button onClick={HandleCareer}  className="bg-black rounded-lg text-sm text-white border hover:border-black  hover:bg-white  hover:text-black transition-all ease-in-out py-[14px] px-8">{translations.Read_more}</button>
 </div>
   )
 }

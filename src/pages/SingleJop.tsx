@@ -2,10 +2,13 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Career } from "../app/utils/types/types";
+import { useLanguageSelector } from "../app/slices/languageSlice";
 
 
 
 const SingleJop = () => {
+    const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+  
   const { id } = useParams<{ id: string }>();
   const [career,setCareer]=useState<Career>();
    useEffect(()=>{
@@ -43,7 +46,7 @@ const SingleJop = () => {
            className="bg-white hover:bg-black transition-all ease-in-out border border-black text-black hover:text-white px-4 py-2 rounded"
             
           >
-            Apply for this job
+            {translations.Apply_for}
           </button>
         </Link>
       </div>
@@ -61,7 +64,7 @@ const SingleJop = () => {
                 className="bg-black hover:bg-white border border-black text-white hover:text-black px-4 py-2 rounded"
 
                 >
-                  Apply for this job
+                  {translations.Apply_for}
                 </button>
               </Link>
             </div>

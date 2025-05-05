@@ -28,7 +28,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full">
        
         <div className="text-input ">
-        <label htmlFor="first" className={isFocused || value ? 'focused' : ''}>{lable}</label>
+        <label htmlFor="first" className={`start-0 ${isFocused || value ? 'focused' : ''}`}>{lable}</label>
         <input type="text" id="first" 
         //  value={value}
          value={value}

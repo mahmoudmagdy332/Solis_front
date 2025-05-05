@@ -2,9 +2,11 @@ import { IoIosArrowForward } from "react-icons/io"
 import { Link } from "react-router-dom"
 import { Blog } from "../../app/utils/types/types"
 import {  format } from "date-fns";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 
 const Card = ({ blog}:{blog:Blog}) => {
+     const { translations } = useLanguageSelector((state) => state.LanguageReducer);
   
   return (
     <div className=" flex flex-col gap-2 justify-center card-blog  hover:shadow-xl  text-black  h-84 border border-black shadow-md rounded-md ">
@@ -20,7 +22,7 @@ const Card = ({ blog}:{blog:Blog}) => {
     <p className="text-gray-800 text-sm leading-6 font-thin">{blog.card_description}</p>
     <div className="flex justify-start">
     <Link to={`/blog/${blog.id}`} className="flex items-center text-md gap-2 border border-black rounded-sm px-4 py-2 hover:bg-black hover:text-white transition-all ease-in-out">
-         <p >Read more</p>
+     <p >{translations.Read_more}</p>
         <IoIosArrowForward />
     </Link>
     </div>

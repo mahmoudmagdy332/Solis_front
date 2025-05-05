@@ -7,15 +7,17 @@ import "swiper/css/pagination";
 import FadeEffect from "../common/FadeEffect";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 import { Link } from "react-router-dom";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 const Prands = () => {
   const { brands } = useHomeSliceSelector((state) => state.homeReducer);
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
 
   return (
     <div className="w-screen mx-auto my-16 flex flex-col items-center">
       <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
       <FadeEffect transition={0.3} direction="down" duration={ 0.5}>
-            Our global brands
+            {translations.Our_global_brands}
            </FadeEffect>
       </h2>
       <div className="relative w-11/12 my-16">
@@ -63,7 +65,7 @@ const Prands = () => {
         <FadeEffect transition={0.3} direction="up" duration={ 0.5}>
           
         <Link to="/brands" className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
-          See all brands
+          {translations.See_all_brands}
           <img src="/icons/Vector-black.svg" className="w-3 "/>
         </Link> 
           </FadeEffect>

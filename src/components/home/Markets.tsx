@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 const Markets = () => {
   const { markets } = useHomeSliceSelector((state) => state.homeReducer);
   const { footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
     // const serveses=[  {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971.png'},
     //                 {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (3).png'},
@@ -29,12 +31,12 @@ const Markets = () => {
             <div className="w-screen mx-auto  pt-12 flex  flex-col gap-6 items-center">
               <h2 className="text-center text-2xl w-11/12 md:w-3/4 lg:w-1/2">
               <FadeEffect transition={0.3} direction="down" duration={ 0.5}>
-                Serving Essential Markets
+                {translations.Serving_Essential_Markets}
               </FadeEffect>
               </h2> 
               <p className="text-center  w-11/12 md:w-3/4 lg:w-1/2">
               <FadeEffect transition={0.2} direction="down" duration={ 0.5}>
-              We create critical infrastructure solutions that electrify and energize our communities and economy.
+                {translations.We_create}
               </FadeEffect>
               </p> 
 

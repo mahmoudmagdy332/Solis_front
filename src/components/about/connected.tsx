@@ -1,8 +1,10 @@
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import { aboutSection } from "../../app/utils/types/types"
 
 const Connected = ({section}:{section:aboutSection}) => {
   const { setting } = useSettingSliceSelector((state) => state.settingReducer);
+      const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
     const sosials=[{image:'/icons/facebook.svg',link:setting?.facebook},
         {image:'/icons/instgram.svg',link:setting?.instagram},
@@ -25,7 +27,7 @@ const Connected = ({section}:{section:aboutSection}) => {
              </Link> */}
          </div>
          <div className="bg-[#999C9D] text-white flex py-6 flex-col gap-4 justify-center items-center">
-              <p className="md:text-lg">Connect with us on social media</p>
+              <p className="md:text-lg">{translations.Connect_with}</p>
               <div className="flex gap-3"> 
                  {sosials.map((sosial)=>(
                     <a href={sosial.link} className="w-10 h-10 hover:bg-black transition-all ease-in-out rounded-full bg-[#6A6A6A] flex p-3 justify-center items-center">

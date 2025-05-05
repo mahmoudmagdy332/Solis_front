@@ -6,12 +6,14 @@ import useBlogs from "../../app/utils/hooks/useBlogs"
 import { useBlogsSliceSelector } from "../../app/slices/BlogSlice"
 import Pagination from "./Pagination"
 import { useEffect, useRef } from "react"
+import { useLanguageSelector } from "../../app/slices/languageSlice"
 
 const AllBloges = () => {
 
 const { Blogs ,currentPage} = useBlogsSliceSelector((state) => state.BlogReducer);
 
 const { isLoading, isError, error } = useBlogs(currentPage);
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
 
 const scrollRef = useRef<HTMLDivElement>(null);
@@ -45,16 +47,14 @@ if (isError)
               <div className="absolute top-2 -start-20">
                 <img src="/public/icons/Horizontal Divider.svg"/>
               </div>
-                <p className="font-semibold text-sm text-center md:text-start">Recent Articles</p>
-                <Link to="/" className="font-bold text-2xl text-center md:text-start">Read All News</Link>
+                <p className="font-semibold text-sm text-center md:text-start">{translations.RecentArticles}</p>
+                <Link to="/" className="font-bold text-2xl text-center md:text-start">{translations.ReadAllNews}</Link>
             </div>
             </FadeEffect>
             
             <div className="text-sm md:w-1/2 text-center  md:text-start">
             <FadeEffect transition={0.4} direction="left" duration={0.5}>
-                Gazolin Are A Industry & Manufacturing Services Provider Institutions.
-                Suitable For Factory, Manufacturing, Industry, Engineering, Construction
-                And Any Related Industry Care Field.
+              {translations.Industry}
             </FadeEffect>
             </div>
             <div ref={scrollRef} className="h-20"></div>

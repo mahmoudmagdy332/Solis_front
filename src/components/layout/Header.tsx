@@ -9,7 +9,7 @@ const Header = () => {
     const [navbar, setNavbar] = useState(true);
     const { setting,header_pages,main_categories,footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
     const dispatch = useDispatch();
-    const { lang } = useLanguageSelector((state) => state.LanguageReducer);
+    const { lang,translations } = useLanguageSelector((state) => state.LanguageReducer);
 
     const toggleLanguage = () => {
     const newLang = lang === 'en' ? 'ar' : 'en';
@@ -67,7 +67,7 @@ const Header = () => {
                  >{page.title}</div>
                  <div className="products-show">
                  <div className="min-w-40  products-menu  shadow-sm flex flex-col  absolute top-['30px'] left-0  ">
-                 <h3 className="text-[#181919] text-lg font-semibold mb-6">Take a tour of the products we serve</h3>
+                 <h3 className="text-[#181919] text-lg font-semibold mb-6">{translations.Take_tour}</h3>
                 
                   <div className="grid grid-cols-4 gap-y-2">
                           {main_categories.map((main_category)=>(
@@ -89,9 +89,9 @@ const Header = () => {
                   </div>
                    <div className="market-show">
                       <div className="  market-menu  shadow-sm flex flex-col  absolute -top-['20px'] left-0  ">
-                         <h3 className="text-[#808384] text-lg font-semibold">Take a tour of the markets we serve</h3>
-                         <p className="text-[#808384] text-sm my-4">Solis serves the needs of customers in a variety of market applications. From controlled environments of a data center to the demanding continuity of the power grid. </p>
-                         <p className="mb-4">Markets</p>
+                         <h3 className="text-[#808384] text-lg font-semibold">{translations.markets_we}</h3>
+                         <p className="text-[#808384] text-sm my-4">{translations.Solis_serves} </p>
+                         <p className="mb-4">{translations.Markets}</p>
                          <div className="grid grid-cols-4 gap-y-2">
                           {footer_markets.map((market)=>(
                             <Link to={`/market/${market.id}/${market.name}`} key={market.id} 

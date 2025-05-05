@@ -1,13 +1,16 @@
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 import { aboutSection } from "../../app/utils/types/types"
 
 const Hero = ({section}:{section:aboutSection}) => {
+      const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+  
   return (   
 <div className=" w-full  flex  items-center bg-[#ECEFF0] ">
    <div className=" w-11/12 lg:w-3/4 mx-auto gap-16 grid grid-cols-3 items-end   pt-32 pb-16">
         <div className="col-span-2 md:col-span-2 lg:col-span-1  relative">
             <img src={section.image} className=" w-full"/>
-            <p className="text-white top-5 end-2 absolute font-semibold text-2xl mdtext-4xl xl:text-6xl ">About</p>
-            <p className="text-black top-5 start-full ps-2 absolute font-semibold text-2xl mdtext-4xl xl:text-6xl ">Us</p>
+            <p className="text-white top-5 end-2 absolute font-semibold text-2xl mdtext-4xl xl:text-6xl ">{translations.About}</p>
+            <p className="text-black top-5 start-full ps-2 absolute font-semibold text-2xl mdtext-4xl xl:text-6xl ">{translations.Us}</p>
 
         </div>
         <div className="col-span-3  lg:col-span-2 flex flex-col gap-8 xl:pb-16">

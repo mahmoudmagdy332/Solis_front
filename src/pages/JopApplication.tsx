@@ -8,11 +8,13 @@ import JopTextArea from "../components/jop/JopTextArea";
 import { ApplyJop, Career } from "../app/utils/types/types";
 import { useJopApplicationMutation } from "../app/services/mutation";
 import { toast } from "react-toastify";
+import { useLanguageSelector } from "../app/slices/languageSlice";
 
 
 
 export const JopApplication = () => {
   // const { id } = useParams<{ id: string }>();
+   const { translations } = useLanguageSelector((state) => state.LanguageReducer);
  
   const [career,setCareer]=useState<Career>();
   useEffect(()=>{
@@ -91,13 +93,13 @@ export const JopApplication = () => {
               <p
                
               >
-                Submit Your Application
+                {translations.SubmitYourApplication}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-start gap-y-8 gap-x-4">
                 <p
                  
                 >
-                  Resume/CV <span className="ms-2 text-red-600">*</span>
+                  {translations.Resume_CV} <span className="ms-2 text-red-600">*</span>
                 </p>
                 <div className="col-span-2">
                 <label
@@ -108,7 +110,7 @@ export const JopApplication = () => {
                   {/* <img src="/images/ICONS/ATTACH.svg" alt="Attach Icon" /> */}
                   <p >
                     {(resumeName?.name && resumeName?.name) ||
-                      "ATTACH RESUME/CV"}
+                      translations.ATTACHRESUME}
                   </p>
                   
                 </label>
@@ -117,7 +119,7 @@ export const JopApplication = () => {
                   type="file"
                   id="avatar-upload"
                   {...register("file", {
-                    required: "Resume is required",
+                    required:  translations.Resume_is_required ,
                   
                   })}
                   className="hidden"
@@ -132,11 +134,11 @@ export const JopApplication = () => {
                 <p
                   
                 >
-                  Full name <span className="ms-2 text-red-600">*</span>
+                 {translations.FullName}  <span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   rules={{
-                    required: "Full Name is required",
+                    required: translations.FullNameIsRequired,
                   }}
                   name="name"
                   control={control}
@@ -148,11 +150,11 @@ export const JopApplication = () => {
                
                
 
-                <p>Email <span className="ms-2 text-red-600">*</span>
+                <p>{translations.Email} <span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   rules={{
-                    required: "Email is required",
+                    required: translations.EmailIsRequired,
                   }}
                   name="email"
                   control={control}
@@ -164,12 +166,12 @@ export const JopApplication = () => {
                 <p
                  
                 >
-                  Phone<span className="ms-2 text-red-600">*</span>
+                  {translations.Phone}<span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="phone"
                   rules={{
-                    required: "Phone is required",
+                    required:translations.PhoneIsRequired,
                   }}
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
@@ -178,12 +180,12 @@ export const JopApplication = () => {
                 <p
                 
                 >
-                  Current location<span className="ms-2 text-red-600">*</span>
+                  {translations.CurrentLocation}<span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="current_location"
                   rules={{
-                    required: "current location is required",
+                    required:translations.currentLocationIsRequired,
                   }}
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
@@ -191,12 +193,12 @@ export const JopApplication = () => {
                 <p
                 
                 >
-                  Current company<span className="ms-2 text-red-600">*</span>
+                 {translations.CurrentCompany} <span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="current_company"
                   rules={{
-                    required: "current company is required",
+                    required: translations.currentCompanyIsRequired,
                   }}
                   control={control}
                   render={({ field }) => <JopInput {...field} />}
@@ -205,13 +207,13 @@ export const JopApplication = () => {
               <p
               
               >
-                Links
+                {translations.Links}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-start gap-y-8">
                 <p
                  
                 >
-                  LinkedIn URL{" "}
+                 {translations.LinkedInURL} {" "}
                 </p>
                 <Controller
                   name="linked_in"
@@ -219,7 +221,7 @@ export const JopApplication = () => {
                   rules={{
                     pattern: {
                       value: /^(https?:\/\/)?([\w\d-]+\.)+\w{2,}(\/\S*)?$/,
-                      message: "Invalid  URL",
+                      message: translations.InvalidURL,
                     },
                   }}
                   render={({ field }) => <JopInput {...field} error={errors?.linked_in?.message}/>}
@@ -279,12 +281,13 @@ export const JopApplication = () => {
               <p
                 
               >
-                Why are you interested in Solis?
+                
+                {translations.interestedSolis}
               </p>
               <div className="grid grid-cols-1  items-center justify-start gap-y-8">
                 <p >
-                  Please leave a note that expresses your interest in the
-                  position/company. <span className="ms-2 text-red-600">*</span>
+                {translations.Please_leave}
+                   <span className="ms-2 text-red-600">*</span>
                 </p>
                 <Controller
                   name="why_interested"
@@ -298,7 +301,8 @@ export const JopApplication = () => {
             
               <div className="grid grid-cols-1  items-center justify-start gap-y-8">
                 <p >
-                  Addition information
+                  
+                  {translations.AdditionInformation}
                 </p>
                 <Controller
                   name="addition_information"
@@ -312,7 +316,8 @@ export const JopApplication = () => {
             <div className="flex justify-center my-20">
               {isPending?(
                  <button type="button" className="py-3 px-8 text-white bg-black  cursor-not-allowed font-medium rounded-lg text-lg  text-center flex items-center gap-2" disabled>
-                   Loading
+                   
+                   {translations.Loading}
                  <svg aria-hidden="true" role="status" className="inline w-5 h-5 me-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
@@ -323,7 +328,7 @@ export const JopApplication = () => {
            className="bg-white hover:bg-black transition-all ease-in-out border border-black text-black hover:text-white px-4 py-2 rounded"
              type="submit"
           >
-             Submit application
+             {translations.SubmitApplication}
           </button>
               )}    
            

@@ -9,10 +9,12 @@ import FadeEffect from "../common/FadeEffect";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 // import ProductCard from "../Products/ProductCard";
 export const Products = () => {
   const { products } = useHomeSliceSelector((state) => state.homeReducer);
   const { main_categories } = useSettingSliceSelector((state) => state.settingReducer);
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
     // const images=['/images/temp/Rynk.png',
     //     '/images/temp/Frame 1618872995.png ',
@@ -31,7 +33,7 @@ export const Products = () => {
             
             <h2 className="text-center text-2xl w-11/12 font-bold md:w-3/4 lg:w-1/2">
             <FadeEffect transition={0.3} direction="down" duration={ 0.5}>
-             Most Selling Products
+             {translations.Most_Selling_Products}
             </FadeEffect>
            
             
