@@ -48,7 +48,7 @@ const Form = () => {
             }}
             render={({ field }) => (
             
-              <TextInput lable={`${translations.Name} *`}
+              <TextInput lable={`${translations.FullName} *`}
                error={errors.name?.message}
                {...field}
               />
