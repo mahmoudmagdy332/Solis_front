@@ -1,9 +1,11 @@
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 import { useMarketSliceSelector } from "../../app/slices/MarketSlice";
 import root from 'react-shadow';
 
 
 function Institutional() {
   const { selected_market } = useMarketSliceSelector((state) => state.MarketReducer);
+    const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
   return (
     <div className="flex flex-col gap-4 px-4">
@@ -31,7 +33,7 @@ function Institutional() {
            <div className="flex items-center justify-center my-4">
              <div className="border-t border-gray-300 w-full"></div>
              <span className="mx-4 text-lg font-bold text-nowrap">
-               Featured Products
+               {translations.FeaturedProducts}
              </span>
              <div className="border-t border-gray-300 w-full"></div>
            </div>

@@ -78,16 +78,15 @@
 "Please_leave":"Please leave a note that expresses your interest in the position/company.",
 "SubmitApplication":"Submit Application",
 "AdditionInformation":"Addition Information",
-"FullNameIsRequired":"FullName Is Required",
-"Email":"Email",
-"EmailIsRequired":"Email Is Required",
-"Phone":"Phone",
-"PhoneIsRequired":"Phone Is Required",
-"CurrentLocation":"Current Location",
-"currentLocationIsRequired":"current Location Is Required",
-"CurrentCompany":"Current Company",
-"currentCompanyIsRequired":"current Company Is Required",
-"Links":"Links",
-"LinkedInURL":"Linked In URL",
-"InvalidURL":"Invalid URL"
+"FeaturedProducts":"Featured Products",
+"Docomentation":"Docomentation",
+"Downloads":"Downloads",
+"DownloadAll":"Download All",
+"DownloadSelected":"Download Selected",
+"ProductLines":"Product Lines",
+"Overview":"Overview",
+"Discover":"Discover",
+"ProductDetails":"Product Details",
+"See_all_brands":"See all brands"
+
 }

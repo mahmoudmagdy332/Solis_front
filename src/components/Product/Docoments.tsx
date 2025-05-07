@@ -4,9 +4,12 @@ import { CiFileOn } from "react-icons/ci";
 import { GoDownload } from "react-icons/go";
 import { useProductSliceSelector } from "../../app/slices/ProductSlice";
 import axios from "axios";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 const Docoments = () => {
     const [show,setShow]=useState(true);
+    const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+    
     const {product_files} = useProductSliceSelector((state) => state.ProductReducer);
     const [selectedFiles,setSelectedFiles]=useState<number[]>([])  
     const handleDownload = async ( fileName:string,fileUrl:string) => {
@@ -54,9 +57,9 @@ const Docoments = () => {
     }
     return (
     <div className="bg-white rounded-md p-4">
-          <p className="text-2xl text-gray-500 pb-2 border-b mb-4">Downloads</p>
+          <p className="text-2xl text-gray-500 pb-2 border-b mb-4">{translations.Downloads}</p>
           <div className="flex justify-between items-center p-2" onClick={()=>setShow(!show)}>
-             <p>Docomentation</p>
+             <p>{translations.Docomentation}</p>
              {show?(<IoIosArrowUp />):(  <IoIosArrowDown />)}
 
           </div>
@@ -87,8 +90,10 @@ const Docoments = () => {
                 </div>
             ))}
              <div className="flex gap-5 mt-10">
-                   <button onClick={downloadSelected} className="w-1/2 flex justify-center py-2 border border-black rounded-md">Download Selected</button>
-                   <button onClick={downloadAll} className="w-1/2 bg-black rounded-md py-2 text-white">Download All</button>
+                   <button onClick={downloadSelected} className="w-1/2 flex justify-center py-2 border border-black rounded-md">{translations.DownloadSelected}</button>
+                   <button onClick={downloadAll} className="w-1/2 bg-black rounded-md py-2 text-white">
+                   {translations.DownloadAll}
+                   </button>
              </div>
           </div>
           

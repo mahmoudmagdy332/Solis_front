@@ -10,7 +10,7 @@ const ProductCard = ({product}:{product:productCardType}) => {
         <div className="h-[200px] w-10/12 mx-auto py-4 flex flex-col gap-3">
             <h2 >{product.name}</h2>
             {/* <p className="title">ø170mm</p> */}
-            <p className="desc">{product.small_description}32lm - 0.22W / 3654lm - 39.1W</p>
+            <p className="desc">{product.small_description}</p>
             <div className="flex gap-3 flex-wrap">
               {product.effects.map((effect,idx)=>(
                 <img src={effect.image_effect} className="h-10" key={idx}alt="effect"/>

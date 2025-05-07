@@ -7,8 +7,10 @@ import { Link, useParams } from "react-router-dom";
 import Loader from "../components/common/Loader";
 import { useProductSliceSelector } from "../app/slices/ProductSlice";
 import Docoments from "../components/Product/Docoments";
+import { useLanguageSelector } from "../app/slices/languageSlice";
 
 const ProductDetails = () => {
+    const { translations } = useLanguageSelector((state) => state.LanguageReducer);
   const overviewRef = useRef<HTMLDivElement>(null);
   const lightingRef = useRef<HTMLDivElement>(null);
   const imageryRef = useRef<HTMLDivElement>(null);
@@ -107,7 +109,7 @@ const ProductDetails = () => {
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(overviewRef)}
               >
-                Overview
+                {translations.Overview}
               </li>
               {effects.length>0&&(
                 <li
@@ -142,7 +144,7 @@ const ProductDetails = () => {
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(detailsRef)}
               >
-                Product Details
+                {translations.ProductDetails}
               </li>
               {product_files.length>0&&(
                 <li
@@ -187,7 +189,7 @@ const ProductDetails = () => {
                     />
                   )}
                 <button></button>
-                <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`}>Discover</Link>
+                <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`}>{translations.Discover}</Link>
               </div>
             </div>
             {effects.length>0&&(
