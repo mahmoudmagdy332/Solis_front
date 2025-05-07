@@ -8,7 +8,7 @@ import { RootState } from '../store';
 import { langInitialState } from '../utils/types/types';
 
 const getLanguageFromLocalStorage = (): langInitialState => {
-  const lang = window.localStorage.getItem('lang') || 'ar';
+  const lang = window.localStorage.getItem('lang') || 'en';
   const translations = lang === 'ar' ? translationAR : translationEN;
 
   return {
