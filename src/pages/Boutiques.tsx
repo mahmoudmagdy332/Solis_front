@@ -5,6 +5,8 @@ import Loader from "../components/common/Loader";
 import { ProjecysQuery } from "../app/services/queries";
 import { project } from "../app/utils/types/types";
 import root from 'react-shadow';
+import { MdSlowMotionVideo } from "react-icons/md";
+
 function Boutiques() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideoSrc, setSelectedVideoSrc] = useState("");
@@ -70,21 +72,26 @@ function Boutiques() {
           key={index}
           className={`flex items-center flex-col gap-8 ${
             index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-          } pt-24 lg:flex-row `}
+          } pt-24 lg:flex-row w-full`}
         >
-          <div className="lg:w-2/5">
+          <div className="w-full lg:w-2/5">
           <FadeEffect
             transition={0.4}
             direction={index % 2 === 0 ? "right" : "left"}
             duration={0.7}
             
           >
-            <img
-              src={project.image}
-              alt={`Boutique ${index + 1}`}
-              onClick={() => handleImageClick(project.video)}
-              className="cursor-pointer "
-            />
+           <div className="relative cursor-pointer"   onClick={() => handleImageClick(project.video)}>
+             <img
+               src={project.image}
+               alt={`Boutique ${index + 1}`}
+             
+               className=" h-40 md:h-56 lg:h-72 2xl:h-80 w-full object-cover"
+             />
+          
+             <MdSlowMotionVideo className="text-gray-300 text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
+             
+           </div>
           </FadeEffect>
           </div>
          
