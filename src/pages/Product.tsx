@@ -95,8 +95,8 @@ const ProductDetails = () => {
 </div>
       
       <div className="bg-gray-50 grid grid-cols-4 gap-2 p-10">
-        <div className="text-left hidden md:block md:col-span-1  relative">
-          <div className="sticky top-20 left-20">
+        <div className="text-start hidden md:block md:col-span-1  relative">
+          <div className="sticky top-20 start-20">
             <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`} className="text-red-500 flex items-center space-x-2 mb-6">
               <span className="text-lg font-bold mb-4">← All {sub_category?.name}</span>
             </Link>
@@ -133,7 +133,7 @@ const ProductDetails = () => {
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(imageryRef)}
                 >
-                Application Imagery
+                {translations.ApplicationImagery}
                 </li>
               )}         
               <li

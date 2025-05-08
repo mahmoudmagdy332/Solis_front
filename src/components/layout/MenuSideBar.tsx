@@ -3,6 +3,7 @@ import { LuMenu } from "react-icons/lu";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import MenuArray from "./MenuArray";
+import ChangeLanguage from "./ChangeLanguage";
 
 function MenuSideBar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -116,6 +117,9 @@ function MenuSideBar() {
             </li>
           ))}
         </ul>
+        <div className="flex md:hidden mt-20">
+          <ChangeLanguage/>
+       </div>
       </div>
     </div>
   );

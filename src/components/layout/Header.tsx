@@ -2,20 +2,15 @@ import { useEffect, useState } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import MenuSideBar from "./MenuSideBar";
-import { changeLanguage, useLanguageSelector } from "../../app/slices/languageSlice";
-import { useDispatch } from "react-redux";
+import {  useLanguageSelector } from "../../app/slices/languageSlice";
+import ChangeLanguage from "./ChangeLanguage";
 const Header = () => {
     const {pathname} = useLocation();
     const [navbar, setNavbar] = useState(true);
     const { setting,header_pages,main_categories,footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
-    const dispatch = useDispatch();
-    const { lang,translations } = useLanguageSelector((state) => state.LanguageReducer);
+    const {translations } = useLanguageSelector((state) => state.LanguageReducer);
 
-    const toggleLanguage = () => {
-    const newLang = lang === 'en' ? 'ar' : 'en';
-    dispatch(changeLanguage(newLang));
-      window.location.reload();
-    };
+   
     useEffect(()=>{
           window.addEventListener("scroll", changeBackground);
           const isHome = pathname === '/';
@@ -46,13 +41,9 @@ const Header = () => {
     <div className="lg:hidden  mb-4">
         <MenuSideBar />
       </div>
-      <div   
-              className={`  hidden md:flex  items-center gap-2  pe-2 space-x-2 hover:text-white text-gray-300 cursor-pointer`}
-              onClick={toggleLanguage}
-            >
-
-              <span>{lang === 'en' ? 'العربية' : 'English'}</span>
-            </div>  
+ <div className="hidden md:flex">
+  <ChangeLanguage/>
+ </div>
   </div>
   <div className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1 " id="navbar-sticky">
     <ul className="flex flex-col lg:justify-center gap-y-4 my-2 flex-wrap p-4 lg:p-0 mt-4 font-medium  border-gray-100 rounded-lg  lg:space-x-8 rtl:space-x-reverse lg:flex-row  border-0   ">
