@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    color: revert;
+    font-size: revert;
+    font-weight: revert;
+    line-height: revert;
+    font-family: revert;
+  }
   h1, h2, h3, h4, h5, h6 {
     font-size: revert;
     font-weight: revert;
-
+    color: revert;
   }
 
-
+  p, span, li, button {
+    color: revert;
+  }
   ul, ol {
     list-style-type: disc  }
 
@@ -18,12 +27,21 @@
   font-family: myFont;
   src: url('/public/fonts/eurostile-lt-pro-unicode/EurostileLTProUnicode.otf');
 }
-
+@font-face{
+  font-family: madaniArabic;
+  src: url('/public/fonts/eurostile-lt-pro-unicode/alfont_com_Madani-Arabic-Regular-1.ttf');
+}
 body {
   overflow-x: hidden !important;  
   /* font-family: myFont; */
   font-family: "Open Sans", sans-serif;
   cursor: none;
+}
+.eurostileLTProUnicode{
+  font-family: myFont;
+}
+.madaniArabic{
+  font-family: madaniArabic;
 }
 .cursor-pointer{
   cursor: none;

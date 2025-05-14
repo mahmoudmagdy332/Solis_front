@@ -38,7 +38,7 @@ const MainLayout = () => {
       </div>
     );
   return (
-    <div>
+    <div className={`${lang=="ar"?'madaniArabic':'eurostileLTProUnicode'}`}>
          <Header/>
          <MouseFollower/>
          

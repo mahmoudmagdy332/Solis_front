@@ -87,7 +87,8 @@ export const Products = () => {
         <FadeEffect transition={0.1} direction="right" duration={0.9}>
           {main_categories[0]&&(
             <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
-          See More Products
+          
+          {translations.SeeMoreProducts}
           <img src="/icons/Vector-black.svg" className="w-3 "/>
         </Link> 
           )}

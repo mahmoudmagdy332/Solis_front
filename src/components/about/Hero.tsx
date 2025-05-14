@@ -6,7 +6,7 @@ const Hero = ({section}:{section:aboutSection}) => {
   
   return (   
 <div className=" w-full  flex  items-center bg-[#ECEFF0] ">
-   <div className=" w-11/12 lg:w-3/4 mx-auto gap-16 grid grid-cols-3 items-end   pt-32 pb-16">
+   <div className=" w-11/12 lg:w-3/4 mx-auto gap-x-40  gap-y-9 grid grid-cols-3 items-start  g pt-32 pb-16">
         <div className="col-span-2 md:col-span-2 lg:col-span-1  relative">
             <img src={section.image} className=" w-full"/>
             <p className="text-white top-5 end-2 absolute font-semibold text-2xl mdtext-4xl xl:text-6xl ">{translations.About}</p>

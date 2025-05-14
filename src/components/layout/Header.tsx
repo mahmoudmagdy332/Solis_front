@@ -53,9 +53,9 @@ const Header = () => {
             <li key={idx}>
               {page.slug==='products'?(
               <div className="relative products">
-               <div
+               <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`}
                  className= "block py-1 products-nav text-[#BBBEBF] px-1 text-nowrap text-sm  cursor-pointer hover:text-white hover:border-b-2 border-white transition-all ease-in-out"               
-                 >{page.title}</div>
+                 >{page.title}</Link>
                  <div className="products-show">
                  <div className="min-w-40  products-menu  shadow-sm flex flex-col  absolute top-['30px'] left-0  ">
                  <h3 className="text-[#181919] text-lg font-semibold mb-6">{translations.Take_tour}</h3>
@@ -74,10 +74,11 @@ const Header = () => {
               </div>
               ):page.slug==='markets'?(
                 <div className="relative market">
-                <div
+                <Link
+                  to={`/market/${footer_markets[0].id}/${footer_markets[0].name}`}
                   className= "block py-1  market-nav text-[#BBBEBF] px-1 text-nowrap text-sm  cursor-pointer hover:text-white hover:border-b-2 border-white transition-all ease-in-out"               
                   >{page.title}
-                  </div>
+                  </Link>
                    <div className="market-show">
                       <div className="  market-menu  shadow-sm flex flex-col  absolute -top-['20px'] left-0  ">
                          <h3 className="text-[#808384] text-lg font-semibold">{translations.markets_we}</h3>

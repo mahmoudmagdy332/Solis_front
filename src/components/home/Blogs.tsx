@@ -3,17 +3,18 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import FadeEffect from "../common/FadeEffect";
 import { Link } from "react-router-dom";
 import { useHomeSliceSelector } from "../../app/slices/homeSlice";
 import { format } from "date-fns";
+import { ar,enUS  } from 'date-fns/locale';
 import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 const Blogs = () => {
   const { news } = useHomeSliceSelector((state) => state.homeReducer);
 
-   const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+   const { translations,lang } = useLanguageSelector((state) => state.LanguageReducer);
  
   return (
     
@@ -72,14 +73,15 @@ const Blogs = () => {
                 <div className="px-4 py-6 flex flex-col gap-4">
                 <div className="flex gap-2 items-center">
                   <div className="bg-white px-2 py-1 text-black">{servese.blog_category?.name}</div>
-                  <p className="text-sm">{format(servese.updated_at, "MMMM dd, yyyy")}</p>
+                  <p className="text-sm">{format(servese.updated_at, "MMMM dd, yyyy", { locale: lang=='ar'?ar:enUS  })}</p>
                   </div>
                 <h3 className="text-xl font-bold">{servese.title}:</h3>
                 <p className="text-gray-300 text-sm leading-6 font-thin">{servese.card_description}</p>
                 <div className="flex justify-start">
                 <Link to={`/blog/${servese.id}`}  className="flex items-center text-md gap-2 border border-white rounded-sm px-4 py-2 hover:bg-white hover:text-black transition-all ease-in-out">
                      <p >{translations.Read_more}</p>
-                    <IoIosArrowForward />
+                     {lang=='ar'?<IoIosArrowBack />:<IoIosArrowForward />}
+                    
                 </Link>
                 </div>
                 </div>

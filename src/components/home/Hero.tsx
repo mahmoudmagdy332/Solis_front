@@ -45,7 +45,7 @@ const Hero = ({content}:{content:string}) => {
         
             <p
                   dangerouslySetInnerHTML={{ __html: content }}
-                  className="text-white text-center lg:text-start "
+                  className=" text-center lg:text-start "
                 />
           {/* <p className="text-white text-xl ">All-in-one solution</p> */}
           <FadeEffect transition={0.4} direction="right" duration={ 0.7}>

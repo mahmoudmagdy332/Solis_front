@@ -71,8 +71,8 @@ function Boutiques() {
         <div
           key={index}
           className={`flex items-center flex-col gap-8 ${
-            index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-          } pt-24 lg:flex-row w-full`}
+            index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse justify-between"
+          } pt-24 lg:flex-row w-full `}
         >
           <div className="w-full lg:w-2/5">
           <FadeEffect
@@ -101,7 +101,7 @@ function Boutiques() {
             direction={index % 2 === 0 ? "left" : "right"}
             duration={0.3}
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col  gap-4">
               <h2 className="font-semibold text-3xl">{project.title}</h2>
             
               {project?.description&&(
