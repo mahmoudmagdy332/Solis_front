@@ -4,9 +4,12 @@ import SubCategoryCard from "../components/Products/SubCategoryCard"
 import { useParams } from "react-router-dom";
 import { sub_category } from "../app/utils/types/types";
 import Loader from "../components/common/Loader";
+import { useLanguageSelector } from "../app/slices/languageSlice";
 
 const Category = () => {
   const { id,name } = useParams<{ id: string,name:string }>();
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+  
   const [categories,setCategories]=useState<sub_category[]>([]);
   const { isLoading,data, isError, error,refetch } = SubCategoriesQuery(id);
    useEffect(()=>{
@@ -34,7 +37,7 @@ const Category = () => {
     <div className="">
         <div className="bg-black py-10">
             <div className="w-11/12 mx-auto mt-10 flex flex-col gap-3 text-white">
-               <p>Products</p>
+               <p>{translations.Products}</p>
                <h3 className="text-3xl lg:text-5xl font-semibold">{name}</h3>            
             </div>
         </div>

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import FadeEffect from "../common/FadeEffect";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 // import { useEffect, useState } from "react";
 const Hero = ({content}:{content:string}) => {
   const sliders=['images/home.jpg'];
   const { main_categories } = useSettingSliceSelector((state) => state.settingReducer);
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
   // const [showImage, setShowImage] = useState(0);
   // const toggleImages = () => {
@@ -51,7 +53,7 @@ const Hero = ({content}:{content:string}) => {
           <FadeEffect transition={0.4} direction="right" duration={ 0.7}>
             {main_categories[0]&&(
             <Link to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`} className="flex gap-3 px-6 py-2  justify-center items-center bg-white hover:bg-black hover:text-white transition-all ease-in-out  rounded-full mt-3" >
-            Explore
+            {translations.Explore}
             <img src="/icons/Vector-black.svg" className="w-3 "/>
             </Link>
             )}

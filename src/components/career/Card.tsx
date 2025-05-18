@@ -16,9 +16,9 @@ const Card = ({ career}:{career:Career}) => {
     <h3 className="text-xl font-semibold text-[#353535]">{career.title}</h3>
     <div className="flex gap-3 items-center">
         <div className="flex items-center bg-gradient-to-r from-[#70443D] via-[#DAADA3] to-[#70443D] justify-center px-4 h-10 leading-tight text-white bg-white border border-gray-300 hover:bg-gray-100 rounded-md hover:text-gray-700">
-          {career.type}
+          {translations[career.type]}
         </div>
-        <p className="font-semibold">{career.place}</p>
+        <p className="font-semibold">{translations[career.place]}</p>
     </div>
     <p className="text-[#4A4A4A] ">
       {career.short_description}

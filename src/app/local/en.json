@@ -32,9 +32,10 @@
  "Message_required":"Message required",
  "Contact_us":"Contact Us",
  "Choose_product_type":"Choose a product type",
-  "Message":"Message",
+ "Message":"Message",
 
  "Do_you_need":"Do you need",
+ "WeTakeGreat":"We take great pride in our strong business relationships with the largest companies in the market.",
  "Name_required":"Name required",
  "Name_must_be_at_least_17_character":"Name must be at least 17 character",
  "email_required":"email required",
@@ -75,6 +76,7 @@
 "InvalidURL":"Invalid URL",
 "SeeMoreProducts":"SeeMoreProducts",
 "SeeMoreMarkets":" See More Markets",
+"Explore":"Explore",
 "ApplicationImagery":"Application Imagery",
 "interestedSolis":"Why are you interested in Solis?",
 "Please_leave":"Please leave a note that expresses your interest in the position/company.",
@@ -89,6 +91,13 @@
 "Overview":"Overview",
 "Discover":"Discover",
 "ProductDetails":"Product Details",
-"See_all_brands":"See all brands"
+"See_all_brands":"See all brands",
+"Full time":"Full time", "Part time":"Part time", "Remotly":"Remotly",
+"On Site":"On Site", "Remote":"Remote",
+"Show All Products On":"Show All Products On",
 
+"All In One":"All In One",
+"Lighting Effects":"Lighting Effects",
+"Application imagery":"Product Details",
+"All":"All"
 }

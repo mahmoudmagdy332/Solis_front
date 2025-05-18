@@ -3,9 +3,12 @@ import DownLite from "./DownLite";
 import SubCategoryCard from "./SubCategoryCard";
 import CategoryCard from "./CategoryCard";
 import { useCategorySliceSelector } from "../../app/slices/CategorySlice";
+import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 function ProductItems() {
   const [show,setShow]=useState(true);
+    const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+  
   // const categories=[
   //   {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
   //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
@@ -67,7 +70,7 @@ function ProductItems() {
   return (
     <div className="flex flex-col gap-10 ">
     <div className="flex items-center gap-2">
-      <p className="text-gray-400">Show All Products On</p>
+      <p className="text-gray-400">{translations['Show All Products On']}</p>
       <label className="inline-flex items-center cursor-pointer">
         <input
           type="checkbox"

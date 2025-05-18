@@ -98,7 +98,7 @@ const ProductDetails = () => {
         <div className="text-start hidden md:block md:col-span-1  relative">
           <div className="sticky top-20 start-20">
             <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`} className="text-red-500 flex items-center space-x-2 mb-6">
-              <span className="text-lg font-bold mb-4">← All {sub_category?.name}</span>
+              <span className="text-lg font-bold mb-4">← {translations['All']} {sub_category?.name}</span>
             </Link>
             <ul className="space-y-5">
               <li
@@ -120,7 +120,7 @@ const ProductDetails = () => {
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(lightingRef)}
                 >
-                Lighting Effects
+                {translations['Lighting Effects']}
                 </li>
               )}
              
@@ -155,7 +155,7 @@ const ProductDetails = () => {
                 } hover:text-red-500 transition duration-200`}
                 onClick={() => handleScrollToSection(accessoriesRef)}
               >
-                Downloads
+                {translations['Downloads']}
               </li>
               )}
               
@@ -181,7 +181,7 @@ const ProductDetails = () => {
               </div>
               <div className="col-span-1 space-y-8 p-8 bg-white">
                 <p className="text-6xl font-bold text-red-600">{sub_category?.name}</p>
-                <p className="text-gray-700 text-xl">All In One</p>
+                <p className="text-gray-700 text-xl">{translations['All In One']}</p>
                 {sub_category?.description&&(
                     <p
                     dangerouslySetInnerHTML={{ __html: sub_category.description }}
@@ -197,7 +197,7 @@ const ProductDetails = () => {
               ref={lightingRef}
               className="w-full flex flex-col gap-4 py-10 border-b-4"
             >
-              <p className="text-2xl text-gray-500">Lighting Effects</p>
+              <p className="text-2xl text-gray-500">{translations['Lighting Effects']}</p>
               <LightEffect />
             </div>
             )}
@@ -208,7 +208,7 @@ const ProductDetails = () => {
               className="w-full flex flex-col gap-4 py-20 border-b-4"
             >
               <p className="text-2xl text-gray-500">
-                Application imagery for Blade R ø170mm
+                {translations['Application imagery']}
               </p>
               <Galary />
             </div>
@@ -221,7 +221,7 @@ const ProductDetails = () => {
             ref={detailsRef}
             className="w-full flex flex-col gap-4 py-10"
           >
-            <p className="text-2xl text-gray-500">Product Details</p>
+            <p className="text-2xl text-gray-500">{translations.ProductDetails}</p>
             {description&&(
                     <p
                     dangerouslySetInnerHTML={{ __html: description }}

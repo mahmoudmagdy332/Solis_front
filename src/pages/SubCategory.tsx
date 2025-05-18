@@ -4,9 +4,12 @@ import Loader from "../components/common/Loader";
 import { useEffect, useState } from "react";
 import { sub_category } from "../app/utils/types/types";
 import { ProductsQuery } from "../app/services/queries";
+import { useLanguageSelector } from "../app/slices/languageSlice";
 
 const SubCategory = () => {
   const { id } = useParams<{ id: string,name:string }>();
+    const { translations } = useLanguageSelector((state) => state.LanguageReducer);
+  
   const [category,setCategory]=useState<sub_category>();
   const { isLoading,data, isError, error,refetch } = ProductsQuery(id);
    useEffect(()=>{
@@ -65,7 +68,7 @@ const SubCategory = () => {
              </div>
         </div>
         <div className="flex flex-col gap-5">
-            <h4 className="text-2xl font-medium">Products</h4>
+            <h4 className="text-2xl font-medium">{translations.Products}</h4>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
                 {category?.products?.map((product, index) =>
                   <ProductCard product={product} key={index} />

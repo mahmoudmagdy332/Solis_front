@@ -25,7 +25,7 @@ const Markets = () => {
 
       <div className=" relative markets">
             
-            <div className="absolute top-0 left-0 w-full h-full opacity-20 -z-50">
+            <div className="absolute top-0 left-0 w-full h-full opacity-40 -z-50">
             <img src="/images/vectors.svg" className="w-full h-full"/>
           </div> 
             <div className="w-screen mx-auto  pt-12 flex  flex-col gap-6 items-center">
@@ -89,7 +89,7 @@ const Markets = () => {
           <FadeEffect transition={0.2} direction="right" duration={ 0.7}>
             {footer_markets[0]&&(
               <Link to={`/market/${footer_markets[0].id}/${footer_markets[0].name}`} className="text-center px-8 py-3 rounded-full flex justify-center gap-3 items-center  border-2 border-transparent transition-all duration-500 hover:bg-black hover:text-white" >
-              See More Markets
+              {translations.SeeMoreMarkets}
               <img src="/icons/Vector-black.svg" className="w-3 "/>
               </Link> 
             )}

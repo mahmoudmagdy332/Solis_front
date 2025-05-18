@@ -36,6 +36,9 @@ const Form = () => {
     <p className="text-[#4A4A4A] text-xl">
       {translations.Do_you_need}
     </p>
+    <p className="text-[#848484] text-md mt-3">
+      {translations.WeTakeGreat}
+    </p>
     <form className="my-10" onSubmit={handleSubmit(onSubmit)}>
     <Controller
             name="name"

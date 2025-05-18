@@ -8,6 +8,7 @@
     "Loading": "جارٍ التحميل",
     "Enter_your_email": "أدخل بريدك الإلكتروني",
     "Subscribe": "اشترك",
+    "Explore":"استكشف",
     "Blogs": "المدونات",
     "SeeMoreProducts":" المزيد من المنتجات",
     "SeeMoreMarkets":" المزيد من الأسواق",
@@ -34,7 +35,8 @@
     "Message_required": "الرسالة مطلوبة",
     "Contact_us": "تواصل معنا",
     "Choose_product_type": "اختر نوع المنتج",
-    "Do_you_need": "هل تحتاج إلى",
+    "Do_you_need": "تواصل مع فريق خبرائنا .",
+    "WeTakeGreat":"نفخر بعلاقاتنا التجارية القوية مع أكبر الشركات في السوق.",
     "Name_required": "الاسم مطلوب",
     "Name_must_be_at_least_17_character": "يجب ألا يقل الاسم عن 17 حرفًا",
     "email_required": "البريد الإلكتروني مطلوب",
@@ -81,7 +83,16 @@
     "Discover": "اكتشف",
     "ProductDetails": "تفاصيل المنتج",
     "Message":"الرسالة",
-    "See_all_brands": "عرض جميع العلامات التجارية"
-
+    "See_all_brands": "عرض جميع العلامات التجارية",
+    "Full time": "دوام كامل",
+    "Part time": "دوام جزئي",
+    "Remotly": "عن بُعد",
+    "On Site": "في مقر العمل",
+    "Remote": "عن بُعد",
+    "Show All Products On":"عرض كافة المنتجات على",
+    "All In One": "الكل في واحد",
+    "Lighting Effects": "تأثيرات الإضاءة",
+    "Application imagery": "تفاصيل المنتج",
+    "All": "الكل"
   }
   
