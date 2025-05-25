@@ -97,16 +97,16 @@ const ProductDetails = () => {
       <div className="bg-gray-50 grid grid-cols-4 gap-2 p-10">
         <div className="text-start hidden md:block md:col-span-1  relative">
           <div className="sticky top-20 start-20">
-            <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`} className="text-red-500 flex items-center space-x-2 mb-6">
+            <Link to={`/sub-category/${sub_category?.id}/${sub_category?.name}`} className=" flex items-center space-x-2 mb-6">
               <span className="text-lg font-bold mb-4">← {translations['All']} {sub_category?.name}</span>
             </Link>
             <ul className="space-y-5">
               <li
                 className={` ${
                   activeSection === "Overview"
-                    ? "text-red-500 font-bold"
+                    ? "font-bold"
                     : "text-gray-600"
-                } hover:text-red-500 transition duration-200`}
+                } hover:text-[#BBBDC2] transition duration-200`}
                 onClick={() => handleScrollToSection(overviewRef)}
               >
                 {translations.Overview}
@@ -115,9 +115,9 @@ const ProductDetails = () => {
                 <li
                 className={`${
                   activeSection === "Lighting Effects"
-                    ? "text-red-500 font-bold"
+                    ? " font-bold"
                     : "text-gray-600"
-                } hover:text-red-500 transition duration-200`}
+                } hover:text-[#BBBDC2] transition duration-200`}
                 onClick={() => handleScrollToSection(lightingRef)}
                 >
                 {translations['Lighting Effects']}
@@ -128,9 +128,9 @@ const ProductDetails = () => {
                 <li
                 className={`${
                   activeSection === "Application Imagery"
-                    ? "text-red-500 font-bold"
+                    ? " font-bold"
                     : "text-gray-600"
-                } hover:text-red-500 transition duration-200`}
+                } hover:text-[#BBBDC2] transition duration-200`}
                 onClick={() => handleScrollToSection(imageryRef)}
                 >
                 {translations.ApplicationImagery}
@@ -139,9 +139,9 @@ const ProductDetails = () => {
               <li
                 className={`${
                   activeSection === "Product Details"
-                    ? "text-red-500 font-bold"
+                    ? "font-bold"
                     : "text-gray-600"
-                } hover:text-red-500 transition duration-200`}
+                } hover:text-[#BBBDC2] transition duration-200`}
                 onClick={() => handleScrollToSection(detailsRef)}
               >
                 {translations.ProductDetails}
@@ -150,9 +150,9 @@ const ProductDetails = () => {
                 <li
                 className={`${
                   activeSection === "Accessories Details"
-                    ? "text-red-500 font-bold "
+                    ? " font-bold "
                     : "text-gray-600"
-                } hover:text-red-500 transition duration-200`}
+                } hover:text-[#BBBDC2]  transition duration-200`}
                 onClick={() => handleScrollToSection(accessoriesRef)}
               >
                 {translations['Downloads']}
@@ -180,7 +180,7 @@ const ProductDetails = () => {
                 />
               </div>
               <div className="col-span-1 space-y-8 p-8 bg-white">
-                <p className="text-6xl font-bold text-red-600">{sub_category?.name}</p>
+                <p className="text-6xl font-bold ">{sub_category?.name}</p>
                 <p className="text-gray-700 text-xl">{translations['All In One']}</p>
                 {sub_category?.description&&(
                     <p
