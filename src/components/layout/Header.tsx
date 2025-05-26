@@ -58,7 +58,7 @@ const Header = () => {
                  >{page.title}</Link>
                  <div className="products-show">
                  <div className="min-w-40  products-menu  shadow-sm flex flex-col  absolute top-['30px'] left-0  ">
-                 <h3 className="text-[#181919] text-lg font-semibold mb-6">{translations.Take_tour}</h3>
+                 {/* <h3 className="text-[#181919] text-lg font-semibold mb-6">{translations.Take_tour}</h3> */}
                 
                   <div className="grid grid-cols-4 gap-y-2">
                           {main_categories.map((main_category)=>(
