@@ -219,26 +219,26 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const MouseFollower: React.FC = () => {
-  const [trail, setTrail] = useState<{ x: number; y: number }[]>([]);
+  // const [trail, setTrail] = useState<{ x: number; y: number }[]>([]);
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
-  const [isMouseMoving, setIsMouseMoving] = useState(false);
+  // const [isMouseMoving, setIsMouseMoving] = useState(false);
 
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
+    // let timeout: ReturnType<typeof setTimeout>;
 
     const handleMouseMove = (e: MouseEvent) => {
       setMouseX(e.clientX);
       setMouseY(e.clientY);
-      setTrail((prev) => {
-        const newTrail = [...prev, { x: e.clientX, y: e.clientY }];
-        return newTrail.slice(-20); // احتفظ بآخر 100 نقطة لتحسين الأداء
-      });
-      setIsMouseMoving(true);
+      // setTrail((prev) => {
+      //   const newTrail = [...prev, { x: e.clientX, y: e.clientY }];
+      //   return newTrail.slice(-20); // احتفظ بآخر 100 نقطة لتحسين الأداء
+      // });
+      // setIsMouseMoving(true);
 
-      clearTimeout(timeout);
-      timeout = setTimeout(() => setIsMouseMoving(false), 10); // إذا لم يتحرك الماوس بعد 100ms
+      // clearTimeout(timeout);
+      // timeout = setTimeout(() => setIsMouseMoving(false), 10); // إذا لم يتحرك الماوس بعد 100ms
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -246,18 +246,18 @@ const MouseFollower: React.FC = () => {
   }, []);
 
   // أضف نقاط بشكل دوري عند توقف الماوس
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isMouseMoving) {
-        setTrail((prev) => {
-          const newTrail = [...prev, { x: mouseX, y: mouseY }];
-          return newTrail.slice(-1);
-        });
-      }
-    }, 100); // أضف نقطة كل 100ms
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (!isMouseMoving) {
+  //       setTrail((prev) => {
+  //         const newTrail = [...prev, { x: mouseX, y: mouseY }];
+  //         return newTrail.slice(-1);
+  //       });
+  //     }
+  //   }, 100); // أضف نقطة كل 100ms
 
-    return () => clearInterval(interval);
-  }, [isMouseMoving, mouseX, mouseY]);
+  //   return () => clearInterval(interval);
+  // }, [isMouseMoving, mouseX, mouseY]);
 
   return (
     <div className="pointer-events-none fixed top-0 left-0 z-50">
@@ -267,7 +267,7 @@ const MouseFollower: React.FC = () => {
         
        
       />
-      {trail.map((point, index) => (
+      {/* {trail.map((point, index) => (
         <motion.div
           key={index}
           className="absolute w-[2px] h-[2px]  bg-gradient-to-br from-black to-white rounded-full opacity-50"
@@ -275,18 +275,18 @@ const MouseFollower: React.FC = () => {
             top: point.y ,
             left: point.x ,
           }}
-          animate={{
-            scale: [2, 5],
-            opacity: [1, 0],
-          }}
-          transition={{
-            duration: 0.5,
-            ease: 'easeOut',
-            repeat: Infinity,
-          }}
+          // animate={{
+          //   scale: [2, 5],
+          //   opacity: [1, 0],
+          // }}
+          // transition={{
+          //   duration: 0.5,
+          //   ease: 'easeOut',
+          //   repeat: Infinity,
+          // }}
        
         />
-      ))}
+      ))} */}
     </div>
   );
 };
