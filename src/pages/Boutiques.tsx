@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import FadeEffect from "../components/common/FadeEffect";
-import Modal from "../components/common/VideoModal";
+// import Modal from "../components/common/VideoModal";
 import Loader from "../components/common/Loader";
 import { ProjecysQuery } from "../app/services/queries";
 import { project } from "../app/utils/types/types";
 import root from 'react-shadow';
-import { MdSlowMotionVideo } from "react-icons/md";
+// import { MdSlowMotionVideo } from "react-icons/md";
+import { useLanguageSelector } from "../app/slices/languageSlice";
 
 function Boutiques() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedVideoSrc, setSelectedVideoSrc] = useState("");
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [selectedVideoSrc, setSelectedVideoSrc] = useState("");
   const [projects,setProjects]=useState<project[]>([]);
   const { isLoading,data, isError, error } = ProjecysQuery();
+  const { translations } = useLanguageSelector((state) => state.LanguageReducer);
    
    
    useEffect(()=>{
@@ -31,42 +33,26 @@ function Boutiques() {
         Error: {error?.message}
       </div>
     ); 
-  // const boutiques = [
-  //   {
-  //     imgSrc: "/images/Botique1.png",
-  //     title: "BOUTIQUES AND SHOWROOMS",
-  //     description:
-  //       "Lighting projects for boutiques and showrooms using high-quality and modern lighting solutions by Centersvet.",
-  //     videoSrc: "Videos/WebHD_720p.mp4",
-  //   },
-  //   {
-  //     imgSrc: "images/Botique3.png",
-  //     title: "BOUTIQUES AND SHOWROOMS",
-  //     description:
-  //       "Lighting projects for boutiques and showrooms using high-quality and modern lighting solutions by Centersvet.",
-  //     videoSrc: "Videos/videoplayback.mp4",
-  //   },
-  //   {
-  //     imgSrc: "images/Botique3.png",
-  //     title: "BOUTIQUES AND SHOWROOMS",
-  //     description:
-  //       "Lighting projects for boutiques and showrooms using high-quality and modern lighting solutions by Centersvet.",
-  //     videoSrc: "",
-  //   },
-  // ];
 
-  const handleImageClick = (imgSrc: string) => {
-    setSelectedVideoSrc(imgSrc);
-    setIsModalOpen(true);
-  };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedVideoSrc("");
-  };
+  // const handleImageClick = (imgSrc: string) => {
+  //   setSelectedVideoSrc(imgSrc);
+  //   setIsModalOpen(true);
+  // };
+
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  //   setSelectedVideoSrc("");
+  // };
 
   return (
-    <div className="w-10/12 lg:w-10/12 mx-auto mt-10 mb-10 flex flex-col gap-10">
+    <div>
+ <div className="bg-black pt-10 pb-4">
+            <div className="w-11/12 mx-auto mt-10 flex flex-col gap-3 text-white">
+               <p className="text-xl font-bold">{translations.Projects}</p>
+            </div>
+        </div>
+    <div className="w-10/12 lg:w-10/12 mx-auto mt-1 mb-10 flex flex-col gap-10">
       {projects?.map((project, index) => (
         <div
           key={index}
@@ -81,7 +67,9 @@ function Boutiques() {
             duration={0.7}
             
           >
-           <div className="relative cursor-pointer"   onClick={() => handleImageClick(project.video)}>
+           <div className="relative cursor-pointer"   
+          //  onClick={() => handleImageClick(project.video)}
+           >
              <img
                src={project.image}
                alt={`Boutique ${index + 1}`}
@@ -89,7 +77,7 @@ function Boutiques() {
                className=" h-40 md:h-56 lg:h-72 2xl:h-80 w-full object-cover"
              />
           
-             <MdSlowMotionVideo className="text-gray-300 text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
+             {/* <MdSlowMotionVideo className="text-gray-300 text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/> */}
              
            </div>
           </FadeEffect>
@@ -117,12 +105,14 @@ function Boutiques() {
         </div>
       ))}
 
-      <Modal
+      {/* <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         videoSrc={selectedVideoSrc}
-      />
+      /> */}
     </div>
+    </div>
+    
   );
 }
 
