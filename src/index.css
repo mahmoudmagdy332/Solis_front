@@ -31,6 +31,10 @@
   font-family: madaniArabic;
   src: url('/public/fonts/eurostile-lt-pro-unicode/alfont_com_Madani-Arabic-Regular-1.ttf');
 }
+@font-face{
+  font-family: helvetica;
+  src: url('/public/fonts/helvetica-neue/HelveticaNeueMedium.otf');
+}
 body {
   overflow-x: hidden !important;  
   /* font-family: myFont; */
@@ -38,7 +42,7 @@ body {
   cursor: none;
 }
 .eurostileLTProUnicode{
-  font-family: myFont;
+  font-family: helvetica,myFont;
 }
 .madaniArabic{
   font-family: madaniArabic;

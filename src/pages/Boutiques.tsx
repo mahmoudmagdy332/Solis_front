@@ -56,9 +56,12 @@ function Boutiques() {
       {projects?.map((project, index) => (
         <div
           key={index}
-          className={`flex items-center flex-col gap-8 ${
-            index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse justify-between"
-          } pt-24 lg:flex-row w-full `}
+          className={`flex items-center flex-col gap-8 pt-24 lg:flex-row w-full
+             ${
+              'flex'
+              // index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse justify-between"
+             }  
+             `}
         >
           <div className="w-full lg:w-2/5">
           <FadeEffect

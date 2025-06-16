@@ -4,7 +4,7 @@ import root from 'react-shadow';
 
 
 function Institutional() {
-  const { selected_market } = useMarketSliceSelector((state) => state.MarketReducer);
+  const { selected_market,allMarket } = useMarketSliceSelector((state) => state.MarketReducer);
     const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
   return (
@@ -43,6 +43,30 @@ function Institutional() {
                src={product.image}
                alt="Image 1"
                className=" h-40 object-contain"
+             />
+             ))}
+             
+            
+            
+           </div>
+         </div>
+       )}
+
+       {allMarket&&allMarket.length>0&&(
+           <div className="flex flex-col gap-6">
+           <div className="flex items-center justify-center my-4">
+             <div className="border-t border-gray-300 w-full"></div>
+             <span className="mx-4 text-lg font-bold text-nowrap">
+               {translations.MoreMarkets}
+             </span>
+             <div className="border-t border-gray-300 w-full"></div>
+           </div>
+           <div className="grid grid-cols-2 lg:grid-cols-3 justify-between items-center gap-8">
+             {allMarket.slice(0,3).map((product)=>(
+               <img
+               src={product.image}
+               alt="Image 1"
+               className=" h-40 w-full object-cover"
              />
              ))}
              
