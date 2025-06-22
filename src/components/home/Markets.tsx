@@ -14,12 +14,6 @@ const Markets = () => {
   const { footer_markets } = useSettingSliceSelector((state) => state.settingReducer);
   const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
-    // const serveses=[  {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971.png'},
-    //                 {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (3).png'},
-    //                 {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (2).png'},
-    //                 {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971 (1).png'},
-    //                 {title:'Data Center',description:"We supply future-proof solutions that enhance connectivity, reliability, and uptime for reduced total cost of ownership.",image:'/images/temp/Frame 1618872971.png'},
-    // ]
   return (
     <FadeEffect transition={0.1} direction="down" duration={ 0.1}>
 
