@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import FadeEffect from "../components/common/FadeEffect";
 // import Modal from "../components/common/VideoModal";
 import Loader from "../components/common/Loader";
-import { ProjectsQuery } from "../app/services/queries";
 import { project } from "../app/utils/types/types";
 import root from "react-shadow";
 // import { MdSlowMotionVideo } from "react-icons/md";
@@ -38,9 +37,7 @@ export default function Boutiques() {
   //   if (data) setProjects(data.data.data);
   // }, [data]);
 
-  useEffect(() => {
-    if (marketData) console.log("marketData: ", marketData.data.data.map((item) => item.name));
-  }, [marketData]);
+
 
   if (loading || marketLoading || marketData === undefined) {
     return (
