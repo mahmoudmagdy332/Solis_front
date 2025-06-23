@@ -45,7 +45,7 @@ if (isError)
 
             <div className="flex flex-col gap-4 relative">
               <div className="absolute top-2 -start-20">
-                <img src="/public/icons/Horizontal Divider.svg"/>
+                <img src="/icons/Horizontal Divider.svg"/>
               </div>
                 <p className="font-semibold text-sm text-center md:text-start">{translations.RecentArticles}</p>
                 <Link to="/" className="font-bold text-2xl text-center md:text-start">{translations.ReadAllNews}</Link>
