@@ -8,13 +8,33 @@ const Footer = () => {
     footer_careers,footer_projects,footer_blogs } = useSettingSliceSelector((state) => state.settingReducer);
    console.log('footer_projects',footer_projects);
   const {translations } = useLanguageSelector((state) => state.LanguageReducer);
-   
+
+    const sosials=[
+        {image:'/icons/facebook.svg',link:setting?.facebook},
+        {image:'/icons/instgram.svg',link:setting?.instagram},
+        {image:'/icons/linkdin.svg',link:setting?.twitter},
+        {image:'/icons/twiter.svg',link:setting?.linkedin}
+    ]
   return (
     <div className="bg-black py-8">
         <div className="w-11/12 mx-auto flex flex-col">
-           <div className="py-4 border-b border-gray-200">
+        <div className="flex justify-between py-4 border-b border-gray-200">
+           <div>
                 <img src={setting?.footer_logo} alt="logo" className="h-12 "/>
            </div>
+
+            <div className=" text-white flex  flex-col gap-4 justify-center items-center">
+              <div className="flex gap-3"> 
+                 {sosials.map((sosial)=>(
+                    <a href={sosial.link} className="w-10 h-10 hover:bg-gray-900  transition-all ease-in-out rounded-full bg-[#6A6A6A] flex p-3 justify-center items-center">
+                        <img  loading="lazy"  src={sosial.image} className="max-h-5"/>
+                    </a>
+                 ))}    
+              </div>
+         </div>
+        </div>
+        
+             
            <div className="py-4 border-b border-gray-200 gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
              <div className="flex flex-col gap-2    ">
                  <p  className="font-bold text-white">{translations.Products}</p>
@@ -56,6 +76,7 @@ const Footer = () => {
             {translations.Copyright}
            </div>
         </div> 
+        
     </div>
   )
 }
