@@ -10,13 +10,17 @@ const Footer = () => {
     footer_markets,
     footer_careers,
     footer_projects,
-    footer_blogs,
+    // footer_blogs,
   } = useSettingSliceSelector((state) => state.settingReducer);
   console.log("footer_projects", footer_projects);
   const { translations } = useLanguageSelector(
     (state) => state.LanguageReducer
   );
-
+ const sosials=[{image:'/icons/facebook.svg',link:setting?.facebook},
+        {image:'/icons/instgram.svg',link:setting?.instagram},
+        {image:'/icons/linkdin.svg',link:setting?.twitter},
+        {image:'/icons/twiter.svg',link:setting?.linkedin}
+    ]
   return (
     <div className="bg-black py-8">
       <div className="w-11/12 mx-auto flex flex-col">
@@ -60,7 +64,7 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-2    ">
+          {/* <div className="flex flex-col gap-2    ">
             <p className="font-bold text-white">{translations.Blogs}</p>
             {footer_blogs.map((footer_blog) => (
               <Link
@@ -71,7 +75,7 @@ const Footer = () => {
                 {footer_blog.title}
               </Link>
             ))}
-          </div>
+          </div> */}
           <div className="flex flex-col gap-2    ">
             <p className="font-bold text-white">{translations.Contact}</p>
             {footer_pages.map((page) => (
@@ -85,6 +89,17 @@ const Footer = () => {
                 {page.title}
               </Link>
             ))}
+          </div>
+
+          <div className="flex flex-col gap-10 items-center"> 
+            <p className="md:text-lg text-white text-center">{translations.Connect_with}</p>
+              <div className="grid grid-cols-2 gap-10 "> 
+                 {sosials.map((sosial)=>(
+                    <a href={sosial.link} className="w-10 h-10 hover:bg-gray-700 transition-all ease-in-out rounded-full bg-[#6A6A6A] flex p-3 justify-center items-center">
+                        <img  loading="lazy"  src={sosial.image} className="max-h-5"/>
+                    </a>
+                 ))}    
+              </div>
           </div>
         </div>
         <div className="flex justify-center mt-6 text-sm text-gray-300">

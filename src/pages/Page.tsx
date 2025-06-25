@@ -37,7 +37,7 @@ if (isLoading)
                  description={data?.data.data.meta_description}
                  keywords={data?.data.data.meta_keywords}
              />
-         <Hero title={data?.data.data.title}/>
+         <Hero title={data?.data.data.title} image={data?.data.data.image}/>
          <div className="w-10/12 lg:w-3/4 mx-auto my-20 ">
             
          <div className="flex flex-col gap-5 ">
