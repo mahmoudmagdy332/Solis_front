@@ -21,8 +21,7 @@ function Markets() {
         dispatch(setSelected(select[0]));
       }
      }
-   },[id,allMarket])
-   
+   }, [id, allMarket, dispatch]);
 
    if (isLoading) {
     return (

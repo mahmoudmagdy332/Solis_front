@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @utility underline-on-hover {
+  @apply transition-all relative after:absolute after:w-0 hover:after:w-full after:h-1 after:bg-lime-700 after:bottom-0 after:left-0 after:transition-all;
+} */
+
 @layer base {
   body {
     color: revert;
@@ -25,11 +29,15 @@
 }
 @font-face{
   font-family: myFont;
-  src: url('/public/fonts/eurostile-lt-pro-unicode/EurostileLTProUnicode.otf');
+  src: url('/fonts/eurostile-lt-pro-unicode/EurostileLTProUnicode.otf');
 }
 @font-face{
   font-family: madaniArabic;
-  src: url('/public/fonts/eurostile-lt-pro-unicode/alfont_com_Madani-Arabic-Regular-1.ttf');
+  src: url('/fonts/eurostile-lt-pro-unicode/alfont_com_Madani-Arabic-Regular-1.ttf');
+}
+@font-face{
+  font-family: helvetica;
+  src: url('/fonts/helvetica-neue/HelveticaNeueMedium.otf');
 }
 body {
   overflow-x: hidden !important;  
@@ -38,7 +46,7 @@ body {
   cursor: none;
 }
 .eurostileLTProUnicode{
-  font-family: myFont;
+  font-family: helvetica,myFont;
 }
 .madaniArabic{
   font-family: madaniArabic;

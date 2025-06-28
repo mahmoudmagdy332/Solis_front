@@ -145,7 +145,7 @@ export function ProductQuery(id:string|undefined) {
   });
 }
 
-export function ProjecysQuery() {
+export function ProjectsQuery() {
   return useQuery({
     queryKey: ["projects"],
     queryFn: async () => await getProjectsAPI(),

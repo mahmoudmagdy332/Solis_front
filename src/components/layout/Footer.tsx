@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import { useLanguageSelector } from "../../app/slices/languageSlice";
 
@@ -77,8 +77,10 @@ const Footer = () => {
            </div>
         </div> 
         
-    </div>
-  )
-}
+   </div>
+  );
 
-export default Footer
+
+};
+
+export default Footer;

@@ -199,9 +199,11 @@ export type productType = {
 };
 
 export type project = {
+  id:number,
   image: string,
   video: string,
-  title: string,
+  title?: string,
+  name?: string,
   description: string,
 
 };

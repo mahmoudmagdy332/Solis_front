@@ -30,13 +30,13 @@ const routes = createHashRouter([
     children: [
       {
         index: true,
-        element:<Navigate to="/home" />,
-      }, 
+        element: <Navigate to="/home" />,
+      },
       {
         path: "/home",
         element: <Home />,
       },
- 
+
       {
         path: "/market",
         element: <Markets />,
@@ -66,7 +66,7 @@ const routes = createHashRouter([
           </Suspense>
         ),
       },
-      { path: "/main-category/:id/:name", element: <Products/> },
+      { path: "/main-category/:id/:name", element: <Products /> },
       { path: "/category/:id/:name", element: <Category /> },
       { path: "/sub-category/:id/:name", element: <SubCategory /> },
       { path: "/product/:id", element: <Product /> },

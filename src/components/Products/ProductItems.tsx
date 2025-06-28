@@ -9,58 +9,7 @@ function ProductItems() {
   const [show,setShow]=useState(true);
     const { translations } = useLanguageSelector((state) => state.LanguageReducer);
   
-  // const categories=[
-  //   {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]}
-  //   ]},
-  //   {name:'DownLights',num:6,image:'images/temp/Crystal-bianco.jpg',sub:[
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},{name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]},
-  //     {name:'Crystal',image:'images/temp/Crystal-bianco.jpg',list:[
-  //       '300k/3020h/',
-  //       'General Lighting','UGR<19','Oval','Wall Washer'
-  //     ]}
-  //   ]}
-  // ]
+
   const changeShow=()=>{
      setShow((old)=>!old);
      

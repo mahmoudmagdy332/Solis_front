@@ -16,14 +16,7 @@ export const Products = () => {
   const { main_categories } = useSettingSliceSelector((state) => state.settingReducer);
   const { translations } = useLanguageSelector((state) => state.LanguageReducer);
 
-    // const images=['/images/temp/Rynk.png',
-    //     '/images/temp/Frame 1618872995.png ',
-    //     '/images/temp/Frame 1618872999.png',
-    //     '/images/temp/Frame 1618872991.png',
-    //     '/images/temp/Frame 1618872995.png ',
-    //     '/images/temp/Frame 1618872999.png',
-    //     '/images/temp/Frame 1618872991.png',
-    // ]
+
   return (
     <div className="mt  -4 relative">
         <div className="absolute top-0 left-0 w-full h-full -z-10">
