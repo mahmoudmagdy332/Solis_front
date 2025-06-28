@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLanguageSelector } from "../../app/slices/languageSlice";
 import { useMarketSliceSelector } from "../../app/slices/MarketSlice";
 import root from 'react-shadow';
@@ -62,12 +63,14 @@ function Institutional() {
              <div className="border-t border-gray-300 w-full"></div>
            </div>
            <div className="grid grid-cols-2 lg:grid-cols-3 justify-between items-center gap-8">
-             {allMarket.slice(0,3).map((product)=>(
-               <img
-               src={product.image}
-               alt="Image 1"
-               className=" h-40 w-full object-cover"
-             />
+             {allMarket.slice(0,3).map((market)=>(
+               <Link to={`/market/${market.id}/${market.name}`} key={market.id} >
+                <img
+                src={market.image}
+                alt="Image 1"
+                className=" h-40 w-full object-cover"
+              />
+               </Link>
              ))}
              
             
