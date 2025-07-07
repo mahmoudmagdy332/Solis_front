@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @utility underline-on-hover {
-  @apply transition-all relative after:absolute after:w-0 hover:after:w-full after:h-1 after:bg-lime-700 after:bottom-0 after:left-0 after:transition-all;
-} */
-
 @layer base {
   body {
     color: revert;

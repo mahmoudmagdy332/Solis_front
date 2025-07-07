@@ -12,9 +12,10 @@ const useHome = () => {
 
   useEffect(() => {
     if (isSuccess) dispatch(setHome(data.data.data));
+    // eslint-disable-next-line
   }, [data, isSuccess]);
 
-  return { data, isSuccess, isLoading, isError, error };
+  return { data: data?.data.data, isSuccess, isLoading, isError, error };
 };
 
 export default useHome;

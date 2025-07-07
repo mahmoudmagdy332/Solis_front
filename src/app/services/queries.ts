@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useQuery } from "@tanstack/react-query";
-import { getAboutAPI, getBlogAPI, getBlogsAPI, getBrandsAPI, getCareersAPI, getCategoriesQueryAPI, getHomeAPI, getMarketsAPI, getPageAPI, getProductAPI, getProductsQueryAPI, getProjectsAPI, getSettingAPI, getSubCategoriesQueryAPI } from "../utils/api";
+import { getAboutAPI, getBlogAPI, getBlogsAPI, getBrandsAPI, getCareersAPI, getCategoriesQueryAPI, getHomeAPI, getMarketsAPI, getMostSellingAPI, getPageAPI, getProductAPI, getProductsQueryAPI, getProjectsAPI, getSettingAPI, getSubCategoriesQueryAPI } from "../utils/api";
 // import {
 //   allBooksAPI,
 //   coursesAPI,
@@ -170,7 +170,17 @@ export function ProductsQuery(id:string|undefined) {
   });
 }
 
-
+export function mostSellingQuery() {
+  return useQuery({
+    queryKey: ["most-selling"],
+    queryFn: async () => {
+      const res = await getMostSellingAPI();
+      return res.data.data;
+    },
+    refetchOnMount: false,
+    retry: 0,
+  });
+};
 
 export function homeQuery() {
   return useQuery({

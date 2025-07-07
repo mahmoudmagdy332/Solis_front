@@ -23,6 +23,7 @@ import SingleJop from "../../pages/SingleJop";
 import Page from "../../pages/Page";
 import Brands from "../../pages/Brands";
 import { JopApplication } from "../../pages/JopApplication";
+// import MostSelling from "../../pages/mostSelling";
 const routes = createHashRouter([
   {
     path: "/",
@@ -36,6 +37,11 @@ const routes = createHashRouter([
         path: "/home",
         element: <Home />,
       },
+
+      // {
+      //   path: "/most-selling",
+      //   element: <MostSelling />,
+      // },
 
       {
         path: "/market",

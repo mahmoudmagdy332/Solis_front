@@ -39,13 +39,8 @@ const settingSlice = createSlice({
   },
 });
 
-export const {
-  createSetting,changeLoading,
-} = settingSlice.actions;
-
-
+export const { createSetting, changeLoading } = settingSlice.actions;
 
 export default settingSlice.reducer;
 
 export const useSettingSliceSelector = useSelector.withTypes<RootState>()
-

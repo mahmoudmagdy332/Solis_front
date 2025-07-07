@@ -26,6 +26,7 @@ export const getProjectsAPI = () => api.get(`projects`);
 export const getMarketsAPI = () => api.get(`markets`);
 export const getBrandsAPI = () => api.get(`/brands`);
 
+export const getMostSellingAPI = () => api.get(`most/selling/product`);
 export const getHomeAPI = () => api.get("home");
 export const getPageAPI = (id:string|undefined) => api.get(`page/${id}`);
 export const getBlogsAPI = (currentPage: number) =>
