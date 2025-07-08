@@ -71,7 +71,7 @@ export default function Boutiques() {
           <p className="text-xl font-bold">{translations.Projects}</p>
         </div>
       </div>
-      <div className="container py-6 my-4 px-2">
+      <div className="container py-6 mb-4 mt-12 px-2">
         <Tabs projects={marketData.data} setter={setSelectedMarketId} current={selectedMarketId as number} />
       </div>
       <div className="//w-10/12 //lg:w-10/12 container mt-1 mb-10 flex flex-col gap-10">
