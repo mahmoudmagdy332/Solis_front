@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /dashboard.solis.lighting/ 
+Sitemap: https://www.solis.lighting/sitemap.xml

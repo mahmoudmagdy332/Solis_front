@@ -3,7 +3,9 @@ import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import { useLanguageSelector } from "../../app/slices/languageSlice";
 
 const Footer = () => {
-  const {translations } = useLanguageSelector((state) => state.LanguageReducer);
+  const { translations } = useLanguageSelector(
+    (state) => state.LanguageReducer
+  );
 
   const {
     setting,
@@ -15,15 +17,14 @@ const Footer = () => {
     // footer_blogs,
   } = useSettingSliceSelector((state) => state.settingReducer);
   console.log("footer_projects", footer_projects);
- const sosials=[{image:'/icons/facebook.svg',link:setting?.facebook},
-          {image:'/icons/instgram.svg',link:setting?.instagram},
-          {image:'/icons/linkdin.svg',link:setting?.twitter},
-          {image:'/icons/twiter.svg',link:setting?.linkedin}
-      ]
+  const sosials = [
+    { image: "/icons/facebook.svg", link: setting?.facebook },
+    { image: "/icons/instgram.svg", link: setting?.instagram },
+    { image: "/icons/linkdin.svg", link: setting?.twitter },
+    { image: "/icons/twiter.svg", link: setting?.linkedin },
+  ];
   return (
     <div className="bg-black py-8">
-        
-
       <div className="w-11/12 mx-auto flex flex-col">
         <div className="py-4 border-b border-gray-200">
           <img src={setting?.footer_logo} alt="logo" className="h-12 " />
@@ -90,30 +91,39 @@ const Footer = () => {
                 {page.title}
               </Link>
             ))}
+            <Link
+                to={"https://solis.lighting/sitemap.xml"}
+                target={"_self"}
+                className="text-gray-300 text-md"
+              >
+                {translations.sitemap}
+              </Link>
           </div>
 
-          <div className="flex flex-col gap-10 items-center"> 
-            <p className="md:text-lg text-white text-center">{translations.Connect_with}</p>
-              <div className="grid grid-cols-2 gap-10 "> 
-                 {sosials.map((sosial)=>(
-                    <a href={sosial.link} className="w-10 h-10 hover:bg-gray-700 transition-all ease-in-out rounded-full bg-[#6A6A6A] flex p-3 justify-center items-center">
-                        <img  loading="lazy"  src={sosial.image} className="max-h-5"/>
-                    </a>
-                 ))}    
-              </div>
-         </div>
+          <div className="flex flex-col gap-10 items-center">
+            <p className="md:text-lg text-white text-center">
+              {translations.Connect_with}
+            </p>
+            <div className="grid grid-cols-2 gap-10 ">
+              {sosials.map((sosial, i) => (
+                <a
+                  key={i}
+                  href={sosial.link}
+                  target="_blank"
+                  className="w-10 h-10 hover:bg-gray-700 transition-all ease-in-out rounded-full bg-[#6A6A6A] flex p-3 justify-center items-center"
+                >
+                  <img loading="lazy" src={sosial.image} className="max-h-5" />
+                </a>
+              ))}
+            </div>
           </div>
-      </div>
-        <div className="flex justify-center mt-6 text-sm text-gray-300">
-          {translations.Copyright}
         </div>
-        
-      
-        
-   </div>
+      </div>
+      <div className="flex justify-center mt-6 text-sm text-gray-300">
+        {translations.Copyright}
+      </div>
+    </div>
   );
-
-
 };
 
 export default Footer;
