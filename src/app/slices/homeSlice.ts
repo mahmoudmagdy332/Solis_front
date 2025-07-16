@@ -5,10 +5,10 @@ import { RootState } from "../store";
 import { homeType } from "../utils/types/types";
 
 const initialState: homeType = {
-    news: [],
-    markets: [],
-    products:null,
-    brands:[],
+  news: [],
+  markets: [],
+  products: null,
+  brands: [],
 };
 
 const homeSlice = createSlice({
@@ -16,11 +16,10 @@ const homeSlice = createSlice({
   initialState,
   reducers: {
     setHome: (state, action) => {
-      console.log("action.payload", action.payload);
-      state.news = action.payload["news"]
-      state.markets= action.payload["markets"]
-      state.products= action.payload["products"]
-      state.brands=action.payload["brands"]
+      state.news = action.payload["news"];
+      state.markets = action.payload["markets"];
+      state.products = action.payload["products"];
+      state.brands = action.payload["brands"];
     },
   },
 });

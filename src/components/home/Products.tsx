@@ -10,6 +10,7 @@ import FadeEffect from "../common/FadeEffect";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import { useLanguageSelector } from "../../app/slices/languageSlice";
 import { productType } from "../../app/utils/types/types";
+import { Fragment } from "react/jsx-runtime";
 // import ProductCard from "../Products/ProductCard";
 export const Products = ({ mostSelling }: { mostSelling: productType[] }) => {
   // const { products } = useHomeSliceSelector((state) => state.homeReducer);
@@ -64,7 +65,7 @@ export const Products = ({ mostSelling }: { mostSelling: productType[] }) => {
             {mostSelling?.map(
               (product, i) =>
                 i < 4 && (
-                  <>
+                  <Fragment key={i}>
                   {/* <SwiperSlide key={i}> */}
                     <Link
                       key={i}
@@ -82,7 +83,7 @@ export const Products = ({ mostSelling }: { mostSelling: productType[] }) => {
                     {/* <ProductCard/> */}
                     {/* <ProductCard product={product}/> */}
                   {/* </SwiperSlide> */}
-                  </>
+                  </Fragment>
                 )
             )}
           </div>

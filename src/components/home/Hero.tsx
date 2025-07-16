@@ -1,73 +1,56 @@
 import { Link } from "react-router-dom";
-import FadeEffect from "../common/FadeEffect";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
 import { useLanguageSelector } from "../../app/slices/languageSlice";
-// import { useEffect, useState } from "react";
-const Hero = ({ content }: { content: string }) => {
-  const sliders = ["images/home.jpg"];
-  const { main_categories } = useSettingSliceSelector(
-    (state) => state.settingReducer
-  );
-  const { translations } = useLanguageSelector(
-    (state) => state.LanguageReducer
-  );
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
-  // const [showImage, setShowImage] = useState(0);
-  // const toggleImages = () => {
-
-  //   setShowImage((prevIndex) =>
-  //   prevIndex === sliders.length - 1 ? 0 : prevIndex + 1
-  // );
-
-  // };
-  // useEffect(() => {
-  //   const interval = setInterval(toggleImages, 5000);
-
-  //   return () => {
-  //     clearInterval(interval)
-  //   };
-  // }, []);
-  return (
-    <div className="relative ">
-      <div className="  absolute w-screen  h-full top-0 left-0 -z-10">
-        {sliders.map((slider) => (
-          <img
-            key={slider}
-            src={slider}
-            alt="image"
-            className={`fade-img image-slider w-full h-full object-cover`}
-            // ${showImage
-            // !==idx ? 'fade-img-hidden' : 'fade-img-visible'}`}
-          />
-        ))}
-
-        <div className="absolute w-full h-full top-0 left-0 bg-black opacity-50"></div>
-      </div>
-
-      <FadeEffect transition={0.1} direction="down" duration={0.7}>
-        <div className=" w-full   flex  items-center justify-center">
-          <div className="flex w-11/12 mx-auto flex-col items-center lg:items-start gap-6 pt-40 pb-20 md:pt-32 md:pb-28 lg:pt-60  lg:pb-40">
-            <p
-              dangerouslySetInnerHTML={{ __html: content }}
-              className=" text-center lg:text-start "
-            />
-            {/* <p className="text-white text-xl ">All-in-one solution</p> */}
-            <FadeEffect transition={0.4} direction="right" duration={0.7}>
-              {main_categories[0] && (
-                <Link
-                  to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`}
-                  className="flex gap-3 px-6 py-2  justify-center items-center bg-white hover:bg-black hover:text-white transition-all ease-in-out  rounded-full mt-3"
-                >
-                  {translations.Explore}
-                  <img src="/icons/Vector-black.svg" className="w-3 " />
-                </Link>
-              )}
-            </FadeEffect>
-          </div>
-        </div>
-      </FadeEffect>
-    </div>
-  );
+type Intro = {
+  id: number;
+  image: string;
+  title: string;
+  created_at: string;
+  updated_at: string;
+  translations: IntroTranslation[];
 };
 
-export default Hero;
+type IntroTranslation = {
+  id: number;
+  intro_id: number;
+  locale: string;
+  title: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export default function Hero({ intro }: { intro: Intro[] }) {
+  const { lang, translations } = useLanguageSelector((state) => state.LanguageReducer);
+  const { main_categories } = useSettingSliceSelector((state) => state.settingReducer);
+
+  return (
+    <div className="">
+      <Swiper loop autoplay={{ delay: 3000, pauseOnMouseEnter: true, disableOnInteraction: false }} modules={[Autoplay]}>
+        {intro.map((item) => {
+          const t = item.translations.find((t) => t.locale === lang);
+          return (
+            <SwiperSlide key={item.id} className="max-h-[80vh] relative">
+              <img src={item.image} alt={t?.title} className="w-full h-full object-cover" />
+              <div className="z-10 absolute top-0 left-0 size-full bg-black/50" />
+              <div className="mx-12 w-1/2 absolute top-1/2 left-0 -translate-y-1/2 z-50">
+                <p dangerouslySetInnerHTML={{ __html: t?.title || "" }} className="text-white text-3xl text-wrap break-words" />
+                {main_categories[0] && (
+                  <Link
+                    to={`/main-category/${main_categories[0].id}/${main_categories[0].name}`}
+                    className="flex gap-3 px-6 py-2 w-fit justify-center items-center bg-white hover:bg-black hover:text-white transition-all ease-in-out  rounded-full mt-3"
+                  >
+                    {translations.Explore}
+                    <img src="/icons/Vector-black.svg" className="w-3 " />
+                  </Link>
+                )}
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </div>
+  )
+};

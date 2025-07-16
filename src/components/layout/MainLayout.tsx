@@ -1,6 +1,6 @@
-import { Outlet, useLocation } from "react-router-dom"
-import Header from "./Header"
-import Footer from "./Footer"
+import { Outlet, useLocation } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import useSetting from "../../app/utils/hooks/useSetting";
 import { useSettingSliceSelector } from "../../app/slices/settingSlice";
@@ -13,15 +13,15 @@ const MainLayout = () => {
   const { error } = useSetting();
   const { lang } = useLanguageSelector((state) => state.LanguageReducer);
 
-  const { loading,setting } = useSettingSliceSelector((state) => state.settingReducer);
+  const { loading, setting } = useSettingSliceSelector(
+    (state) => state.settingReducer
+  );
   const [showTooltip, setShowTooltip] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   useEffect(() => {
-    console.log(lang);
-    
     if (lang === "ar") document.documentElement.dir = "rtl";
     else document.documentElement.dir = "ltr";
   }, [lang]);
@@ -38,15 +38,19 @@ const MainLayout = () => {
       </div>
     );
   return (
-    <div className={`${lang=="ar"?'madaniArabic':'eurostileLTProUnicode'}`}>
-         <Header/>
-         <MouseFollower/>
-         
-         <div className="min-h-screen ">
-         <Outlet />
-         </div> 
-         <div 
-        className={`fixed bottom-4 right-8 z-50 ${showTooltip ? 'tooltip tooltip-open tooltip-left' : ''}`}
+    <div
+      className={`${lang == "ar" ? "madaniArabic" : "eurostileLTProUnicode"}`}
+    >
+      <Header />
+      <MouseFollower />
+
+      <div className="min-h-screen ">
+        <Outlet />
+      </div>
+      <div
+        className={`fixed bottom-4 right-8 z-50 ${
+          showTooltip ? "tooltip tooltip-open tooltip-left" : ""
+        }`}
         data-tip="whatsapp us"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
@@ -58,14 +62,13 @@ const MainLayout = () => {
           className="block text-white rounded-full  hover:text-green-700 transition duration-300"
         >
           <div className="bg-green-500  rounded-lg p-1 hover:shadow-md shadow-black">
-
-          <IoLogoWhatsapp size={40} className="" />
+            <IoLogoWhatsapp size={40} className="" />
           </div>
         </a>
       </div>
-         <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

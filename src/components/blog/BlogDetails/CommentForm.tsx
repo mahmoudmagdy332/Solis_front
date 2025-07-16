@@ -7,8 +7,7 @@ const CommentForm = () => {
   const { handleSubmit, formState, control, reset } =
     useForm<IFormAddCommentInput>();
   const { errors } = formState;
-  const onSubmit: SubmitHandler<IFormAddCommentInput> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IFormAddCommentInput> = () => {
     reset({
       name: "",
       email: "",

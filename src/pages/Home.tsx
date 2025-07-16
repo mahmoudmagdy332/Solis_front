@@ -12,7 +12,6 @@ import Subscribe from "../components/home/Subscribe";
 const Home = () => {
   const { isLoading, isError, error, data } = useHome();
   const { isLoading: homeLoading, data: homeData } = pageQuery("home");
-  console.log("most_Selling_products", data?.most_Selling_products);
 
   if (isLoading || homeLoading) {
     return (
@@ -20,16 +19,15 @@ const Home = () => {
         <Loader />
       </div>
     );
-  };
+  }
 
-  if (isError)
-    return (
-      <div className="h-96 flex justify-center items-center">
-        Error: {error?.message}
-      </div>
-    );
+  if (isError) return (
+    <div className="h-96 flex justify-center items-center">
+      Error {error?.name}: {error?.message}
+    </div>
+  );
 
-    return (
+  return (
     <>
       {homeData && (
         <Seo
@@ -39,7 +37,7 @@ const Home = () => {
         />
       )}
 
-      <Hero content={homeData?.data.data?.content} />
+      <Hero intro={data.intro} />
       <Prands />
       <Products mostSelling={data?.most_Selling_products} />
       <Markets />

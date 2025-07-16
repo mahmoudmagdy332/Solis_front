@@ -13,10 +13,10 @@ const Footer = () => {
     main_categories,
     footer_markets,
     footer_careers,
-    footer_projects,
+    // footer_projects,
     // footer_blogs,
   } = useSettingSliceSelector((state) => state.settingReducer);
-  console.log("footer_projects", footer_projects);
+
   const sosials = [
     { image: "/icons/facebook.svg", link: setting?.facebook },
     { image: "/icons/instgram.svg", link: setting?.instagram },
@@ -92,12 +92,12 @@ const Footer = () => {
               </Link>
             ))}
             <Link
-                to={"https://solis.lighting/sitemap.xml"}
-                target={"_self"}
-                className="text-gray-300 text-md"
-              >
-                {translations.sitemap}
-              </Link>
+              to={"https://solis.lighting/sitemap.xml"}
+              target={"_self"}
+              className="text-gray-300 text-md"
+            >
+              {translations.sitemap}
+            </Link>
           </div>
 
           <div className="flex flex-col gap-10 items-center">
