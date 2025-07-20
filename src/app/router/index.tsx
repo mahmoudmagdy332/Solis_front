@@ -1,4 +1,4 @@
-import { createHashRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import MainLayout from "../../components/layout/MainLayout";
 import Home from "../../pages/Home";
@@ -24,7 +24,9 @@ import Page from "../../pages/Page";
 import Brands from "../../pages/Brands";
 import { JopApplication } from "../../pages/JopApplication";
 // import MostSelling from "../../pages/mostSelling";
-const routes = createHashRouter([
+
+// const routes = createHashRouter([
+const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,

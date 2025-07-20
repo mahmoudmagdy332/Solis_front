@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { baseUrl } from "../config";
 import { ApplyJop, IFormContuctInput, IFormnewsletterInput } from "./types/types";
 
@@ -9,9 +8,6 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 });
-
-
-
 
 export const getSettingAPI = () => api.get("setting");
 export const getCategoriesQueryAPI = (id:string|undefined) => api.get(`categories/${id}`);
@@ -29,8 +25,7 @@ export const getBrandsAPI = () => api.get(`/brands`);
 export const getMostSellingAPI = () => api.get(`most/selling/product`);
 export const getHomeAPI = () => api.get("home");
 export const getPageAPI = (id:string|undefined) => api.get(`page/${id}`);
-export const getBlogsAPI = (currentPage: number) =>
-  api.get(`/blogs?page=${currentPage}`);
+export const getBlogsAPI = (currentPage: number) => api.get(`/blogs?page=${currentPage}`);
 
 export const getCareersAPI = (currentPage: number) =>
   api.get(`/careers?page=${currentPage}`);
