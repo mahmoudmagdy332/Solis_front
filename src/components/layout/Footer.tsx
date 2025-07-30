@@ -29,8 +29,8 @@ const Footer = () => {
         <div className="py-4 border-b border-gray-200">
           <img src={setting?.footer_logo} alt="logo" className="h-12 " />
         </div>
-        <div className="py-4 border-b border-gray-200 gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
-          <div className="flex flex-col gap-2    ">
+        <div className="py-4 border-b border-gray-200 gap-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
+          <div className="flex flex-col gap-2 max-md:col-span-">
             <p className="font-bold text-white">{translations.Products}</p>
             {main_categories.map((main_category) => (
               <Link
@@ -60,7 +60,7 @@ const Footer = () => {
               <Link
                 to={`/jop/${footer_career.id}`}
                 key={footer_career.id}
-                className="text-gray-300 text-md"
+                className="text-gray-300 text-md truncate"
               >
                 {footer_career.title}
               </Link>
@@ -86,21 +86,14 @@ const Footer = () => {
                 to={page.slug}
                 target={page.link_type === "external" ? "_blank" : "_self"}
                 rel={page.link_follow}
-                className="text-gray-300 text-md"
+                className="text-gray-300 text-md !capitalize"
               >
                 {page.title}
               </Link>
             ))}
-            <Link
-              to={"https://solis.lighting/sitemap.xml"}
-              target={"_self"}
-              className="text-gray-300 text-md"
-            >
-              {translations.sitemap}
-            </Link>
           </div>
 
-          <div className="flex flex-col gap-10 items-center">
+          <div className="flex flex-col gap-10 items-center max-md:col-span-2">
             <p className="md:text-lg text-white text-center">
               {translations.Connect_with}
             </p>
@@ -119,8 +112,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-6 text-sm text-gray-300">
-        {translations.Copyright}
+      <div className="flex gap-6 justify-center flex-wrap mt-6 text-sm text-gray-300">
+        <p className="">{translations.Copyright}</p>
+        <Link to="/privacy-policy">{translations.privacyPolicy}</Link>
+        <Link to="https://solis.lighting/sitemap.xml">{translations.sitemap}</Link>
       </div>
     </div>
   );

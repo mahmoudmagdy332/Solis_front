@@ -226,11 +226,10 @@ body {
   position: fixed;
   width: 15px;
   height: 15px;
-  border: 2px solid grey;
+  border: 3px solid grey;
   border-radius: 50%;
   pointer-events: none;
   z-index: 999;
-  
 }
 
 /* حالة التفاعل (Hover) */

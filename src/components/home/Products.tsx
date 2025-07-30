@@ -70,15 +70,17 @@ export const Products = ({ mostSelling }: { mostSelling: productType[] }) => {
                     <Link
                       key={i}
                       to={`/products/${product.id}`}
-                      className="relative flex flex-col p-2 justify-center items-center overflow-hidden h-72 w-fit bg-white rounded-2xl max-w-full sm:max-w-[50%] md:max-w-[33.33%] lg:max-w-[25%] hover:scale-105 transition-all"
+                      className="relative flex flex-col p-2 justify-center items-center overflow-hidden h-72 w-fit bg-white rounded-2xl max-w-full sm:max-w-[50%] md:max-w-[33.33%] lg:max-w-[25%] hover:scale-110 transition-all ease-in-out"
                     >
-                      <h2 className="//absolute left-2 top-2 z-20 truncate max-w-full">
+                      <h2 className="z-20 truncate max-w-full">
                         {product.name}
                       </h2>
-                      <img
-                        src={product.image as string}
-                        className="cursor-pointer w-full h-full  object-cover hover:scale-110 transition-all ease-in-out"
-                      />
+                      <div className="w-[270px] h-[235px] overflow-clip">
+                        <img
+                          src={product.image as string}
+                          className="cursor-pointer min-w-full min-h-full  object-cover"
+                        />
+                      </div>
                     </Link>
                     {/* <ProductCard/> */}
                     {/* <ProductCard product={product}/> */}
