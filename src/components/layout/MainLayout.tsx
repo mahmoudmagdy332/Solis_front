@@ -12,39 +12,41 @@ import { useLanguageSelector } from "../../app/slices/languageSlice";
 const MainLayout = () => {
   const { error } = useSetting();
   const { lang } = useLanguageSelector((state) => state.LanguageReducer);
-
-  const { loading, setting } = useSettingSliceSelector(
-    (state) => state.settingReducer
-  );
+  const { loading, setting } = useSettingSliceSelector((state) => state.settingReducer);
   const [showTooltip, setShowTooltip] = useState(false);
   const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   useEffect(() => {
     if (lang === "ar") document.documentElement.dir = "rtl";
     else document.documentElement.dir = "ltr";
   }, [lang]);
+
   if (loading)
     return (
       <div className="flex h-screen justify-center items-center">
         <Loader />
       </div>
     );
-  if (error)
+
+    if (error)
     return (
       <div className="h-screen flex justify-center items-center">
         Error: {error.message}
       </div>
     );
-  return (
+
+    return (
     <div
       className={`${lang == "ar" ? "madaniArabic" : "eurostileLTProUnicode"}`}
     >
       <Header />
       <MouseFollower />
 
-      <div className="min-h-screen ">
+      <div className="min-h-screen mt-12">
         <Outlet />
       </div>
       <div

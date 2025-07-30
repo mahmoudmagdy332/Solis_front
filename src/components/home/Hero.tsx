@@ -33,7 +33,9 @@ export default function Hero({ intro }: { intro: Intro[] }) {
           const t = item.translations.find((t) => t.locale === lang);
           return (
             <SwiperSlide key={item.id} className="h-full relative max-h-[80vh] min-h-[470px]">
-              <img src={item.image} alt={t?.title} className="min-w-full min-h-full max-w-[unset] object-cover" />
+              <div className="flex justify-center min-w-full min-h-[470px]">
+                <img src={item.image} alt={t?.title} className="min-w-full min-h-full max-w-[unset] object-cover justify-self-center" />
+              </div>
               <div className="z-10 absolute top-0 left-0 size-full bg-black/50" />
               <div className="mx-4 lg:mx-12 w-full lg:w-1/2 absolute top-1/2 left-0 -translate-y-1/2 z-50">
                 <p dangerouslySetInnerHTML={{ __html: t?.title || "" }} className="text-white text-3xl text-wrap //break-words truncate line-clamp-2 max-w-[90%]" />

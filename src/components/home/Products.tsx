@@ -70,9 +70,9 @@ export const Products = ({ mostSelling }: { mostSelling: productType[] }) => {
                     <Link
                       key={i}
                       to={`/products/${product.id}`}
-                      className="relative flex justify-center items-center overflow-hidden h-72 w-fit bg-white rounded-2xl max-w-full sm:max-w-[50%] md:max-w-[33.33%] lg:max-w-[25%] hover:scale-105 transition-all"
+                      className="relative flex flex-col p-2 justify-center items-center overflow-hidden h-72 w-fit bg-white rounded-2xl max-w-full sm:max-w-[50%] md:max-w-[33.33%] lg:max-w-[25%] hover:scale-105 transition-all"
                     >
-                      <h2 className="absolute left-2 top-2 z-20">
+                      <h2 className="//absolute left-2 top-2 z-20 truncate max-w-full">
                         {product.name}
                       </h2>
                       <img
